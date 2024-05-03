@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs } @ inputs: 
+  outputs = { self, nixpkgs, home-manager } @ inputs: 
   let 
     inherit (self) outputs;
     mkHost = host:
