@@ -1,11 +1,12 @@
 {
+  # Import available options.
+  imports = [ ./options.nix ];
+
   # Define the hosts' users.
   hostUsers = ["rafael"];
 
   # Define the hosts' modules.
-  hostModules = [
-    "boot/systemd.nix"
-  ];
+  hostModules = ["boot/systemd.nix"];
 
   # Set time zone.
   time.timeZone = "Europe/Amsterdam";

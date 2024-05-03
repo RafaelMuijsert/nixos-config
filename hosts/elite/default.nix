@@ -1,9 +1,9 @@
 { ... }:
 let 
-  config = import ./config.nix;
+  vars = import ./config.nix;
 in {
   imports = 
     [./hardware-configuration.nix ./config.nix] ++
-    map(x: ../../users + ("/" + x)) config.hostUsers ++
-    map(x: ../../modules + ("/" + x)) config.hostModules;
+    map(x: ../../users + ("/" + x)) vars.hostUsers ++
+    map(x: ../../modules + ("/" + x)) vars.hostModules;
 }
