@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   options = {
     hostUsers = lib.mkOption {
       type = "list";

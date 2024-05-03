@@ -7,16 +7,18 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager } @ inputs: 
-  let 
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+  } @ inputs: let
     inherit (self) outputs;
     mkHost = host:
       nixpkgs.lib.nixosSystem {
         modules = [host ./modules/common];
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = {inherit inputs outputs;};
       };
-  in
-  {
+  in {
     nixosConfigurations = {
       elite = mkHost ./hosts/elite;
     };

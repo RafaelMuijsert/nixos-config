@@ -1,14 +1,14 @@
 {
   # Import available options.
-  imports = [ ./options.nix ];
+  imports = [./options.nix];
 
   # Define the hosts' users.
   hostUsers = ["rafael"];
 
   # Define the hosts' modules.
   hostModules = [
-    "boot/systemd.nix" 
-    "shells/fish.nix" 
+    "boot/systemd.nix"
+    "shells/fish.nix"
     "network/networkmanager.nix"
     "common/development.nix"
     "graphics/wm/i3.nix"
