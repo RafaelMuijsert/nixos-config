@@ -1,9 +1,9 @@
 {
   # Define the hosts' users.
-  users = ["rafael"];
+  hostUsers = ["rafael"];
 
   # Define the hosts' modules.
-  modules = [
+  hostModules = [
     "boot/systemd.nix"
   ];
 
