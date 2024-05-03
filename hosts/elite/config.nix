@@ -12,7 +12,7 @@
     "network/networkmanager.nix"
     "common/development.nix"
     "graphics/wm/i3.nix"
-    "graphics/login/greetd.nix"
+    "graphics/login/lightdm.nix"
   ];
 
   # Set time zone.
