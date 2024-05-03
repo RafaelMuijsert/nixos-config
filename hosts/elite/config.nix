@@ -3,7 +3,9 @@
   users = ["rafael"];
 
   # Define the hosts' modules.
-  modules = [];
+  modules = [
+    "boot/systemd.nix"
+  ];
 
   # Set time zone.
   time.timeZone = "Europe/Amsterdam";
