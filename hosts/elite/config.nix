@@ -6,7 +6,11 @@
   hostUsers = ["rafael"];
 
   # Define the hosts' modules.
-  hostModules = ["boot/systemd.nix" "shells/fish.nix"];
+  hostModules = [
+    "boot/systemd.nix" 
+    "shells/fish.nix" 
+    "network/networkmanager.nix"
+  ];
 
   # Set time zone.
   time.timeZone = "Europe/Amsterdam";
