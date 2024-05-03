@@ -1,7 +1,5 @@
 {
-  let
-    users = ["rafael"];
-    modules = [];
+  let config = import ./config.nix;
   in {
     imports = [
       ./hardware-configuration ./config.nix ++
