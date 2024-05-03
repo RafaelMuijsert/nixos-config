@@ -11,6 +11,7 @@
     "shells/fish.nix"
     "network/networkmanager.nix"
     "common/development.nix"
+    "common/graphics.nix"
     "graphics/wm/i3.nix"
     "graphics/login/lightdm.nix"
   ];
