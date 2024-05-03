@@ -7,11 +7,17 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs }: {
-
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
+  outputs = { self, nixpkgs }: 
+  let 
+    inherit (self) outputs;
+    mkHost = host:
+      nixpkgs.lib.nixosSystem {
+        modules = [host ./modules/common];
+        specialArgs = { inherit inputs outputs; };
+      };
+  {
+    nixosConfigurations = {
+      elite = mkHost ./hosts/elite;
+    }
   };
 }
