@@ -11,6 +11,8 @@
     "shells/fish.nix" 
     "network/networkmanager.nix"
     "common/development.nix"
+    "graphics/wm/i3.nix"
+    "graphics/login/greetd.nix"
   ];
 
   # Set time zone.
