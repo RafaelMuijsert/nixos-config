@@ -1,0 +1,3 @@
+[submodule "users/rafael"]
+	path = users/rafael
+	url = git@github.com:RafaelMuijsert/nix-home.git
