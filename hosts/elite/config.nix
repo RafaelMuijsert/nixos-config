@@ -10,6 +10,7 @@
     "boot/systemd.nix" 
     "shells/fish.nix" 
     "network/networkmanager.nix"
+    "common/development.nix"
   ];
 
   # Set time zone.
