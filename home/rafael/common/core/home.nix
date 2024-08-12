@@ -13,5 +13,6 @@
     ./fish.nix 
     ./zoxide.nix
     ./eza.nix
+    ./fastfetch.nix
   ];
 }
