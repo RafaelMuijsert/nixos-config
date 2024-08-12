@@ -15,5 +15,6 @@
     ./eza.nix
     ./fastfetch.nix
     ./git.nix
+    ./helix.nix
   ];
 }
