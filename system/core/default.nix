@@ -8,6 +8,8 @@
     bat
   ];
 
+  console.font = "${nixpkgs-stable.terminus_font}/share/consolefonts/ter-c16n.psf.gz";
+
   imports = [
     ./locale.nix
     ./nix.nix
