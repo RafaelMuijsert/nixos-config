@@ -11,5 +11,6 @@
   programs.home-manager.enable = true;
   imports = [
     ./fish.nix 
+    ./zoxide.nix
   ];
 }
