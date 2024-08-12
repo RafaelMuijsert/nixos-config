@@ -12,5 +12,6 @@
   imports = [
     ./fish.nix 
     ./zoxide.nix
+    ./eza.nix
   ];
 }
