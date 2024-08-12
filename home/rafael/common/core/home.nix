@@ -20,5 +20,6 @@
     ./fzf.nix
     ./bat.nix
     ./btop.nix
+    ./environment.nix
   ];
 }
