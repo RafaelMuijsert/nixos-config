@@ -1,5 +1,8 @@
-{ config, options, ...}:
 {
+  config,
+  options,
+  ...
+}: {
   assertions = [
     {
       assertion = config.networking.hostName != options.networking.hostName.default;

@@ -1,5 +1,8 @@
-{ nixpkgs-stable, nixpkgs-unstable, ... }:
 {
+  nixpkgs-stable,
+  nixpkgs-unstable,
+  ...
+}: {
   environment.systemPackages = with nixpkgs-stable; [
     helix
     wget
