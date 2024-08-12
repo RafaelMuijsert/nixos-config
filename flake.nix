@@ -11,11 +11,15 @@
 
   outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, ... } @ attrs:
   let 
-    lib = import ./lib;
+    utils = import ./lib/utils.nix;
   in {
-    nixosConfigurations.latitude = nixpkgs-unstable.lib.nixosSystem {
+    nixosConfigurations.latitude = nixpkgs-unstable.lib.nixosSystem rec {
       system = "x86_64-linux";
-      modules = lib.mkHost "latitude";
+      specialArgs = {
+        nixpkgs-stable = import nixpkgs-stable { inherit system; };
+        nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+      };
+      modules = utils.mkHost { hostname = "latitude"; users = [ "rafael" ]; };
     };
   };
 }

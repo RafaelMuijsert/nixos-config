@@ -1,3 +1,4 @@
+{ nixpkgs-stable, nixpkgs-unstable, ... }:
 {
   users.users.rafael = {
     description = "Rafael Alexander Muijsert";
