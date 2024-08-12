@@ -10,6 +10,8 @@
   };
 
   outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, ... } @ attrs: {
-      
+    nixosConfigurations.latitude = nixpkgs-unstable.lib.nixosSystem {
+      system = "x86_64-linux";
+    };
   };
 }
