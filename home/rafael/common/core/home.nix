@@ -14,5 +14,6 @@
     ./zoxide.nix
     ./eza.nix
     ./fastfetch.nix
+    ./git.nix
   ];
 }
