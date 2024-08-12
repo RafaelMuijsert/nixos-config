@@ -5,6 +5,7 @@
     wget
     git
     tmux
+    bat
   ];
 
   imports = [
