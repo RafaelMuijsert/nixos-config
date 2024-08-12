@@ -19,5 +19,6 @@
     ./yazi.nix
     ./fzf.nix
     ./bat.nix
+    ./btop.nix
   ];
 }
