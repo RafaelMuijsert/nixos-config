@@ -18,5 +18,6 @@
     ./helix.nix
     ./yazi.nix
     ./fzf.nix
+    ./bat.nix
   ];
 }
