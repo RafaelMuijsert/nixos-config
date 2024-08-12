@@ -9,9 +9,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, ... } @ attrs: {
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, ... } @ attrs:
+  let 
+    lib = import ./lib;
+  in {
     nixosConfigurations.latitude = nixpkgs-unstable.lib.nixosSystem {
       system = "x86_64-linux";
+      modules = lib.mkHost "latitude";
     };
   };
 }
