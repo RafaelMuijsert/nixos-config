@@ -7,6 +7,8 @@
   ] ++ builtins.concatMap(user:
     [
       ../system/users/${user}
+      ../home/${user}/common/core
+      ../home/${user}/${hostname}.nix
     ]
   ) users;
 }

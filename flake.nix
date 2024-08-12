@@ -18,6 +18,7 @@
       specialArgs = {
         nixpkgs-stable = import nixpkgs-stable { inherit system; };
         nixpkgs-unstable = import nixpkgs-unstable { inherit system; };
+        inherit home-manager;
       };
       modules = utils.mkHost { hostname = "latitude"; users = [ "rafael" ]; };
     };
