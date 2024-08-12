@@ -4,6 +4,7 @@
     helix
     wget
     git
+    tmux
   ];
 
   imports = [
