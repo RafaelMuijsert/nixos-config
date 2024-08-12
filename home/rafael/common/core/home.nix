@@ -17,5 +17,6 @@
     ./git.nix
     ./helix.nix
     ./yazi.nix
+    ./fzf.nix
   ];
 }
