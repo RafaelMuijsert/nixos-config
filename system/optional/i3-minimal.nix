@@ -7,5 +7,6 @@
   };
   config = lib.mkIf config.desktop.i3-minimal.enable {
     services.xserver.windowManager.i3.enable = true;
+    services.xserver.displayManager.startx.enable = true;
   };
 }
