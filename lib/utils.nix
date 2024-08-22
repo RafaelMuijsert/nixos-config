@@ -8,13 +8,17 @@
       ../hosts/${hostname}/host-specific.nix
 
       ../system/core
+      ../system/optional
 
       ../tests
     ]
     ++ builtins.concatMap (
       user: [
         ../system/users/${user}
-        ../home/${user}/common/core
+
+        ../home/${user}/core
+        ../home/${user}/optional
+
         ../home/${user}/${hostname}.nix
       ]
     )
