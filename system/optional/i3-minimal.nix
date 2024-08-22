@@ -6,7 +6,10 @@
     description = "Enable a minimal configuration of the i3 window manager with included utilities";
   };
   config = lib.mkIf config.desktop.i3-minimal.enable {
-    services.xserver.windowManager.i3.enable = true;
-    services.xserver.displayManager.startx.enable = true;
+    services.xserver = {
+      enable = true;
+      windowManager.i3.enable = true;
+      displayManager.startx.enable = true;
+    };
   };
 }
