@@ -16,5 +16,6 @@
   imports = [
     ./locale.nix
     ./nix.nix
+    ./boot.nix
   ];
 }
