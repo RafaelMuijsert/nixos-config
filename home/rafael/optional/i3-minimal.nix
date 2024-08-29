@@ -1,4 +1,4 @@
-{ lib, osConfig, ...}:
+{ lib, config, osConfig, ...}:
 {
   config = lib.mkIf osConfig.desktop.i3-minimal.enable {
     programs = {
@@ -6,8 +6,21 @@
       firefox.enable = true;
     };
 
+    xsession.windowManager.i3 = {
+      enable = true;
+      config = {
+        modifier = "Mod4";
+        bars = [
+          {
+            position = "top";
+          }
+        ];
+      };
+    };
+
     home.sessionVariables = {
       TERMINAL = "kitty";
+      BROWSER = "firefox";
     };
   };
 }
