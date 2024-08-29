@@ -1,3 +1,6 @@
+{ lib, ... }:
 {
-  programs.kitty = {};
+  programs.kitty = {
+    enable = lib.mkDefault false;
+  };
 }
