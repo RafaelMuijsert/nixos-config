@@ -8,7 +8,7 @@
         normal = "block";
         select = "underline";
       };
-      theme = "base16";
+      theme = "base16_default";
     };
   };
 }
