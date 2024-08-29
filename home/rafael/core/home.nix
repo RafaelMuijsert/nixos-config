@@ -9,10 +9,9 @@
     stateVersion = "24.11";
     packages = with nixpkgs-unstable; [
       fishPlugins.hydro
-      (nerdfonts.override {fonts = ["CascadiaCode"];})
+      (nerdfonts.override {fonts = ["CascadiaCode" "Terminus"];})
     ];
   };
-  fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
   imports = [
     ./fish.nix
@@ -26,5 +25,6 @@
     ./bat.nix
     ./btop.nix
     ./environment.nix
+    ./fonts.nix
   ];
 }

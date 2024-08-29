@@ -1,5 +1,7 @@
 {lib, ...}: {
   programs.kitty = {
-    font.name = "CaskaydiaCove Nerd Font Mono";
+    font.name = "Terminess Nerd Font Mono";
+    font.size = 9;
+    shellIntegration.enableFishIntegration = true;
   };
 }
