@@ -9,8 +9,10 @@
     stateVersion = "24.11";
     packages = with nixpkgs-unstable; [
       fishPlugins.hydro
+      (nerdfonts.override {fonts = ["CascadiaCode"];})
     ];
   };
+  fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
   imports = [
     ./fish.nix
