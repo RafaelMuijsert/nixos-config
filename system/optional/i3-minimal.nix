@@ -1,5 +1,9 @@
-{ options, lib, config, ... }:
 {
+  options,
+  lib,
+  config,
+  ...
+}: {
   options.desktop.i3-minimal.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

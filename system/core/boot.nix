@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     plymouth = {
       enable = true;
@@ -18,5 +21,4 @@
       "rd.udev.log_level=3"
     ];
   };
-
 }
