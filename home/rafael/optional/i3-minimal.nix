@@ -10,7 +10,6 @@
       enable = true;
       config = {
         modifier = "Mod4";
-        keybindings."Mod4+i" = "exec $BROWSER";
         bars = [
           {
             position = "top";
