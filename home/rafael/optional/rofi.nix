@@ -1,3 +1,5 @@
 {
-  location = "center";
+  programs.rofi = {
+    location = "center";
+  };
 }
