@@ -8,7 +8,6 @@
     programs = {
       kitty.enable = true;
       firefox.enable = true;
-      rofi.enable = true;
     };
 
     # Enable GTK to ensure applications use dark theme.

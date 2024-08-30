@@ -26,5 +26,6 @@
     ./btop.nix
     ./environment.nix
     ./fonts.nix
+    ./dark-theme.nix
   ];
 }
