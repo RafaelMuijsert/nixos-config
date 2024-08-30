@@ -45,6 +45,7 @@
         bars = [
           {
             position = "top";
+            statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
             fonts = {
               names = [ "CaskaydiaCove Nerd Font Mono" ];
               size = 12.0;
@@ -65,6 +66,42 @@
         ];
       };
     };
+    programs.i3status-rust = {
+      enable = true;
+      bars = {
+        default = {
+          blocks = [
+            {
+              block = "time";
+              format = " $timestamp.datetime(f:'%F %R') ";
+              interval = 60;
+            }
+          ];
+          icons = "material-nf";
+          settings = {
+            theme = {
+              overrides = {
+                idle_bg = "#000000";  
+                good_bg = "#000000";
+                warning_bg = "#000000";
+                critical_bg = "#550000";
+                info_bg = "#000000";
+                separator_bg = "#000000";
+
+
+                idle_fg = "#FFFFFF";
+                good_fg = "#FFFFFF";
+                warning_fg = "#FFFFFF";
+                critical_fg = "#FFFFFF";
+                info_fg = "#FFFFFF";
+                separator_fg = "#FFFFFF";
+              };
+            };
+          };
+        };
+      };
+    };
+
 
     home.sessionVariables = {
       TERMINAL = "kitty";
