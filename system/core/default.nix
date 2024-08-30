@@ -17,5 +17,6 @@
     ./locale.nix
     ./nix.nix
     ./boot.nix
+    ./xorg.nix
   ];
 }

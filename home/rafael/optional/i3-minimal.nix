@@ -19,8 +19,8 @@
           titlebar = false;
         };
         fonts = {
-          names = [ "Terminess Nerd Font Mono" ];
-          size = 9.0;
+          names = [ "CaskaydiaCove Nerd Font Mono" ];
+          size = 12.0;
         };
         colors = {
           focused = {
@@ -41,6 +41,10 @@
         bars = [
           {
             position = "top";
+            fonts = {
+              names = [ "CaskaydiaCove Nerd Font Mono" ];
+              size = 12.0;
+            };
             colors = {
               focusedWorkspace = {
                 background = "#484848";
