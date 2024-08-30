@@ -72,8 +72,12 @@
         default = {
           blocks = [
             {
+              block = "battery";
+              format = " $icon $percentage ";
+            }
+            {
               block = "time";
-              format = " $timestamp.datetime(f:'%F %R') ";
+              format = "  $timestamp.datetime(f:'%F %R') ";
               interval = 60;
             }
           ];
