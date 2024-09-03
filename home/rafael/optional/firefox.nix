@@ -16,6 +16,10 @@
         "browser.chrome.toolbar_tips" = false;
         # Do not disable automatically installed extensions.
         "extensions.autoDisableScopes" = 0;
+        # Disable tips.
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+        # UI layout.
         "browser.uiCustomization.state" = {
           "placements" = {
             "widget-overflow-fixed-list" = [];
