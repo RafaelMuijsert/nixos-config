@@ -112,5 +112,6 @@
       BROWSER = "firefox";
       LAUNCHER = "rofi -show-icons -show drun";
     };
+    home.file.".xinitrc".text = "exec i3";
   };
 }
