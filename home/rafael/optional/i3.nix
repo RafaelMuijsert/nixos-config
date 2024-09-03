@@ -1,4 +1,4 @@
-{  
+{
   xsession.windowManager.i3 = {
     config.keybindings = let
       modifier = "Mod1";

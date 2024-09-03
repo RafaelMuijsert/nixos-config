@@ -23,7 +23,7 @@
           titlebar = false;
         };
         fonts = {
-          names = [ "CaskaydiaCove Nerd Font Mono" ];
+          names = ["CaskaydiaCove Nerd Font Mono"];
           size = 12.0;
         };
         colors = {
@@ -47,7 +47,7 @@
             position = "top";
             statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
             fonts = {
-              names = [ "CaskaydiaCove Nerd Font Mono" ];
+              names = ["CaskaydiaCove Nerd Font Mono"];
               size = 12.0;
             };
             colors = {
@@ -85,13 +85,12 @@
           settings = {
             theme = {
               overrides = {
-                idle_bg = "#000000";  
+                idle_bg = "#000000";
                 good_bg = "#000000";
                 warning_bg = "#000000";
                 critical_bg = "#550000";
                 info_bg = "#000000";
                 separator_bg = "#000000";
-
 
                 idle_fg = "#FFFFFF";
                 good_fg = "#FFFFFF";
@@ -105,7 +104,6 @@
         };
       };
     };
-
 
     home.sessionVariables = {
       TERMINAL = "kitty";

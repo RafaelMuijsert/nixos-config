@@ -22,7 +22,7 @@
           titlebar = false;
         };
         fonts = {
-          names = [ "CaskaydiaCove Nerd Font Mono" ];
+          names = ["CaskaydiaCove Nerd Font Mono"];
           size = 12.0;
         };
         colors = {
@@ -45,7 +45,7 @@
           {
             position = "top";
             fonts = {
-              names = [ "CaskaydiaCove Nerd Font Mono" ];
+              names = ["CaskaydiaCove Nerd Font Mono"];
               size = 12.0;
             };
             colors = {
