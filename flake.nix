@@ -13,41 +13,25 @@
   };
 
   outputs = {
-    self,
     nixpkgs-stable,
     nixpkgs-unstable,
-    firefox-addons,
-    home-manager,
     ...
-  } @ attrs: let
-    utils = import ./lib/utils.nix;
+  } @ inputs: 
+  let
+    utils = import ./lib/utils.nix { inherit inputs; };
   in {
-    nixosConfigurations.latitude = nixpkgs-unstable.lib.nixosSystem rec {
+    nixosConfigurations.latitude = utils.mkHost {
+      name = "latitude";
       system = "x86_64-linux";
-      specialArgs = {
-        nixpkgs-stable = import nixpkgs-stable {inherit system;};
-        nixpkgs-unstable = import nixpkgs-unstable {inherit system;};
-        inherit firefox-addons;
-        inherit home-manager;
-      };
-      modules = utils.mkHost {
-        hostname = "latitude";
-        users = ["rafael"];
-      };
+      base = nixpkgs-unstable;
+      users = ["rafael"];
     };
-    nixosConfigurations.elite = nixpkgs-unstable.lib.nixosSystem rec {
+    nixosConfigurations.elite = utils.mkHost {
+      name = "elite";
       system = "x86_64-linux";
-      specialArgs = {
-        nixpkgs-stable = import nixpkgs-stable {inherit system;};
-        nixpkgs-unstable = import nixpkgs-unstable {inherit system;};
-        inherit firefox-addons;
-        inherit home-manager;
-      };
-      modules = utils.mkHost {
-        hostname = "elite";
-        users = ["rafael"];
-      };
+      base = nixpkgs-unstable;
+      users = ["rafael"];
     };
-    formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.alejandra;
+    formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.alejandro;
   };
 }

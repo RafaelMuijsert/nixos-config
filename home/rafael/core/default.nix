@@ -1,12 +1,12 @@
 {
   nixpkgs-stable,
   nixpkgs-unstable,
-  home-manager,
+  inputs,
   ...
 }: {
-  imports = [home-manager.nixosModules.default];
+  imports = [inputs.home-manager.nixosModules.default];
   home-manager.users.rafael = import ./home.nix {
-    inherit nixpkgs-stable;
-    inherit nixpkgs-unstable;
+     inherit nixpkgs-stable;
+     inherit nixpkgs-unstable;
   };
 }

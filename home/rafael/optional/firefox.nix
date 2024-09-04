@@ -1,4 +1,4 @@
-{firefox-addons, ...}: {
+{ attrs, ...}: {
   programs.firefox = {
     profiles.default = {
       settings = {
@@ -58,7 +58,7 @@
           id = 2;
         };
       };
-      extensions = with firefox-addons.packages."x86_64-linux"; [
+      extensions = with attrs.firefox-addons; [
         ublock-origin
         multi-account-containers
       ];
