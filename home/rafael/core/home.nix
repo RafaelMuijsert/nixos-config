@@ -17,20 +17,4 @@
     ./themes 
     ./settings
   ];
-  # imports = builtins.map(file: toString ./programs + "/${file}") (builtins.attrNames (builtins.readDir ./programs));
-  # imports = [
-  #   ./fish.nix
-  #   ./zoxide.nix
-  #   ./eza.nix
-  #   ./fastfetch.nix
-  #   ./git.nix
-  #   ./helix.nix
-  #   ./yazi.nix
-  #   ./fzf.nix
-  #   ./bat.nix
-  #   ./btop.nix
-  #   ./environment.nix
-  #   ./fonts.nix
-  #   ./dark-theme.nix
-  # ];
 }
