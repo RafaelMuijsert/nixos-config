@@ -13,6 +13,7 @@
   }:
     let 
       resolvePath = path: ../. + "/${path}";
+      path-utils = import ./path-utils.nix;
     in
       base.lib.nixosSystem {
         inherit system;
@@ -20,7 +21,10 @@
           nixpkgs-stable = import inputs.nixpkgs-stable { inherit system; };
           nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
           firefox-addons = inputs.firefox-addons.packages.${system};
+
           inherit inputs;
+
+          inherit path-utils;
         };
         modules = builtins.map(
           path: resolvePath path
@@ -50,5 +54,5 @@
             "hosts/${name}/${user}.nix"
           ]
         ) users;
-    };
+  };
 }

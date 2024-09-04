@@ -18,15 +18,15 @@
     ...
   } @ inputs: 
   let
-    utils = import ./lib/utils.nix { inherit inputs; };
+    hostLib = import ./lib/host.nix { inherit inputs; };
   in {
-    nixosConfigurations.latitude = utils.mkHost {
+    nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
       system = "x86_64-linux";
       base = nixpkgs-unstable;
       users = ["rafael"];
     };
-    nixosConfigurations.elite = utils.mkHost {
+    nixosConfigurations.elite = hostLib.mkHost {
       name = "elite";
       system = "x86_64-linux";
       base = nixpkgs-unstable;
