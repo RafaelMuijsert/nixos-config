@@ -32,6 +32,12 @@
       base = nixpkgs-unstable;
       users = ["rafael"];
     };
+    nixosConfigurations.thinkcentre = hostLib.mkHost {
+      name = "thinkcentre";
+      system = "x86_64-linux";
+      base = nixpkgs-unstable;
+      users = ["rafael"];
+    };
     formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.alejandro;
   };
 }
