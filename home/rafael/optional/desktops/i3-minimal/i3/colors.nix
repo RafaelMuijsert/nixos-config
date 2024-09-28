@@ -1,6 +1,10 @@
-{ config, lib, osConfig, ...}: {
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}: {
   config = lib.mkIf osConfig.desktop.i3-minimal.enable {
-
     xsession.windowManager.i3.config.colors = {
       focused = {
         background = "#000000";

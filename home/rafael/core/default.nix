@@ -1,4 +1,9 @@
-{ inputs, pkgs, pathUtils, ...} : {
+{
+  inputs,
+  pkgs,
+  pathUtils,
+  ...
+}: {
   home-manager.users.rafael = {
     home = {
       username = "rafael";

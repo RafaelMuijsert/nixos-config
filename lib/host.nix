@@ -12,7 +12,10 @@
   }: let
     pathUtils = import ./path-utils.nix;
     resolvePath = path: ../. + "/${path}";
-    specialArgs = { inherit pathUtils; inherit resolvePath; };
+    specialArgs = {
+      inherit pathUtils;
+      inherit resolvePath;
+    };
   in
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
@@ -20,11 +23,10 @@
 
       modules =
         [
-          inputs.home-manager.nixosModules.home-manager 
-          { home-manager.extraSpecialArgs = specialArgs; }
-        ] 
-        ++
-        builtins.map (
+          inputs.home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = specialArgs;}
+        ]
+        ++ builtins.map (
           path: resolvePath path
         ) [
           # Hardware configuration of the host.

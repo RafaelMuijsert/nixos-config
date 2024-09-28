@@ -1,11 +1,16 @@
-{ config, lib, osConfig, ...}: {
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}: {
   config = lib.mkIf osConfig.desktop.i3-minimal.enable {
     xsession.windowManager.i3.config.bars = [
       {
         position = "top";
         statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
         fonts = {
-          names = [ "CaskaydiaCove Nerd Font Mono" ];
+          names = ["CaskaydiaCove Nerd Font Mono"];
           size = 12.0;
         };
         colors = {
