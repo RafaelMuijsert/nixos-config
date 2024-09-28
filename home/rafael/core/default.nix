@@ -1,5 +1,4 @@
-{inputs, pkgs, path-utils, ...} : {
-  imports = [inputs.home-manager.nixosModules.default];
+{ inputs, pkgs, pathUtils, ...} : {
   home-manager.users.rafael = {
     home = {
       username = "rafael";
@@ -11,7 +10,7 @@
       ];
     };
     programs.home-manager.enable = true;
-    imports = builtins.concatMap (dir: path-utils.readDirectory dir) [
+    imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
       ./programs
       ./themes
       ./settings

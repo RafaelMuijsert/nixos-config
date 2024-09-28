@@ -1,6 +1,6 @@
-{inputs, path-utils,...} @ attrs: {
+{ inputs, pathUtils,... } : {
   home-manager.users.rafael = {
-    imports = builtins.concatMap (dir: attrs.path-utils.readDirectory dir) [
+    imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
       ./desktops
       ./programs
     ];

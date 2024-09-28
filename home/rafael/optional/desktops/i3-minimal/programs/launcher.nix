@@ -1,3 +1,6 @@
+{ config, lib, osConfig, ... }:
 {
-  programs.rofi.enable = true;
+  config = lib.mkIf osConfig.desktop.i3-minimal.enable {
+    programs.rofi.enable = true;
+  };
 }

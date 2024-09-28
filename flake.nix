@@ -12,7 +12,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    hostLib = import ./lib/host.nix {inherit inputs;};
+    hostLib = import ./lib/host.nix;
   in {
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";

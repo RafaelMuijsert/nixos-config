@@ -1,3 +1,6 @@
+{ config, lib, osConfig, ... }:
 {
-  programs.gtk.enable = true;
+  config = lib.mkIf osConfig.desktop.i3-minimal.enable {
+    gtk.enable = true;
+  };
 }

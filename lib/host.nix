@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   mkHost = {
     # The name of the system as specified in the directory structure.
     # This does not set the networking hostname.
@@ -16,10 +16,12 @@
   in
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
+      inherit specialArgs;
+
       modules =
         [
-          inputs.home-manager.nixosModules.home-manager
-          { inputs.home-manager.extraSpecialArgs = specialArgs; }
+          inputs.home-manager.nixosModules.home-manager 
+          { home-manager.extraSpecialArgs = specialArgs; }
         ] 
         ++
         builtins.map (
@@ -46,7 +48,7 @@
               # Will automatically be applied.
               "home/${user}/core"
               # Home configuration that does not take effect until
-              # # certain options/programs are enabled in the user configuration.
+              # certain options/programs are enabled in the user configuration.
               "home/${user}/optional"
               # Host-specific configuration for this user.
               "hosts/${name}/${user}.nix"

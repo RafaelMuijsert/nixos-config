@@ -1,9 +1,9 @@
 {
   pkgs,
-  path-utils,
+  pathUtils,
   ...
 }: {
-  imports = builtins.concatMap (dir: path-utils.readDirectory dir) [
+  imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
     ./desktops
   ];
 }

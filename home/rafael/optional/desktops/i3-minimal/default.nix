@@ -2,15 +2,14 @@
   lib,
   config,
   osConfig,
+  pathUtils,
   ...
 }: {
-  config = lib.mkIf osConfig.desktop.i3-minimal.enable {
-    imports = builtins.concatMap (dir: attrs.path-utils.readDirectory dir) [
-      ./environment
-      ./i3
-      ./login
-      ./status
-      ./programs
-    ];
-  };
+  imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
+    ./environment
+    ./i3
+    ./login
+    ./status
+    ./programs
+  ];
 }
