@@ -12,6 +12,7 @@
 
   # Use the i3-minimal desktop.
   desktop.i3-minimal.enable = true;
+  desktop.i3-minimal.isLaptop = true;
 
   system.stateVersion = "24.05";
 }

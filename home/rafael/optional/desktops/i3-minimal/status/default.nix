@@ -11,12 +11,8 @@
         default = {
           blocks = [
             (lib.mkIf osConfig.desktop.i3-minimal.isLaptop {
-              blocks = [
-                {
-                  block = "battery";
-                  format = " $icon $percentage ";
-                }
-              ];
+                block = "battery";
+                format = " $icon $percentage ";
             })
             {
               block = "time";
