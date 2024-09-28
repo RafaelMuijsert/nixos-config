@@ -1,4 +1,4 @@
-{attrs, ...}: {
+{...}: {
   programs.firefox = {
     profiles.default = {
       settings = {
@@ -46,10 +46,10 @@
           "newElementCount" = 4;
         };
       };
-      extensions = with attrs.firefox-addons; [
-        ublock-origin
-        multi-account-containers
-      ];
+      # extensions = with attrs.firefox-addons; [
+      #   ublock-origin
+      #   multi-account-containers
+      # ];
     };
   };
 }
