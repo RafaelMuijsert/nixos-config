@@ -1,6 +1,6 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-# nixos-config
+# NixOS configurations
 
 My ever-evolving NixOS flake + home-manager configuration.
 
