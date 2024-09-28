@@ -1,9 +1,8 @@
 {
-  nixpkgs-stable,
-  nixpkgs-unstable,
+  pkgs,
   ...
 }: {
-  environment.systemPackages = with nixpkgs-stable; [
+  environment.systemPackages = with pkgs; [
     helix
     wget
     git
@@ -11,7 +10,7 @@
     bat
   ];
 
-  console.font = "${nixpkgs-stable.terminus_font}/share/consolefonts/ter-c16n.psf.gz";
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-c16n.psf.gz";
 
   imports = [
     ./locale.nix

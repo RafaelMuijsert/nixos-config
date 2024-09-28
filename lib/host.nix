@@ -16,8 +16,6 @@
     base.lib.nixosSystem {
       inherit system;
       specialArgs = {
-        nixpkgs-stable = import inputs.nixpkgs-stable {inherit system;};
-        nixpkgs-unstable = import inputs.nixpkgs-unstable {inherit system;};
         firefox-addons = inputs.firefox-addons.packages.${system};
 
         inherit inputs;

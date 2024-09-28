@@ -1,6 +1,5 @@
 {
-  nixpkgs-stable,
-  nixpkgs-unstable,
+  pkgs,
   home-manager,
   ...
 }: {
@@ -8,7 +7,7 @@
     description = "Rafael Alexander Muijsert";
     isNormalUser = true;
     extraGroups = ["wheel"];
-    shell = nixpkgs-unstable.fish;
+    shell = pkgs.fish;
   };
   programs.fish.enable = true;
 }
