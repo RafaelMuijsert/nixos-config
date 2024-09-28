@@ -1,0 +1,24 @@
+{...}: {
+  xsession.windowManager.i3.config.bars = [
+    {
+      position = "top";
+      statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
+      fonts = {
+        names = [ "CaskaydiaCove Nerd Font Mono" ];
+        size = 12.0;
+      };
+      colors = {
+        focusedWorkspace = {
+          background = "#484848";
+          border = "#484848";
+          text = "#ffffff";
+        };
+        inactiveWorkspace = {
+          background = "#000000";
+          border = "#000000";
+          text = "#ffffff";
+        };
+      };
+    }
+  ];
+}

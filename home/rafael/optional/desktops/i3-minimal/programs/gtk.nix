@@ -1,0 +1,3 @@
+{
+  programs.gtk.enable = true;
+}
