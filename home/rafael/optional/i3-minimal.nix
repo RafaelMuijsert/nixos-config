@@ -71,10 +71,14 @@
       bars = {
         default = {
           blocks = [
-            {
-              block = "battery";
-              format = " $icon $percentage ";
-            }
+            (lib.mkIf osConfig.desktop.i3-minimal.isLaptop {
+              blocks = [
+                {
+                  block = "battery";
+                  format = " $icon $percentage ";
+                }
+              ];
+            })
             {
               block = "time";
               format = "  $timestamp.datetime(f:'%F %R') ";

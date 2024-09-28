@@ -9,6 +9,11 @@
     default = false;
     description = "Enable a minimal configuration of the i3 window manager with included utilities";
   };
+  options.desktop.i3-minimal.isLaptop = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Enable laptop-only configuration options";
+  };
   config = lib.mkIf config.desktop.i3-minimal.enable {
     services.xserver = {
       enable = true;
