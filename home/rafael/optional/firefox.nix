@@ -46,18 +46,6 @@
           "newElementCount" = 4;
         };
       };
-      containers = {
-        Personal = {
-          color = "blue";
-          icon = "chill";
-          id = 1;
-        };
-        Work = {
-          color = "green";
-          icon = "briefcase";
-          id = 2;
-        };
-      };
       extensions = with attrs.firefox-addons; [
         ublock-origin
         multi-account-containers
