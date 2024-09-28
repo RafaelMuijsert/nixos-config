@@ -6,9 +6,6 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -20,20 +17,20 @@
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
       system = "x86_64-linux";
-      base = nixpkgs;
       users = ["rafael"];
+      inherit inputs;
     };
     nixosConfigurations.elite = hostLib.mkHost {
       name = "elite";
       system = "x86_64-linux";
-      base = nixpkgs;
       users = ["rafael"];
+      inherit inputs;
     };
     nixosConfigurations.thinkcentre = hostLib.mkHost {
       name = "thinkcentre";
       system = "x86_64-linux";
-      base = nixpkgs;
       users = ["rafael"];
+      inherit inputs;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };

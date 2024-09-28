@@ -5,24 +5,23 @@
     name,
     # System to use (e.g.: x86_64-linux)
     system,
-    # Package source for the base nixosSystem.
-    base,
     # List of users to be present on the given host.
     users,
+    # Flake inputs.
+    inputs,
   }: let
+    pathUtils = import ./path-utils.nix;
     resolvePath = path: ../. + "/${path}";
-    path-utils = import ./path-utils.nix;
+    specialArgs = { inherit pathUtils; inherit resolvePath; };
   in
-    base.lib.nixosSystem {
+    inputs.nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {
-        firefox-addons = inputs.firefox-addons.packages.${system};
-
-        inherit inputs;
-
-        inherit path-utils;
-      };
       modules =
+        [
+          inputs.home-manager.nixosModules.home-manager
+          { inputs.home-manager.extraSpecialArgs = specialArgs; }
+        ] 
+        ++
         builtins.map (
           path: resolvePath path
         ) [
