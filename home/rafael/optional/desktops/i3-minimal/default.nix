@@ -9,6 +9,7 @@
     ./environment
     ./i3
     ./login
+    ./picom
     ./status
     ./programs
   ];
