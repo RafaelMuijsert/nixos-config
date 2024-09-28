@@ -1,4 +1,4 @@
-{ attrs, ...}: {
+{attrs, ...}: {
   programs.firefox = {
     profiles.default = {
       settings = {

@@ -1,7 +1,4 @@
-{
-  attrs,
-  ...
-}: {
+{attrs, ...}: {
   home = {
     username = "rafael";
     homeDirectory = "/home/rafael";
@@ -12,9 +9,9 @@
     ];
   };
   programs.home-manager.enable = true;
-  imports = builtins.concatMap(dir: attrs.path-utils.readDirectory dir) [
-    ./programs 
-    ./themes 
+  imports = builtins.concatMap (dir: attrs.path-utils.readDirectory dir) [
+    ./programs
+    ./themes
     ./settings
   ];
 }

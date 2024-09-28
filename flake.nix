@@ -16,9 +16,8 @@
     nixpkgs-stable,
     nixpkgs-unstable,
     ...
-  } @ inputs: 
-  let
-    hostLib = import ./lib/host.nix { inherit inputs; };
+  } @ inputs: let
+    hostLib = import ./lib/host.nix {inherit inputs;};
   in {
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
@@ -38,6 +37,6 @@
       base = nixpkgs-unstable;
       users = ["rafael"];
     };
-    formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.alejandro;
+    formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.alejandra;
   };
 }
