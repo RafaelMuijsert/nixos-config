@@ -1,6 +1,7 @@
-[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+<h1 align="center">:snowflake: Rafael's NixOS Configurations :snowflake:</h1>
 
-# NixOS configurations
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+> This configuration is a work in progress. It is _not_ feature-complete or stable as of yet. 
 
 My ever-evolving NixOS flake + home-manager configuration.
 
