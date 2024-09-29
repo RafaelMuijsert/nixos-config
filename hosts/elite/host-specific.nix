@@ -14,8 +14,8 @@
   desktop = {
     # Use the i3-minimal desktop.
     i3-minimal.enable = true;
-    # Use the catppuccin theme.
-    theme = import ../../themes/catppuccin;
+    # Use the minimal theme.
+    theme = import ../../themes/minimal;
   };
   # Enable laptop-specific configuration.
   isLaptop = true;
