@@ -14,6 +14,11 @@
     default = false;
     description = "Enable laptop-only configuration options";
   };
+  options.desktop.theme = lib.mkOption {
+    type = lib.types.str;
+    default = "minimal";
+    description = "Set the desktop theme";
+  };
   config = lib.mkIf config.desktop.i3-minimal.enable {
     services.xserver = {
       enable = true;

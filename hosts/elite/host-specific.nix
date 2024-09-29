@@ -12,9 +12,12 @@
   };
 
   # Use the i3-minimal desktop.
-  desktop.i3-minimal.enable = true;
-  desktop.i3-minimal.isLaptop = true;
-
+  desktop = {
+    i3-minimal.enable = true;
+    i3-minimal.isLaptop = true;
+    theme = "minimal";
+  };
+  
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
