@@ -15,14 +15,14 @@
         };
         colors = {
           focusedWorkspace = {
-            background = "#484848";
-            border = "#484848";
+            background = "#000000";
+            border = "#000000";
             text = "#ffffff";
           };
           inactiveWorkspace = {
             background = "#000000";
             border = "#000000";
-            text = "#ffffff";
+            text = "#646464";
           };
         };
       }
