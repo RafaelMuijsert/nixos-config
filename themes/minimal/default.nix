@@ -17,4 +17,5 @@
   base0D = "7cafc2";
   base0E = "ba8baf";
   base0F = "a16946";
+  wallpaper = ./wallpaper.jpg;
 }
