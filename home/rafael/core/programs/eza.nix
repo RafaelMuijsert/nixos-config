@@ -8,6 +8,7 @@
       "--color=always"
       "--tree"
       "--level=1"
+      "--group-directories-first"
     ];
   };
 }
