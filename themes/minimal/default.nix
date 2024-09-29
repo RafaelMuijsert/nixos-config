@@ -17,5 +17,5 @@
   base0E = "61D6D6";  # Bright Cyan
   base0F = "F2F2F2";  # Bright White
 
-  wallpaper = "./wallpaper.jpg";
+  wallpaper = ./wallpaper.jpg;
 }
