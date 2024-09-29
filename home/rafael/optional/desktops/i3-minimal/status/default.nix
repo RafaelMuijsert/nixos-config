@@ -10,6 +10,10 @@
       bars = {
         default = {
           blocks = [
+            {
+              block = "net";
+              format = " $icon {$signal_strength $ssid|Wired connection} ";
+            }
             (lib.mkIf osConfig.desktop.i3-minimal.isLaptop {
                 block = "battery";
                 format = " $icon $percentage ";
