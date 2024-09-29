@@ -47,11 +47,8 @@
             builtins.map resolvePath [
               # Creation of the user.
               "system/users/${user}"
-              # Will automatically be applied.
-              "home/${user}/core"
-              # Home configuration that does not take effect until
-              # certain options/programs are enabled in the user configuration.
-              "home/${user}/optional"
+              # Configuration of the user.
+              "home/${user}/"
               # Host-specific configuration for this user.
               "hosts/${name}/${user}.nix"
             ]

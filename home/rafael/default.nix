@@ -29,5 +29,12 @@
       yazi.enable = true;
       zoxide.enable = true;
     };
+    imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
+      ./desktops
+      ./environment
+      ./programs
+      ./themes
+      ./wms/i3
+    ];
   };
 }
