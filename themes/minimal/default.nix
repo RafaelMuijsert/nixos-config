@@ -1,21 +1,21 @@
 {
-  scheme = "Default Dark";
-  author = "Chris Kempson (http://chriskempson.com);";
-  base00 = "181818";
-  base01 = "282828";
-  base02 = "383838";
-  base03 = "585858";
-  base04 = "b8b8b8";
-  base05 = "d8d8d8";
-  base06 = "e8e8e8";
-  base07 = "f8f8f8";
-  base08 = "ab4642";
-  base09 = "dc9656";
-  base0A = "f7ca88";
-  base0B = "a1b56c";
-  base0C = "86c1b9";
-  base0D = "7cafc2";
-  base0E = "ba8baf";
-  base0F = "a16946";
-  wallpaper = ./wallpaper.jpg;
+  base00 = "000000";  # Black (Background)
+  base01 = "C50F1F";  # Red
+  base02 = "13A10E";  # Green
+  base03 = "C19C00";  # Yellow
+  base04 = "0037DA";  # Blue
+  base05 = "881798";  # Magenta
+  base06 = "3A96DD";  # Cyan
+  base07 = "CCCCCC";  # White (Foreground)
+
+  base08 = "767676";  # Bright Black
+  base09 = "E74856";  # Bright Red
+  base0A = "16C60C";  # Bright Green
+  base0B = "F9F1A5";  # Bright Yellow
+  base0C = "3B78FF";  # Bright Blue
+  base0D = "B4009E";  # Bright Magenta
+  base0E = "61D6D6";  # Bright Cyan
+  base0F = "F2F2F2";  # Bright White
+
+  wallpaper = "./wallpaper.jpg";
 }
