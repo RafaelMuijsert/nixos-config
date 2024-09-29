@@ -11,12 +11,14 @@
     networkmanager.enable = true;
   };
 
-  # Use the i3-minimal desktop.
   desktop = {
+    # Use the i3-minimal desktop.
     i3-minimal.enable = true;
-    i3-minimal.isLaptop = true;
+    # Use the minimal theme.
     theme = "minimal";
   };
+  # Enable laptop-specific configuration.
+  isLaptop = true;
   
   hardware.opengl = {
     enable = true;

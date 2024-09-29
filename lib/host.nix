@@ -33,11 +33,8 @@
           "hosts/${name}/hardware-configuration.nix"
           # Host-specific system options.
           "hosts/${name}/host-specific.nix"
-          # Will automatically be applied to every system.
-          "system/core"
-          # System configuration that does not take effect until
-          # certain options/programs are enabled in the host configuration.
-          "system/optional"
+          # System configuration.
+          "system/"
           # Tests to ensure configuration validity.
           "tests"
         ]

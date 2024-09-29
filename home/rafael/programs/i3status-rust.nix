@@ -19,7 +19,7 @@
             block = "net";
             format = " $icon {$signal_strength $ssid|Wired connection} ";
           }
-          (lib.mkIf osConfig.desktop.i3-minimal.isLaptop {
+          (lib.mkIf osConfig.isLaptop {
               block = "battery";
               format = " $icon $percentage ";
           })

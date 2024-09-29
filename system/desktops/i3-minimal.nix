@@ -11,7 +11,7 @@
     description = "Enable a minimal configuration of the i3 window manager with included utilities";
   };
 
-  options.desktop.i3-minimal.isLaptop = lib.mkOption {
+  options.isLaptop = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable laptop-only configuration options";
