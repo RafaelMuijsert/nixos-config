@@ -12,6 +12,7 @@
       yt-dlp.enable = true;
     };
     gtk.enable = true;
+    services.picom.enable = true;
     xsession.windowManager.i3.enable = true;
   };
 }
