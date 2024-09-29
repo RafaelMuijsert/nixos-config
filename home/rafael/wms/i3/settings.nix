@@ -13,7 +13,10 @@
         titlebar = false;
       };
       startup = [
-        { command = "{pkgs.feh}/bin/feh --bg-scale $HOME/.background-image"; notification = false; }
+        {
+          command = "{pkgs.feh}/bin/feh --bg-scale $HOME/.background-image";
+          notification = false;
+        }
       ];
     };
   };

@@ -1,4 +1,8 @@
-{ pathUtils, pkgs, ...}: {
+{
+  pathUtils,
+  pkgs,
+  ...
+}: {
   # System packages included in every host.
   environment.systemPackages = with pkgs; [
     helix

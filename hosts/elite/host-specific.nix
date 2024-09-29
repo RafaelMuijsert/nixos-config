@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -19,7 +18,7 @@
   };
   # Enable laptop-specific configuration.
   isLaptop = true;
-  
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [

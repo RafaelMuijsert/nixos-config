@@ -1,5 +1,8 @@
-{lib, osConfig, ...}: 
-let 
+{
+  lib,
+  osConfig,
+  ...
+}: let
   theme = osConfig.desktop.theme;
   toHex = color: "#" + color;
 in {

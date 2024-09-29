@@ -20,8 +20,8 @@
             format = " $icon {$signal_strength $ssid|Wired connection} ";
           }
           (lib.mkIf osConfig.isLaptop {
-              block = "battery";
-              format = " $icon $percentage ";
+            block = "battery";
+            format = " $icon $percentage ";
           })
           {
             block = "time";
