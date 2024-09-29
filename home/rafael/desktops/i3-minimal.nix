@@ -4,6 +4,7 @@
     programs = {
       firefox.enable = true;
       feh.enable = true;
+      i3status-rust.enable = true;
       rofi.enable = true;
       mpv.enable = true;
       kitty.enable = true;
