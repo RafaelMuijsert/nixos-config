@@ -1,6 +1,5 @@
 {
-  programs.yazi = {
-    enable = true;
+  programs.fzf = {
     enableFishIntegration = true;
   };
 }

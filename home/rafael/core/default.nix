@@ -4,6 +4,7 @@
   pathUtils,
   ...
 }: {
+  # Configure home-manager.
   home-manager.users.rafael = {
     home = {
       username = "rafael";
@@ -14,11 +15,19 @@
         (nerdfonts.override {fonts = ["CascadiaCode" "Terminus"];})
       ];
     };
-    programs.home-manager.enable = true;
-    imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
-      ./programs
-      ./themes
-      ./settings
-    ];
+    # Define programs to be enabled for this user across all hosts.
+    programs = {
+      bat.enable = true;
+      btop.enable = true;
+      eza.enable = true;
+      fastfetch.enable = true;
+      home-manager.enable = true;
+      fish.enable = true;
+      fzf.enable = true;
+      git.enable = true;
+      helix.enable = true;
+      yazi.enable = true;
+      zoxide.enable = true;
+    };
   };
 }
