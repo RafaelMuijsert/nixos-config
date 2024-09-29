@@ -11,6 +11,13 @@
         default = {
           blocks = [
             {
+              block = "sound";
+              format = " $icon {$volume|Muted} ";
+              step_width = 1;
+              max_vol = 100;
+              headphones_indicator = true;
+            }
+            {
               block = "net";
               format = " $icon {$signal_strength $ssid|Wired connection} ";
             }
