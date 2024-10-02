@@ -19,6 +19,7 @@
     programs = {
       bat.enable = true;
       btop.enable = true;
+      direnv.enable = true;
       eza.enable = true;
       fastfetch.enable = true;
       home-manager.enable = true;
