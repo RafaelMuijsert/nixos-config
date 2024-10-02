@@ -19,6 +19,13 @@
   # Enable laptop-specific configuration.
   isLaptop = true;
 
+  # Enable virtualisation.
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  users.users.rafael.extraGroups = [ "libvirtd" ];
+
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [

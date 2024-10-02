@@ -5,6 +5,10 @@
       # Typst
       typst    
       typst-lsp
+      # C Development
+      clang-tools
+      gnumake
+      gcc
     ];
   };
 }
