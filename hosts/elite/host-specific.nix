@@ -13,8 +13,8 @@
   desktop = {
     # Use the Sway-minimal desktop.
     sway-minimal.enable = true;
-    # Use the minimal theme.
-    theme = import ../../themes/minimal;
+    # Use the Windows theme.
+    theme = import ../../themes/windows;
   };
   # Enable laptop-specific configuration.
   isLaptop = true;
