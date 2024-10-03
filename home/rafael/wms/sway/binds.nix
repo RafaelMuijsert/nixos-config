@@ -11,7 +11,7 @@
       "${modifier}+Return" = "exec $TERMINAL";
       "${modifier}+Shift+q" = "kill";
       "${modifier}+space" = "exec $LAUNCHER";
-      "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
+      "${modifier}+Shift+e" = "exec swaynag -t warning -m 'Do you want to exit Sway?' -b 'Yes' 'swaymsg exit'";
       "${modifier}+i" = "exec $BROWSER";
 
       # "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+";

@@ -2,12 +2,12 @@
   config,
   lib,
   osConfig,
+  pkgs,
   ...
 }: {
   config = lib.mkIf osConfig.desktop.sway-minimal.enable {
     programs = {
       firefox.enable = true;
-      feh.enable = true;
       i3status-rust.enable = true;
       wofi.enable = true;
       mpv.enable = true;
