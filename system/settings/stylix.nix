@@ -1,7 +1,7 @@
 { config, ... }:
 {
   stylix = {
-    enable = false;
+    enable = true;
     image = config.desktop.theme.wallpaper;
   };
 }

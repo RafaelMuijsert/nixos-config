@@ -7,7 +7,6 @@
         normal = "block";
         select = "underline";
       };
-      theme = "base16_default";
     };
     languages = {
       language = [
