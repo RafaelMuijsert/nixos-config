@@ -11,8 +11,8 @@
   };
 
   desktop = {
-    # Use the i3-minimal desktop.
-    i3-minimal.enable = true;
+    # Use the Sway-minimal desktop.
+    sway-minimal.enable = true;
     # Use the minimal theme.
     theme = import ../../themes/minimal;
   };

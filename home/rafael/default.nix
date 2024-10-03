@@ -36,6 +36,7 @@
       ./programs
       ./themes
       ./wms/i3
+      ./wms/sway
     ];
   };
 }
