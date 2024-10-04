@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.fish = {
     interactiveShellInit = ''
@@ -5,6 +6,9 @@
     '';
     shellAliases = {
       cat = "bat";
+    };
+    functions = {
+      qr = "${pkgs.qrtool}/bin/qrtool encode -t terminal \"$argv\"";
     };
   };
 }
