@@ -13,15 +13,16 @@
         size = 12.0;
       };
       colors = {
+        background = config.lib.stylix.colors.base01;
         focusedWorkspace = {
-          background = "#000000";
-          border = "#000000";
-          text = "#ffffff";
+          background = config.lib.stylix.colors.base01;
+          border = config.lib.stylix.colors.base01;
+          text = config.lib.stylix.colors.base05;
         };
         inactiveWorkspace = {
-          background = "#000000";
-          border = "#000000";
-          text = "#646464";
+          background = config.lib.stylix.colors.base01;
+          border = config.lib.stylix.colors.base01;
+          text = config.lib.stylix.colors.base03;
         };
       };
     }
