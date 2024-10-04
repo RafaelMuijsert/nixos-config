@@ -9,16 +9,12 @@
     users,
     # Flake inputs.
     inputs,
-    # Flake outputs.
-    outputs
   }: let
     pathUtils = import ./path-utils.nix;
     resolvePath = path: ../. + "/${path}";
     specialArgs = {
       inherit pathUtils;
       inherit resolvePath;
-      inherit inputs;
-      inherit outputs;
     };
   in
     inputs.nixpkgs.lib.nixosSystem {

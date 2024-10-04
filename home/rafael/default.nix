@@ -2,12 +2,8 @@
   inputs,
   pkgs,
   pathUtils,
-  outputs,
   ...
 }: {
-  # Add overlays.
-  nixpkgs.overlays = [outputs.overlays.nixpkgs-unstable];
-
   # Configure home-manager.
   home-manager.users.rafael = {
     home = {
