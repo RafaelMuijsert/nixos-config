@@ -1,5 +1,8 @@
-{ lib, pkgs-unstable, ... }:
 {
+  lib,
+  pkgs-unstable,
+  ...
+}: {
   programs.fuzzel = {
     settings = {
       main = {

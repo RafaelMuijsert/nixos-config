@@ -14,6 +14,7 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     hostLib = import ./lib/host.nix;
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
@@ -33,6 +34,11 @@
       users = ["rafael"];
       inherit inputs;
     };
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.x86_64-linux = pkgs.alejandra;
+    devShell.x86_64-linux = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        just
+      ];
+    };
   };
 }

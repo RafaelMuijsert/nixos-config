@@ -10,7 +10,6 @@
     polarity = "${config.desktop.theme.polarity}";
     image = config.desktop.theme.wallpaper;
     fonts = {
-
       serif = {
         package = pkgs.nerdfonts.override {fonts = ["Arimo"];};
         name = "Arimo Nerd Font";
@@ -30,7 +29,6 @@
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
-
     };
   };
 }
