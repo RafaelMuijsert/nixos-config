@@ -15,7 +15,9 @@
       thunderbird.enable = true;
       yt-dlp.enable = true;
     };
+    services = {
+      mako.enable = true;
+    };
     wayland.windowManager.sway.enable = true;
-    gtk.enable = true;
   };
 }
