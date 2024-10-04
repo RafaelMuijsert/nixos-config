@@ -1,9 +1,12 @@
-{ lib, ... }:
+{ lib, pkgs-unstable, ... }:
 {
-  programs.fuzzel.settings = {
-    main = {
-      prompt = "Type to search: ";
-      dpi-aware = "no";
+  programs.fuzzel = {
+    settings = {
+      main = {
+        placeholder = "Type to search: ";
+        dpi-aware = lib.mkForce "yes";
+      };
     };
+    package = pkgs-unstable.fuzzel;
   };
 }

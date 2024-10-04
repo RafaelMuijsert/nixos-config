@@ -15,6 +15,7 @@
     specialArgs = {
       inherit pathUtils;
       inherit resolvePath;
+      pkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
     };
   in
     inputs.nixpkgs.lib.nixosSystem {
