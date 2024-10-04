@@ -33,6 +33,7 @@
       ./desktops
       ./environment
       ./programs
+      ./settings
       ./themes
       ./wms/i3
       ./wms/sway
