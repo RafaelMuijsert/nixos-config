@@ -3,6 +3,7 @@
   lib,
   osConfig,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   config = lib.mkMerge [
@@ -17,7 +18,7 @@
       home.sessionVariables = {
         TERMINAL = "${pkgs.kitty}/bin/kitty";
         BROWSER = "${pkgs.firefox}/bin/firefox";
-        LAUNCHER = "${pkgs.fuzzel}/bin/fuzzel";
+        LAUNCHER = "${pkgs-unstable.fuzzel}/bin/fuzzel";
       };
     })
   ];
