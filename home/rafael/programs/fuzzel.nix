@@ -1,9 +1,10 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   programs.fuzzel.settings = {
     main = {
-      prompt = "Type to search: ";
-      dpi-aware = "no";
+      placeholder = "\"Quick Search\"";
+      # prompt = "";
+      dpi-aware = lib.mkForce "yes";
     };
   };
 }

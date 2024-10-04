@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -11,26 +12,33 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {self, nixpkgs, ...} @ inputs: let
+    inherit (self) outputs;
     hostLib = import ./lib/host.nix;
   in {
+    # Import overlays.
+    overlays = import ./overlays { inherit inputs; };
+
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
       system = "x86_64-linux";
       users = ["rafael"];
       inherit inputs;
+      inherit outputs;
     };
     nixosConfigurations.elite = hostLib.mkHost {
       name = "elite";
       system = "x86_64-linux";
       users = ["rafael"];
       inherit inputs;
+      inherit outputs;
     };
     nixosConfigurations.thinkcentre = hostLib.mkHost {
       name = "thinkcentre";
       system = "x86_64-linux";
       users = ["rafael"];
       inherit inputs;
+      inherit outputs;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
