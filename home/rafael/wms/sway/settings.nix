@@ -11,7 +11,6 @@
       output = {
         "*" = {
           scale = "1";
-          bg = "${osConfig.desktop.theme.wallpaper} fill";
         };
       };
       window = {
