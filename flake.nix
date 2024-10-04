@@ -11,7 +11,7 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, ...} @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     hostLib = import ./lib/host.nix;
   in {
     nixosConfigurations.latitude = hostLib.mkHost {

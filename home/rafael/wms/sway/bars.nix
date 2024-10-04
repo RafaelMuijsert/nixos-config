@@ -9,7 +9,7 @@
       position = "top";
       statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
       fonts = {
-        names = ["CaskaydiaCove Nerd Font Mono"];
+        names = ["monospace"];
         size = 12.0;
       };
       colors = {

@@ -12,7 +12,6 @@
       stateVersion = "24.05";
       packages = with pkgs; [
         fishPlugins.hydro
-        (nerdfonts.override {fonts = ["CascadiaCode" "Terminus"];})
       ];
     };
     # Define programs to be enabled for this user across all hosts.

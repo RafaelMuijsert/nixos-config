@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{pkgs, ...}: {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -13,8 +13,8 @@
   desktop = {
     # Use the Sway-minimal desktop.
     sway-minimal.enable = true;
-    # Use the Windows theme.
-    theme = import ../../themes/windows;
+    # Use the Catppuccin theme.
+    theme = import ../../themes/catppuccin;
   };
   # Enable laptop-specific configuration.
   isLaptop = true;
@@ -23,8 +23,7 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
-  users.users.rafael.extraGroups = [ "libvirtd" ];
-
+  users.users.rafael.extraGroups = ["libvirtd"];
 
   hardware.opengl = {
     enable = true;

@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkMerge [ 
+  config = lib.mkMerge [
     (lib.mkIf osConfig.desktop.i3-minimal.enable {
       home.sessionVariables = {
         TERMINAL = "kitty";
