@@ -20,5 +20,11 @@
       };
       startup = [];
     };
+    extraConfig = lib.mkIf osConfig.isLaptop (
+      lib.concatLines [
+        "bindswitch --reload --locked lid:off output eDP-1 enable"
+        "bindswitch --reload --locked lid:on output eDP-1 disable"
+      ]
+    );
   };
 }
