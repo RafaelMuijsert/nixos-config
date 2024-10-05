@@ -1,7 +1,12 @@
 keys:
-  - &rafael age1qruzj23k53mykd34jdj6lwf9snghxy9wnzzvpk4w8fud9p0y4stqpcmhqq
+  - &users:
+    - &rafael age1qruzj23k53mykd34jdj6lwf9snghxy9wnzzvpk4w8fud9p0y4stqpcmhqq
+  - &hosts:
+    - &aorus age19a8pv5ajthkewv95q3lhg5cn5antrsgzxftk3u8cl5v3jj2jwaaqk2wng5
+
 creation_rules:
-  - path_regex: secrets/secrets.yaml$
-  - key_groups:
+  - path_regex: secrets.yaml$
+    key_groups:
     - age:
       - *rafael
+      - *aorus
