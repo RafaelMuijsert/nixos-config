@@ -23,9 +23,5 @@
   # Enable sync
   services.syncthing.enable = true;
 
-  hardware.opengl = {
-    enable = true;
-  };
-
   system.stateVersion = "24.05";
 }
