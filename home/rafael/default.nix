@@ -21,6 +21,7 @@
       direnv.enable = true;
       eza.enable = true;
       fastfetch.enable = true;
+      gpg.enable = true;
       home-manager.enable = true;
       fish.enable = true;
       fzf.enable = true;
