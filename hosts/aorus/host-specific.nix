@@ -17,6 +17,9 @@
     theme = import ../../themes/catppuccin;
   };
 
+  # Enable sync
+  services.syncthing.enable = true;
+
   hardware.opengl = {
     enable = true;
   };
