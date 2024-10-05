@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, osConfig, ... }:
 {
   # Create a symlink to the current semester in university.
   config = lib.mkIf osConfig.academia {
