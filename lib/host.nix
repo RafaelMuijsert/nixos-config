@@ -28,6 +28,7 @@
           {home-manager.extraSpecialArgs = specialArgs;}
 
           inputs.stylix.nixosModules.stylix
+          inputs.sops-nix.nixosModules.sops
         ]
         ++ builtins.map (
           path: resolvePath path
