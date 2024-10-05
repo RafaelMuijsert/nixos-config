@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ config, pkgs, ...}: {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -18,6 +18,16 @@
   };
   # Enable laptop-specific configuration.
   isLaptop = true;
+
+  # Install academia-related packages.
+  academia = true;
+
+  # Enable sync.
+  services.syncthing = {
+    enable = true;
+    key = config.sops.secrets."syncthing-hosts/elite/key".path;
+    cert = config.sops.secrets."syncthing-hosts/elite/cert".path;
+  };
 
   # Enable virtualisation.
   virtualisation.libvirtd.enable = true;

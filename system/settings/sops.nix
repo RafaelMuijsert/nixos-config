@@ -11,6 +11,8 @@
     secrets = {
       "syncthing-hosts/aorus/key" = {};
       "syncthing-hosts/aorus/cert" = {};
-    };
+
+      "syncthing-hosts/elite/key" = {};
+      "syncthing-hosts/elite/cert" = {};    };
   };
 }
