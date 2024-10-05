@@ -20,8 +20,8 @@
   # Configuration for optional file synchronization.
   services.syncthing = {
     user = "rafael";
-    dataDir = "/home/rafael/Data";
-    configDir = "/home/rafael/Config";
+    dataDir = "/home/rafael/.local/state/syncthing";
+    configDir = "/home/rafael/.config/syncthing";
     settings.folders = {
       "Documents" = {
         path = "/home/rafael/Documents";

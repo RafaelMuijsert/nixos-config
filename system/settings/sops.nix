@@ -8,5 +8,9 @@
       # keyFile = "/home/rafael/.config/sops/age/keys.txt";
       generateKey = true;
     };
+    secrets = {
+      "syncthing-hosts/aorus/key" = {};
+      "syncthing-hosts/aorus/cert" = {};
+    };
   };
 }
