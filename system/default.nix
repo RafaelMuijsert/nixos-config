@@ -14,7 +14,7 @@
   ];
 
   imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
-    ./desktops
+    ./options
     ./packages
     ./settings
   ];

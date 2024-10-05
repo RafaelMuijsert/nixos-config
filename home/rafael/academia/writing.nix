@@ -2,9 +2,10 @@
   config,
   lib,
   osConfig,
+  pkgs,
   ...
 }: {
-  config = lib.mkIf osConfig.academia.enable {
+  config = lib.mkIf osConfig.academia {
     home.packages = with pkgs; [
       # Typst
       typst  
