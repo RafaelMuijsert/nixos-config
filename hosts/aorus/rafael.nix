@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }: {
   home-manager.users.rafael = {
-    home.packages = with pkgs; [
-      # Typst
-      typst
-      typst-lsp
+    home.packages = with pkgs; [      
       # C Development
       clang-tools
       gnumake

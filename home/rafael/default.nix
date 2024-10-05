@@ -31,6 +31,7 @@
       zoxide.enable = true;
     };
     imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
+      ./academia
       ./desktops
       ./environment
       ./programs

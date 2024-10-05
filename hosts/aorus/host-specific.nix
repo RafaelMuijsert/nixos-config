@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ...}: {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -16,6 +16,9 @@
     # Use the Catppuccin theme.
     theme = import ../../themes/catppuccin;
   };
+
+  # Install academia-related packages.
+  academia = true;
 
   # Enable sync
   services.syncthing.enable = true;
