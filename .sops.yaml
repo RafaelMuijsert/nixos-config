@@ -1,0 +1,7 @@
+keys:
+  - &rafael age1qruzj23k53mykd34jdj6lwf9snghxy9wnzzvpk4w8fud9p0y4stqpcmhqq
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+  - key_groups:
+    - age:
+      - *rafael

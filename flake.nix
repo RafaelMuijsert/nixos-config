@@ -48,6 +48,7 @@
       buildInputs = with pkgs; [
         just
         age
+        sops
       ];
     };
   };
