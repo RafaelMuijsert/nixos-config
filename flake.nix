@@ -34,6 +34,12 @@
       users = ["rafael"];
       inherit inputs;
     };
+    nixosConfigurations.aorus = hostLib.mkHost {
+      name = "aorus";
+      system = "x86_64-linux";
+      users = ["rafael"];
+      inherit inputs;
+    };
     formatter.x86_64-linux = pkgs.alejandra;
     devShell.x86_64-linux = pkgs.mkShell {
       buildInputs = with pkgs; [
