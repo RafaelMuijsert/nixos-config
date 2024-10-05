@@ -11,7 +11,7 @@
     stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    sops-nix-url = "github:Mic92/sops-nix";
+    sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -47,6 +47,7 @@
     devShell.x86_64-linux = pkgs.mkShell {
       buildInputs = with pkgs; [
         just
+        age
       ];
     };
   };
