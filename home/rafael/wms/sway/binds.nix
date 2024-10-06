@@ -22,7 +22,7 @@
         text = ''
           #!/bin/sh
           brightness=$(${pkgs.brightnessctl}/bin/brightnessctl set "$1" | grep -oP '\(\K\d+%')
-          ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$brightness" -h string:x-canonical-private-synchronous:brightness "Brightness" $brightness
+          ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$brightness" -h string:x-canonical-private-synchronous:brightness "Brightness" "$brightness"
         '';
       };
     in {
