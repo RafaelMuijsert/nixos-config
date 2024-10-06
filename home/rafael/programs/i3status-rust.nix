@@ -11,14 +11,13 @@
     name = "sb-recording-status";
     text = ''
       #!/bin/sh
-      if pidof wf-recorder > /dev/null; then 
-        echo '{"text": " Recording", "state": "critical"}'; 
-      else 
-        echo '{"text": ""}'; 
+      if pidof wf-recorder > /dev/null; then
+        echo '{"text": " Recording", "state": "critical"}';
+      else
+        echo '{"text": ""}';
       fi
     '';
   };
-
 in {
   programs.i3status-rust = {
     bars = {
