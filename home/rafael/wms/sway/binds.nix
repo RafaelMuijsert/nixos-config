@@ -33,6 +33,15 @@
           ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" "$HOME/Pictures/Screenshots/$(date +%s).png"
         '';
       };
+      scToggleRecording = pkgs.writeShellApplication {
+        name = "sc-toggle-recording";
+        text = ''
+          #!/bin/sh
+          (pkill --signal INT wf-recorder && ${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording stopped") || 
+            (${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording started" && 
+            ${pkgs.wf-recorder}/bin/wf-recorder -f "$HOME/Videos/Recordings/$(date +%s).mp4")
+        '';
+      };
     in {
       "${modifier}+Return" = "exec $TERMINAL";
       "${modifier}+Shift+q" = "kill";
@@ -48,6 +57,7 @@
       "XF86MonBrightnessDown" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%-";
 
       "Print" = "exec ${scScreenshot}/bin/sc-screenshot";
+      "Shift+Print" = "exec ${scToggleRecording}/bin/sc-toggle-recording";
 
       # Use Logo + V for clipboard history.
       "Mod4+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
