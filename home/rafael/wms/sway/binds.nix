@@ -2,11 +2,29 @@
   config,
   lib,
   osConfig,
+  pkgs,
   ...
 }: {
   wayland.windowManager.sway = {
     config.keybindings = let
       modifier = "Mod1";
+      scSetVolume = pkgs.writeShellApplication {
+        name = "sc-set-volume";
+        text = ''
+          #!/bin/sh
+          wpctl set-volume @DEFAULT_AUDIO_SINK@ "$1"
+          volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.0f%%", $2 * 100}')
+          ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$volume" -h string:x-canonical-private-synchronous:volume "Volume" "$volume"
+        '';
+      };
+      scSetBrightness = pkgs.writeShellApplication {
+        name = "sc-set-brightness";
+        text = ''
+          #!/bin/sh
+          brightness=$(${pkgs.brightnessctl}/bin/brightnessctl set "$1" | grep -oP '\(\K\d+%')
+          ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$brightness" -h string:x-canonical-private-synchronous:brightness "Brightness" $brightness
+        '';
+      };
     in {
       "${modifier}+Return" = "exec $TERMINAL";
       "${modifier}+Shift+q" = "kill";
@@ -14,8 +32,12 @@
       "${modifier}+Shift+e" = "exec swaynag -t warning -m 'Do you want to exit Sway?' -b 'Yes' 'swaymsg exit'";
       "${modifier}+i" = "exec $BROWSER";
 
-      # "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+";
-      # "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-";
+      "XF86AudioRaiseVolume" = "exec ${scSetVolume}/bin/sc-set-volume 1%+";
+      "XF86AudioLowerVolume" = "exec ${scSetVolume}/bin/sc-set-volume 1%-";
+
+      "XF86MonBrightnessUp" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%+"
+      "XF86MonBrightnessDown" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%-"
+
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
