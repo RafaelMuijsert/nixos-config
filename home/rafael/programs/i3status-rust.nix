@@ -2,10 +2,23 @@
   config,
   lib,
   osConfig,
+  pkgs,
   ...
 }: let
   background = config.lib.stylix.colors.base01;
   foreground = config.lib.stylix.colors.base05;
+  sbRecordingStatus = pkgs.writeShellApplication {
+    name = "sb-recording-status";
+    text = ''
+      #!/bin/sh
+      if pidof wf-recorder > /dev/null; then 
+        echo '{"text": " Recording", "state": "critical"}'; 
+      else 
+        echo '{"text": ""}'; 
+      fi
+    '';
+  };
+
 in {
   programs.i3status-rust = {
     bars = {
@@ -13,10 +26,11 @@ in {
         blocks = [
           {
             block = "custom";
-            command = "pidof wf-recorder > /dev/null && echo ' Recording'";
+            command = "${sbRecordingStatus}/bin/sb-recording-status";
             hide_when_empty = true;
             interval = "once";
             signal = 4;
+            json = true;
             click = [
               {
                 button = "left";
