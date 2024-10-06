@@ -9,6 +9,7 @@
     programs = {
       firefox.enable = true;
       i3status-rust.enable = true;
+      imv.enable = true;
       fuzzel.enable = true;
       mpv.enable = true;
       kitty.enable = true;
