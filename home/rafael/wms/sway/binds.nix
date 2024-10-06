@@ -48,6 +48,8 @@
 
       "Print" = "exec ${scScreenshot}/bin/sc-screenshot";
 
+      # Use Logo + V for clipboard history.
+      "Mod4+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
