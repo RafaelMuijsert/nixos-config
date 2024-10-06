@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  pkgs-unstable,
   pathUtils,
   ...
 }: {
@@ -10,8 +11,9 @@
       username = "rafael";
       homeDirectory = "/home/rafael";
       stateVersion = "24.05";
-      packages = with pkgs; [
-        fishPlugins.pure
+      packages = [
+        pkgs.fishPlugins.pure
+        pkgs-unstable.rmpc
       ];
     };
     # Define programs to be enabled for this user across all hosts.
@@ -30,6 +32,10 @@
       yazi.enable = true;
       zoxide.enable = true;
     };
+
+    # Enable XDG user dirs.
+    xdg.userDirs.enable = true;
+
     imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
       ./academia
       ./desktops
