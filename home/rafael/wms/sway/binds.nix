@@ -7,7 +7,7 @@
 }: {
   wayland.windowManager.sway = {
     config.keybindings = let
-      modifier = "Mod1";
+      modifier = config.wayland.windowManager.sway.config.modifier;
       scSetVolume = pkgs.writeShellApplication {
         name = "sc-set-volume";
         text = ''
@@ -74,6 +74,10 @@
       "${modifier}+Shift+0" = "move container to workspace number 10";
 
       "${modifier}+f" = "fullscreen toggle";
+      "${modifier}+t" = "floating toggle";
+      "${modifier}+v" = "split vertical";
+      "${modifier}+b" = "split horizontal";
+      "${modifier}+x" = "split toggle";
 
       "${modifier}+h" = "focus left";
       "${modifier}+j" = "focus down";
