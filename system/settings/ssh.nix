@@ -1,6 +1,9 @@
 {
   services.openssh = {
     enable = true;
+    settings = {
+      PasswordAuthentication = false;
+    };
     hostKeys = [
       { 
         type = "ed25519";
