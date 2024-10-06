@@ -11,7 +11,7 @@
       homeDirectory = "/home/rafael";
       stateVersion = "24.05";
       packages = with pkgs; [
-        fishPlugins.hydro
+        fishPlugins.pure
       ];
     };
     # Define programs to be enabled for this user across all hosts.
