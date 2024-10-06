@@ -38,8 +38,7 @@
         text = ''
           #!/bin/sh
           (pkill --signal INT wf-recorder && pkill -SIGRTMIN+4 i3status-rs && ${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording stopped") || 
-            (${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording started" && 
-            ${pkgs.wf-recorder}/bin/wf-recorder -f "$HOME/Videos/Recordings/$(date +%s).mp4" & pkill -SIGRTMIN+4 i3status-rs)
+          (${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording started" && ${pkgs.wf-recorder}/bin/wf-recorder -f "$HOME/Videos/Recordings/$(date +%s).mp4" & pkill -SIGRTMIN+4 i3status-rs)
         '';
       };
     in {
