@@ -29,6 +29,9 @@
     cert = config.sops.secrets."syncthing-hosts/elite/cert".path;
   };
 
+  # Enable fingerprint unlocking.
+  services.fprintd.enable = true;
+
   # Enable virtualisation.
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
