@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   home-manager.users.rafael = {
-    home.packages = with pkgs; [      
+    home.packages = with pkgs; [
       # C Development
       clang-tools
       gnumake

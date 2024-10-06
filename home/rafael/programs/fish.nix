@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.fish = {
     interactiveShellInit = ''
       set fish_greeting
