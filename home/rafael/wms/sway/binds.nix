@@ -25,6 +25,13 @@
           ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$brightness" -h string:x-canonical-private-synchronous:brightness "Brightness" "$brightness"
         '';
       };
+      scScreenshot = pkgs.writeShellApplication {
+        name = "sc-screenshot";
+        text = ''
+          #!/bin/sh
+          ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" "$HOME/Pictures/Screenshots/$(date +%s).png"
+        '';
+      };
     in {
       "${modifier}+Return" = "exec $TERMINAL";
       "${modifier}+Shift+q" = "kill";
@@ -38,6 +45,8 @@
 
       "XF86MonBrightnessUp" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%+";
       "XF86MonBrightnessDown" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%-";
+
+      "Print" = "exec ${scScreenshot}/bin/sc-screenshot";
 
 
       "${modifier}+1" = "workspace number 1";

@@ -18,6 +18,7 @@
     };
     services = {
       mako.enable = true;
+      cliphist.enable = true;
     };
     wayland.windowManager.sway.enable = true;
   };
