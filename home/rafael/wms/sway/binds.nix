@@ -35,8 +35,8 @@
       "XF86AudioRaiseVolume" = "exec ${scSetVolume}/bin/sc-set-volume 1%+";
       "XF86AudioLowerVolume" = "exec ${scSetVolume}/bin/sc-set-volume 1%-";
 
-      "XF86MonBrightnessUp" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%+"
-      "XF86MonBrightnessDown" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%-"
+      "XF86MonBrightnessUp" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%+";
+      "XF86MonBrightnessDown" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%-";
 
 
       "${modifier}+1" = "workspace number 1";
