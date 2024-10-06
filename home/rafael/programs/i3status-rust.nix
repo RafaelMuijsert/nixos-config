@@ -13,6 +13,19 @@ in {
         default = {
           blocks = [
             {
+              block = "custom";
+              command = "pidof wf-recorder > /dev/null && echo ' Recording'";
+              hide_when_empty = true;
+              interval = "once";
+              signal = 4;
+              click = [
+                {
+                  button = "left";
+                  cmd = "pkill --signal INT wf-recorder && pkill -SIGRTMIN+4 i3status-rs";
+                }
+              ];
+            }
+            {
               block = "sound";
               format = " $icon {$volume|Muted} ";
               step_width = 1;
