@@ -13,6 +13,12 @@
           scale = "1";
         };
       };
+      input = {
+        "type:keyboard" = {
+          repeat_delay = "200";
+          repeat_rate = "30";
+        };
+      };
       window = {
         border = 1;
         titlebar = false;

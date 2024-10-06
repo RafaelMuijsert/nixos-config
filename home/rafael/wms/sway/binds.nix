@@ -8,6 +8,7 @@
   wayland.windowManager.sway = {
     config.keybindings = let
       modifier = config.wayland.windowManager.sway.config.modifier;
+      secondaryModifier = "Mod4";
       scSetVolume = pkgs.writeShellApplication {
         name = "sc-set-volume";
         text = ''
@@ -78,6 +79,16 @@
       "${modifier}+v" = "split vertical";
       "${modifier}+b" = "split horizontal";
       "${modifier}+x" = "split toggle";
+
+      "${secondaryModifier}+h" = "resize grow left 8px";
+      "${secondaryModifier}+j" = "resize grow down 8px";
+      "${secondaryModifier}+k" = "resize grow up 8px";
+      "${secondaryModifier}+l" = "resize grow right 8px";
+
+      "${secondaryModifier}+Shift+h" = "resize shrink right 8px";
+      "${secondaryModifier}+Shift+j" = "resize shrink up 8px";
+      "${secondaryModifier}+Shift+k" = "resize shrink down 8px";
+      "${secondaryModifier}+Shift+l" = "resize shrink left 8px";
 
       "${modifier}+h" = "focus left";
       "${modifier}+j" = "focus down";
