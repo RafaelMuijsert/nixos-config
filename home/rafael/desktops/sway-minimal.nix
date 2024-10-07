@@ -8,6 +8,7 @@
   config = lib.mkIf osConfig.desktop.sway-minimal.enable {
     programs = {
       firefox.enable = true;
+      hyprlock.enable = true;
       i3status-rust.enable = true;
       imv.enable = true;
       fuzzel.enable = true;
