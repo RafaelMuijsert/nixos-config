@@ -68,7 +68,10 @@
       "Shift+Print" = "exec ${scToggleRecording}/bin/sc-toggle-recording";
 
       # Use Logo + V for clipboard history.
-      "Mod4+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
+      "${secondaryModifier}+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
+
+      # Lock the screen
+      "${secondaryModifier}+x" = "exec hyprlock";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
