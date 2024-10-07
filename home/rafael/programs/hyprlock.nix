@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   programs.hyprlock = {
+    package = pkgs-unstable.hyprlock;
     settings = {
       general = {
         disable_loading_bar = true;
-        grace = 300;
         hide_cursor = true;
         no_fade_in = false;
       };
@@ -29,7 +29,7 @@
           inner_color = "rgb(91, 96, 120)";
           outer_color = "rgb(24, 25, 38)";
           outline_thickness = 2;
-          placeholder_text = ''<span foreground="##cad3f5">Enter your password</span>'';
+          placeholder_text = ''<span foreground="##cad3f5">$PROMPT</span>'';
           shadow_passes = 2;
         }
       ];
@@ -51,7 +51,7 @@
           color = "rgba(242, 243, 244, 0.75)";
           font_size = "192";
           font_family = "monospace";
-          position = "0, 0";
+          position = "0, 128";
           halign = "center";
           valign = "center";
           shadow_passes = 2;
@@ -64,7 +64,7 @@
           halign = "center";
           valign = "bottom";
           font_size = "24";
-          position = "0, 0";
+          position = "0, 50";
           shadow_passes = 2;
         }
       ];

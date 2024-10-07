@@ -3,6 +3,7 @@
   lib,
   osConfig,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   wayland.windowManager.sway = {
@@ -71,7 +72,7 @@
       "${secondaryModifier}+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
 
       # Lock the screen
-      "${secondaryModifier}+x" = "exec hyprlock";
+      "${secondaryModifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
