@@ -10,6 +10,9 @@
       clang-tools
       gnumake
       gcc
+
+      # Python development
+      python312Packages.python-lsp-server
     ];
     # Host-specific symlinks in home directory.
     imports = [./symlinks.nix];
