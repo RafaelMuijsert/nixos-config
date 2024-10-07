@@ -5,6 +5,8 @@
       clang-tools
       gnumake
       gcc
+      # Python development
+      python312Packages.python-lsp-server
     ];
   };
 }

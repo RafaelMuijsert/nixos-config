@@ -12,6 +12,7 @@
   networking = {
     hostName = "elite";
     networkmanager.enable = true;
+    firewall.enable = false;
   };
 
   desktop = {
