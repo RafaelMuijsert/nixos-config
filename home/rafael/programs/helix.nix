@@ -1,5 +1,7 @@
+{ pkgs, pkgs-unstable, ... }:
 {
   programs.helix = {
+    package = pkgs-unstable.helix;
     defaultEditor = true;
     settings = {
       editor.cursor-shape = {
