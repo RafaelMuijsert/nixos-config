@@ -8,6 +8,7 @@
       "--tree"
       "--level=1"
       "--group-directories-first"
+      "--dereference"
     ];
   };
 }
