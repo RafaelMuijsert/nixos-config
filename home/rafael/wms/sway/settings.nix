@@ -30,8 +30,7 @@
       lib.concatLines [
         "bindswitch --reload --locked lid:off output eDP-1 enable"
 
-        "bindswitch --reload --locked lid:on exec ${pkgs-unstable.hyprlock}/bin/hyprlock"
-        "bindswitch --reload --locked lid:on output eDP-1 disable"
+        "bindswitch --reload --locked lid:on output eDP-1 disable; exec ${pkgs-unstable.hyprlock}/bin/hyprlock"
       ]
     );
   };
