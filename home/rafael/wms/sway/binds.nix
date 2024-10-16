@@ -85,6 +85,8 @@
       "${modifier}+9" = "workspace number 9";
       "${modifier}+0" = "workspace number 10";
 
+      "${modifier}+comma" = "workspace back_and_forth";
+
       "${modifier}+Shift+1" = "move container to workspace number 1";
       "${modifier}+Shift+2" = "move container to workspace number 2";
       "${modifier}+Shift+3" = "move container to workspace number 3";
