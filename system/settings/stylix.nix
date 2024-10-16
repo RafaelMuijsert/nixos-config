@@ -21,8 +21,8 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["CascadiaCode"];};
-        name = "CaskaydiaCove Nerd Font Mono";
+        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font Mono";
       };
 
       emoji = {
