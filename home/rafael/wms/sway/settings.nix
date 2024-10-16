@@ -30,7 +30,7 @@
           text = ''
               #!/bin/sh
               swayidle -w \
-                timeout 180 "swaymsg output '*' dpms off" \
+                timeout 30 "swaymsg output '*' dpms off" \
                 resume "swaymsg output '*' dpms on" &
 
               # Lock screen
@@ -39,7 +39,7 @@
           '';
         };
       in [
-        { command = "swayidle -w timeout 30 '${lockScreen}/bin/sway-lockscreen'"; }
+        { command = "swayidle -w timeout 180 '${lockScreen}/bin/sway-lockscreen'"; }
       ];
     };
     extraConfig = lib.mkIf osConfig.isLaptop (
