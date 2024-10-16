@@ -24,7 +24,23 @@
         border = 1;
         titlebar = false;
       };
-      startup = [];
+      startup = let 
+        lockScreen = pkgs.writeShellApplication {
+          name = "sway-lockscreen";
+          text = ''
+              #!/bin/sh
+              swayidle -w \
+                timeout 180 "swaymsg output '*' dpms off" \
+                resume "swaymsg output '*' dpms on" &
+
+              # Lock screen
+              ${pkgs-unstable.hyprlock}/bin/hyprlock
+              pkill --newest swayidle
+          '';
+        };
+      in [
+        { command = "swayidle -w timeout 30 '${lockScreen}/bin/sway-lockscreen'"; }
+      ];
     };
     extraConfig = lib.mkIf osConfig.isLaptop (
       lib.concatLines [
