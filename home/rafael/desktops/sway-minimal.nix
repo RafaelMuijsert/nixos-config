@@ -6,6 +6,9 @@
   ...
 }: {
   config = lib.mkIf osConfig.desktop.sway-minimal.enable {
+    home.packages = with pkgs; [
+      bitwarden-desktop
+    ];
     programs = {
       firefox.enable = true;
       hyprlock.enable = true;
