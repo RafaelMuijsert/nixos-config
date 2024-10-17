@@ -5,8 +5,8 @@
 
 My ever-evolving NixOS flake + home-manager configuration.
 
-## i3 minimal
-![i3-minimal](img/i3-minimal.png)
+## Sway minimal
+![Sway-minimal](img/sway-minimal.png)
 
 ## Structure
 The definition of a host is largely outlined in ```lib/host.nix```. 
