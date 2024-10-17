@@ -43,12 +43,15 @@
 
   users.users.rafael.extraGroups = ["libvirtd"];
 
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      onevpl-intel-gpu
-      intel-media-driver
-    ];
+  hardware = {
+    opengl = {
+      enable = true;
+      extraPackages = with pkgs; [
+        onevpl-intel-gpu
+        intel-media-driver
+      ];
+    };
+    bluetooth.enable = true;
   };
 
   system.stateVersion = "24.05";
