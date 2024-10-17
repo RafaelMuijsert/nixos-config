@@ -19,6 +19,16 @@
           ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$volume" -h string:x-canonical-private-synchronous:volume "Volume" "$volume"
         '';
       };
+      scToggleRadio = pkgs.writeShellApplication {
+        name = "sc-toggle-radio";
+        text = ''
+          #!/bin/sh
+
+          RADIO_URL='https://icecast.omroep.nl/radio4-eigentijdsfb-aac.m3u'
+          # Toggle radio
+          pkill -f "mpv.*$RADIO_URL" || ${pkgs.mpv}/bin/mpv "$RADIO_URL";
+        '';
+      };
       scSetBrightness = pkgs.writeShellApplication {
         name = "sc-set-brightness";
         text = ''
@@ -73,6 +83,8 @@
 
       # Lock the screen
       "${secondaryModifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
+
+      "${secondaryModifier}+r" = "exec ${scToggleRadio}/bin/sc-toggle-radio";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
