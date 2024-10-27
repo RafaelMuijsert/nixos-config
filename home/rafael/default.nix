@@ -13,6 +13,7 @@
       stateVersion = "24.05";
       packages = [
         pkgs.fishPlugins.pure
+        pkgs.unzip
         pkgs-unstable.rmpc
       ];
     };
