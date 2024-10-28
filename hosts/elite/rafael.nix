@@ -7,6 +7,10 @@
       gcc
       # Python development
       python312Packages.python-lsp-server
+      # Svelte development
+      nodePackages.svelte-language-server
+      # HTML LSP
+      vscode-langservers-extracted
     ];
   };
 }
