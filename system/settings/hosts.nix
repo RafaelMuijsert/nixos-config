@@ -8,4 +8,9 @@
       "social"
     ];
   };
+  # Time wasters
+  networking.extraHosts = ''
+    0.0.0.0 monkeytype.com
+    0.0.0.0 tweakers.net
+  '';
 }
