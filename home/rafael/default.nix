@@ -14,6 +14,7 @@
       packages = [
         pkgs.fishPlugins.pure
         pkgs.unzip
+        pkgs.ffmpeg
         pkgs-unstable.rmpc
       ];
     };
