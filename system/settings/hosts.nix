@@ -5,7 +5,7 @@
       "fakenews"
       "gambling"
       "porn"
-      "social"
+      # "social"
     ];
   };
   # Time wasters
