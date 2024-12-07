@@ -31,7 +31,7 @@
               text = ''
                 #!/bin/sh
                 ${pkgs-unstable.ruff}/bin/ruff check --select ALL --fix -e -s - |
-                ${pkgs-unstable.ruff}/bin/ruff format --line-length 79 -
+                ${pkgs-unstable.ruff}/bin/ruff format -
               '';
             };
           in {
