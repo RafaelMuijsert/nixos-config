@@ -41,6 +41,9 @@
             {
               name = "ruff-lsp";
             }
+            {
+              name = "basedpyright";
+            }
           ];
         }
       ];
@@ -54,6 +57,13 @@
               select = ["ALL"];
             };
           };
+        };
+      };
+      language-server.basedpyright = {
+        command = "${pkgs-unstable.basedpyright}/bin/basedpyright-langserver";
+        args = ["--stdio"];
+        config = {
+          basedpyright.analysis.diagnosticMode = "openFilesOnly";
         };
       };
     };
