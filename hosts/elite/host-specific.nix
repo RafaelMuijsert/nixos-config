@@ -51,7 +51,13 @@
         intel-media-driver
       ];
     };
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      settings.General = {
+        Enable = "Source,Sink,Media,Socket";
+        Disable = "Headset";
+      };
+    };
   };
 
   system.stateVersion = "24.05";
