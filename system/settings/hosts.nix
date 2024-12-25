@@ -5,7 +5,6 @@
       "fakenews"
       "gambling"
       "porn"
-      # "social"
     ];
   };
   # Time wasters
@@ -14,5 +13,7 @@
     0.0.0.0 typeracer.com
     0.0.0.0 play.typeracer.com
     0.0.0.0 tweakers.net
+    0.0.0.0 instagram.com
+    0.0.0.0 www.instagram.com
   '';
 }
