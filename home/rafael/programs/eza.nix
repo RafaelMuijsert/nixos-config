@@ -1,7 +1,7 @@
 {
   programs.eza = {
     enableFishIntegration = true;
-    icons = true;
+    icons = "auto";
     git = true;
     extraOptions = [
       "--color=always"

@@ -44,10 +44,10 @@
   users.users.rafael.extraGroups = ["libvirtd"];
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        onevpl-intel-gpu
+        vpl-gpu-rt
         intel-media-driver
       ];
     };
