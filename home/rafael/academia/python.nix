@@ -5,6 +5,7 @@
       ppkgs.jupyter
       ppkgs.pandas
       ppkgs.matplotlib
+      ppkgs.scipy
     ]))
   ];
 }
