@@ -10,6 +10,7 @@
       # Typst
       typst
       typst-lsp
+      tinymist
     ];
   };
 }
