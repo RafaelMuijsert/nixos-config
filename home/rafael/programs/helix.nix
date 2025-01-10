@@ -23,6 +23,24 @@
           };
         }
         {
+          name = "php";
+          scope = "source.php";
+          injection-regex = "php";
+          file-types = ["php" "inc" "php4" "php5" "phtml" "ctp"];
+          shebangs = ["php"];
+          roots = [ "composer.json" "index.php" ];
+          comment-token = "//";
+          language-servers = [
+            {
+              name = "phpactor";
+            }
+          ];
+          indent = {
+            tab-width = 4;
+            unit = "    ";
+          };
+        }
+        {
           name = "python";
           auto-format = true;
           formatter = let
@@ -65,6 +83,10 @@
         config = {
           basedpyright.analysis.diagnosticMode = "openFilesOnly";
         };
+      };
+      language-server.phpactor = {
+        command = "${pkgs-unstable.phpactor}/bin/phpactor";
+        args = [ "language-server"];
       };
     };
   };

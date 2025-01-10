@@ -9,6 +9,7 @@
       nodePackages.svelte-language-server
       # HTML LSP
       vscode-langservers-extracted
+      superhtml
       # devenv
       devenv
     ];

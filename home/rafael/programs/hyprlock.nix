@@ -12,29 +12,29 @@
         no_fade_in = false;
       };
 
-      background = [
-        {
-          path = "screenshot";
-          blur_passes = 3;
-          blur_size = 8;
-        }
-      ];
+      # background = [
+      #   {
+      #     path = "screenshot";
+      #     blur_passes = 3;
+      #     blur_size = 8;
+      #   }
+      # ];
 
-      input-field = [
-        {
-          size = "400, 100";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-          fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
-          outline_thickness = 2;
-          placeholder_text = ''<span foreground="##cad3f5">$PROMPT</span>'';
-          shadow_passes = 2;
-        }
-      ];
+      # input-field = [
+      #   {
+      #     size = "400, 100";
+      #     position = "0, -80";
+      #     monitor = "";
+      #     dots_center = true;
+      #     fade_on_empty = false;
+      #     font_color = "rgb(202, 211, 245)";
+      #     inner_color = "rgb(91, 96, 120)";
+      #     outer_color = "rgb(24, 25, 38)";
+      #     outline_thickness = 2;
+      #     placeholder_text = ''<span foreground="##cad3f5">$PROMPT</span>'';
+      #     shadow_passes = 2;
+      #   }
+      # ];
       label = [
         {
           monitor = "";
