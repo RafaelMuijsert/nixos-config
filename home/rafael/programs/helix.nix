@@ -12,6 +12,7 @@
         normal = "block";
         select = "underline";
       };
+      theme = "catppuccin_mocha";
     };
     languages = {
       language = [
