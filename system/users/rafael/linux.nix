@@ -14,6 +14,7 @@
     hashedPasswordFile = config.sops.secrets.password-rafael.path;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;
+    home = "/home/rafael";
   };
   programs.fish.enable = true;
 

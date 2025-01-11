@@ -15,7 +15,6 @@
         pkgs.fishPlugins.pure
         pkgs.unzip
         pkgs.ffmpeg
-        pkgs-unstable.rmpc
       ];
     };
     # Define programs to be enabled for this user across all hosts.
@@ -34,9 +33,6 @@
       yazi.enable = true;
       zoxide.enable = true;
     };
-
-    # Enable XDG user dirs.
-    # xdg.userDirs.enable = true;
 
     imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
       ./academia

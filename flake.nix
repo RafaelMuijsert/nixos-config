@@ -5,10 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
     stylix.url = "github:danth/stylix/release-24.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -16,7 +18,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {nixpkgs, nix-darwin, ...} @ inputs: let
     hostLib = import ./lib/host.nix;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
@@ -41,6 +43,13 @@
     nixosConfigurations.aorus = hostLib.mkHost {
       name = "aorus";
       system = "x86_64-linux";
+      users = ["rafael"];
+      inherit inputs;
+    };
+
+    darwinConfigurations.air = hostLib.mkDarwinHost {
+      name = "air";
+      system = "aarch64-darwin";
       users = ["rafael"];
       inherit inputs;
     };
