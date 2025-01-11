@@ -37,11 +37,9 @@
       ./academia
       ./desktops
       ./environment
-      ./programs
+      ./pograms
       ./settings
       ./themes
-      ./wms/i3
-      ./wms/sway
     ];
   };
 }
