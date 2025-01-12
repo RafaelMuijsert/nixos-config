@@ -1,3 +1,3 @@
 {
-  # stylix.targets.helix.enable = false;
+  stylix.targets.helix.enable = false;
 }

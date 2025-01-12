@@ -1,5 +1,5 @@
 {config, lib, pkgs, ...}: {
-  boot = lib.mkIf builtins.currentSystem.isLinux {
+  boot = {
     consoleLogLevel = 3;
     initrd.verbose = true;
   };
