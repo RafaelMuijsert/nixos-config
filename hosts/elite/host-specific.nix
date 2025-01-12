@@ -43,6 +43,10 @@
 
   users.users.rafael.extraGroups = ["libvirtd"];
 
+  # Enable database
+  services.mysql.enable = true;
+  services.mysql.package = pkgs.mariadb;
+
   hardware = {
     graphics = {
       enable = true;
