@@ -12,6 +12,8 @@
       superhtml
       # devenv
       devenv
+      # Godot
+      godot_4
     ];
   };
 }
