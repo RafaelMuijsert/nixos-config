@@ -24,6 +24,13 @@
   # Install academia-related packages.
   academia = true;
 
+  # Enable ollama
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    rocmOverrideGfx = "10.1.0";
+  };
+
   # Enable sync
   services.syncthing = {
     enable = true;
