@@ -11,8 +11,6 @@
       gnumake
       gcc
 
-      # ollama development
-      python312Packages.ollama
     ];
     # Host-specific symlinks in home directory.
     imports = [./symlinks.nix];

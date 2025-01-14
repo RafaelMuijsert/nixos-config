@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     (pkgs.python311.withPackages (ppkgs: [
+      ppkgs.ollama
       ppkgs.numpy
       ppkgs.imageio
       ppkgs.graphviz
