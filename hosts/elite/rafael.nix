@@ -14,6 +14,10 @@
       devenv
       # Godot
       godot_4
+      # Rust development
+      rustc
+      rust-analyzer
+      cargo
     ];
   };
 }
