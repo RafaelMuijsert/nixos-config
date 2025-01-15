@@ -16,8 +16,9 @@
   };
 
   desktop = {
-    # Use the Sway-minimal desktop.
-    sway-minimal.enable = true;
+    # Use the Hyprland desktop.
+    # sway-minimal.enable = true;
+    hyprland.enable = true;
     # Use the Catppuccin theme.
     theme = import ../../themes/catppuccin;
   };

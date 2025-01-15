@@ -47,6 +47,7 @@
       ./themes
       ./wms/i3
       ./wms/sway
+      ./wms/hyprland
     ];
   };
 }
