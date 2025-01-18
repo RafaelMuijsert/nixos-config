@@ -18,7 +18,7 @@
   desktop = {
     hyprland.enable = true;
     # Use the Catppuccin theme.
-    theme = import ../../themes/catppuccin-nix;
+    theme = import ../../themes/catppuccin-yosemite;
   };
   # Enable laptop-specific configuration.
   isLaptop = true;
