@@ -18,7 +18,7 @@
     # Use the Sway-minimal desktop.
     sway-minimal.enable = true;
     # Use the Catppuccin theme.
-    theme = import ../../themes/catppuccin;
+    theme = import ../../themes/catppuccin-nix;
   };
 
   # Install academia-related packages.
