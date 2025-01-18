@@ -19,6 +19,7 @@
       };
       "mpd" = {
         "format" = "{stateIcon} {elapsedTime:%M:%S} / {totalTime:%M:%S}";
+        "tooltip-format" = "{artist} - {title}";
         "on-click" = "${pkgs-unstable.rmpc}/bin/rmpc togglepause";
         "max-length" = 40;
         "state-icons" = {
@@ -109,7 +110,6 @@
       #battery.critical {
         color: @base08;
       }
-
 
       #clock{
         color: @base0E;
