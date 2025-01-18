@@ -51,7 +51,8 @@
         # Fullscreen active window
         "$mod, F, fullscreen"
 
-        "$mod, return, exec, $TERMINAL"
+        # "$mod, return, exec, $TERMINAL"
+        "$mod, return, exec, kitty"
         "$mod, space, exec, $LAUNCHER"
         "$mod, I, exec, $BROWSER"
 

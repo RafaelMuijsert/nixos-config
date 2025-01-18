@@ -16,5 +16,9 @@
       pulse.enable = true;
     };
     services.gnome.gnome-keyring.enable = true;
+    services.xserver.displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
   };
 }
