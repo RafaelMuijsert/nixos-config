@@ -10,57 +10,7 @@
     config.keybindings = let
       modifier = config.wayland.windowManager.sway.config.modifier;
       secondaryModifier = "Mod4";
-      scSetVolume = pkgs.writeShellApplication {
-        name = "sc-set-volume";
-        text = ''
-          #!/bin/sh
-          wpctl set-volume @DEFAULT_AUDIO_SINK@ "$1"
-          volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.0f%%", $2 * 100}')
-          ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$volume" -h string:x-canonical-private-synchronous:volume "Volume" "$volume"
-        '';
-      };
-      scToggleRadio = pkgs.writeShellApplication {
-        name = "sc-toggle-radio";
-        text = ''
-          #!/bin/sh
-
-          RADIO_URL='https://icecast.omroep.nl/radio4-eigentijdsfb-aac.m3u'
-          # Toggle radio
-          pkill -f "mpv.*$RADIO_URL" || ${pkgs.mpv}/bin/mpv "$RADIO_URL";
-        '';
-      };
-      scSetBrightness = pkgs.writeShellApplication {
-        name = "sc-set-brightness";
-        text = ''
-          #!/bin/sh
-          brightness=$(${pkgs.brightnessctl}/bin/brightnessctl set "$1" | grep -oP '\(\K\d+%')
-          ${pkgs.libnotify}/bin/notify-send -t 3000 -h "int:value:$brightness" -h string:x-canonical-private-synchronous:brightness "Brightness" "$brightness"
-        '';
-      };
-      scScreenshot = pkgs.writeShellApplication {
-        name = "sc-screenshot";
-        text = ''
-          #!/bin/sh
-          ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" "$HOME/Pictures/Screenshots/$(date +%s).png"
-        '';
-      };
-      scToggleRecording = pkgs.writeShellApplication {
-        name = "sc-toggle-recording";
-        text = ''
-          #!/bin/sh
-
-          # Try to stop the recording first
-          if pkill --signal INT wf-recorder; then
-              pkill -SIGRTMIN+4 i3status-rs
-              ${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording stopped"
-          else
-              # If stopping fails, start a new recording
-              ${pkgs.libnotify}/bin/notify-send -t 3000 "Screen recorder" "Recording started"
-              ${pkgs.wf-recorder}/bin/wf-recorder -f "$HOME/Videos/Recordings/$(date +%s).mp4" &
-              pkill -SIGRTMIN+4 i3status-rs
-          fi
-        '';
-      };
+      wmScripts = import ../common/scripts.nix { inherit pkgs; };
     in {
       "${modifier}+Return" = "exec $TERMINAL";
       "${modifier}+Shift+q" = "kill";
@@ -68,23 +18,23 @@
       "${modifier}+Shift+e" = "exec swaynag -t warning -m 'Do you want to exit Sway?' -b 'Yes' 'swaymsg exit'";
       "${modifier}+i" = "exec $BROWSER";
 
-      "XF86AudioRaiseVolume" = "exec ${scSetVolume}/bin/sc-set-volume 1%+";
-      "XF86AudioLowerVolume" = "exec ${scSetVolume}/bin/sc-set-volume 1%-";
+      "XF86AudioRaiseVolume" = "exec ${wmScripts.scSetVolume}/bin/sc-set-volume 1%+";
+      "XF86AudioLowerVolume" = "exec ${wmScripts.scSetVolume}/bin/sc-set-volume 1%-";
       "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
 
-      "XF86MonBrightnessUp" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%+";
-      "XF86MonBrightnessDown" = "exec ${scSetBrightness}/bin/sc-set-brightness 1%-";
+      "XF86MonBrightnessUp" = "exec ${wmScripts.scSetBrightness}/bin/sc-set-brightness 1%+";
+      "XF86MonBrightnessDown" = "exec ${wmScripts.scSetBrightness}/bin/sc-set-brightness 1%-";
 
-      "Print" = "exec ${scScreenshot}/bin/sc-screenshot";
-      "Shift+Print" = "exec ${scToggleRecording}/bin/sc-toggle-recording";
+      "Print" = "exec ${wmScripts.scScreenshot}/bin/sc-screenshot";
+      "Shift+Print" = "exec ${wmScripts.scToggleRecording}/bin/sc-toggle-recording";
 
       # Use Logo + V for clipboard history.
-      "${secondaryModifier}+v" = "exec cliphist list | fuzzel --dmenu | cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
+      "${secondaryModifier}+v" = "exec ${wmScripts.scClipboardHistory}/bin/sc-clipboard";
 
       # Lock the screen
       "${secondaryModifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
 
-      "${secondaryModifier}+r" = "exec ${scToggleRadio}/bin/sc-toggle-radio";
+      "${secondaryModifier}+r" = "exec ${wmScripts.scToggleRadio}/bin/sc-toggle-radio";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
