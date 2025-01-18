@@ -18,6 +18,10 @@
       rustc
       rust-analyzer
       cargo
+
+      # Music
+      nicotine-plus
+      picard
     ];
   };
 }
