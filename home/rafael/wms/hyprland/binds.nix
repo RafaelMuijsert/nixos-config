@@ -80,5 +80,11 @@
         ",switch:off:Lid Switch, exec, hyprctl keyword monitor eDP-1,enable"
         ",switch:on:Lid Switch, exec, hyprctl keyword monitor eDP-1,disable"
       ];
+
+      # Mouse binds
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
     };
 }

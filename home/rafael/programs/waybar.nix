@@ -71,6 +71,10 @@
         color: @base05;
       }
 
+      #systemd-failed-units {
+        color: @base08;
+      }
+
       #window {
         color: @base07;
       }
