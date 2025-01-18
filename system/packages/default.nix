@@ -6,6 +6,7 @@
     git
     tmux
     bat
+    jq
     python3
   ];
 }
