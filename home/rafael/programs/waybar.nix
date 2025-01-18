@@ -7,6 +7,12 @@
       modules-center = ["hyprland/window"];
       modules-right = ["tray" "mpd" "wireplumber" "network" "memory" "battery" "clock"];
 
+      "systemd-failed-units" = {
+        "format" = " {nr_failed} failed";        
+        "format-ok" = "";
+        "hide-on-ok" = false;
+      };
+
       "hyprland/window" = {
         "max-length" = 80;
         "rewrite" = {
@@ -71,7 +77,15 @@
         color: @base05;
       }
 
-      #systemd-failed-units {
+      #workspaces {
+        margin-right: 16px;
+      }
+
+      #systemd-failed-units.ok {
+        color: @base0B;
+      }
+
+      #systemd-failed-units.degraded {
         color: @base08;
       }
 
