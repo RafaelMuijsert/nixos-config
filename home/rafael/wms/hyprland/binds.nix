@@ -48,11 +48,13 @@
         # Kill active window
         "$mod SHIFT, q, killactive, "
 
+        # Exit Hyprland
+        "$mod SHIFT, e, exit"
+
         # Fullscreen active window
         "$mod, F, fullscreen"
 
-        # "$mod, return, exec, $TERMINAL"
-        "$mod, return, exec, kitty"
+        "$mod, return, exec, $TERMINAL"
         "$mod, space, exec, $LAUNCHER"
         "$mod, I, exec, $BROWSER"
 
