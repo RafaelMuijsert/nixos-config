@@ -76,5 +76,9 @@
         ",XF86MonBrightnessUp, exec, ${wmScripts.scSetBrightness}/bin/sc-set-brightness 1%+"
         ",XF86MonBrightnessDown, exec, ${wmScripts.scSetBrightness}/bin/sc-set-brightness 1%-"       
       ];
+      bindl = [
+        ",switch:off:Lid Switch, exec, hyprctl keyword monitor eDP-1,enable"
+        ",switch:on:Lid Switch, exec, hyprctl keyword monitor eDP-1,disable"
+      ];
     };
 }
