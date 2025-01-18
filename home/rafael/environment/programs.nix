@@ -21,5 +21,12 @@
         LAUNCHER = "${pkgs-unstable.fuzzel}/bin/fuzzel";
       };
     })
+    (lib.mkIf osConfig.desktop.hyprland.enable {
+      home.sessionVariables = {
+        TERMINAL = "${pkgs.kitty}/bin/kitty";
+        BROWSER = "${pkgs.firefox}/bin/firefox";
+        LAUNCHER = "${pkgs-unstable.fuzzel}/bin/fuzzel";
+      };
+    })
   ];
 }
