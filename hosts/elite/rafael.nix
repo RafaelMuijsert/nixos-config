@@ -10,8 +10,6 @@
       # HTML LSP
       vscode-langservers-extracted
       superhtml
-      # devenv
-      devenv
       # Godot
       godot_4
       # Rust development
