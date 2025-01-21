@@ -12,6 +12,7 @@
       stateVersion = "24.11";
       packages = [
         pkgs.nil
+        pkgs.devenv
         pkgs.fishPlugins.pure
         pkgs.unzip
         pkgs.ffmpeg
