@@ -8,5 +8,7 @@
     bat
     jq
     python3
+    ripgrep
+    tldr
   ];
 }
