@@ -61,4 +61,27 @@
       fi
     '';
   };
+  scBluetoothConnect = pkgs.writeShellApplication {
+    name = "sc-bluetooth-connect";
+    text = ''
+      #!/bin/sh
+
+      ${pkgs.bluez}/bin/bluetoothctl connect "$(
+             ${pkgs.bluez}/bin/bluetoothctl devices |
+             ${pkgs.fuzzel}/bin/fuzzel --dmenu |
+             awk '{print $2}'
+      )" && ${pkgs.libnotify}/bin/notify-send -t 3000 "Bluetooth" "Connected"
+    '';
+  };
+  scBluetoothDisconnect = pkgs.writeShellApplication {
+    name = "sc-bluetooth-disconnect";
+    text = ''
+      #!/bin/sh
+      ${pkgs.bluez}/bin/bluetoothctl disconnect "$(
+             ${pkgs.bluez}/bin/bluetoothctl devices |
+             ${pkgs.fuzzel}/bin/fuzzel --dmenu |
+             awk '{print $2}'
+      )" && ${pkgs.libnotify}/bin/notify-send -t 3000 "Bluetooth" "Disconnected"
+    '';
+  };
 }
