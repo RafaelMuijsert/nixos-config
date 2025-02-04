@@ -16,6 +16,7 @@
       rustc
       rust-analyzer
       cargo
+      clippy
 
       # Music
       nicotine-plus
