@@ -3,6 +3,7 @@
     (pkgs.python311.withPackages (ppkgs: [
       ppkgs.numpy
       ppkgs.imageio
+      ppkgs.graphviz
       ppkgs.jupyter
       ppkgs.pandas
       ppkgs.matplotlib

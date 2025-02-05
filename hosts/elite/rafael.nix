@@ -21,6 +21,9 @@
       # Music
       nicotine-plus
       picard
+
+      # Visualization
+      graphviz
     ];
   };
 }
