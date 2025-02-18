@@ -18,6 +18,9 @@
       cargo
       clippy
 
+      # Speech utilities
+      espeak
+
       # Music
       nicotine-plus
       picard
