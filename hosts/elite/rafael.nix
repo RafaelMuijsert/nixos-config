@@ -27,6 +27,9 @@
 
       # Visualization
       graphviz
+
+      # Accounting
+      gnucash
     ];
   };
 }
