@@ -36,6 +36,10 @@
       zoxide.enable = true;
     };
 
+    services = {
+      gpg-agent.enable = true;
+    };
+
     # Enable XDG user dirs.
     xdg.userDirs.enable = true;
 
