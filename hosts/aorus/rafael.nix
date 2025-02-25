@@ -11,6 +11,9 @@
       gnumake
       gcc
 
+      # Haskell development
+      ghc
+
     ];
     # Host-specific symlinks in home directory.
     imports = [./symlinks.nix];
