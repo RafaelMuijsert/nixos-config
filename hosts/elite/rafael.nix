@@ -30,6 +30,9 @@
 
       # Accounting
       gnucash
+
+      # Haskell development
+      ghc
     ];
   };
 }
