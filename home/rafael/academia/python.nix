@@ -9,6 +9,7 @@
       ppkgs.pandas
       ppkgs.matplotlib
       ppkgs.networkx
+      ppkgs.pytest
       ppkgs.scipy
     ]))
   ];
