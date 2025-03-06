@@ -10,6 +10,7 @@
       ppkgs.matplotlib
       ppkgs.networkx
       ppkgs.pytest
+      ppkgs.pytorch
       ppkgs.scipy
       ppkgs.transformers
     ]))
