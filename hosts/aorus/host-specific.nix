@@ -29,6 +29,8 @@
     enable = true;
     acceleration = "rocm";
     rocmOverrideGfx = "10.1.0";
+    home = "/mnt/data/Ollama";
+    models = "/mnt/data/Ollama/Models";
   };
 
   # Enable sync
