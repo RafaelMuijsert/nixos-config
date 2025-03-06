@@ -11,6 +11,7 @@
       ppkgs.networkx
       ppkgs.pytest
       ppkgs.scipy
+      ppkgs.transformers
     ]))
   ];
 }
