@@ -1,14 +1,14 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{ pkgs, ... }: {
+  home.packages = [
     (pkgs.python311.withPackages (ppkgs: [
-      ppkgs.ollama
-      ppkgs.numpy
-      ppkgs.imageio
       ppkgs.graphviz
+      ppkgs.imageio
       ppkgs.jupyter
-      ppkgs.pandas
       ppkgs.matplotlib
       ppkgs.networkx
+      ppkgs.numpy
+      ppkgs.ollama
+      ppkgs.pandas
       ppkgs.pytest
       ppkgs.pytorch
       ppkgs.scipy
