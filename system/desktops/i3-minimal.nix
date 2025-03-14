@@ -17,5 +17,6 @@
       jack.enable = true;
       pulse.enable = true;
     };
+    stylix.enable = true;
   };
 }

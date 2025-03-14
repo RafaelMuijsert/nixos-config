@@ -20,5 +20,6 @@
       enable = true;
       wayland = true;
     };
+    stylix.enable = true;
   };
 }

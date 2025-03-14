@@ -16,5 +16,6 @@
       pulse.enable = true;
     };
     services.gnome.gnome-keyring.enable = true;
+    stylix.enable = true;
   };
 }
