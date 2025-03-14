@@ -47,12 +47,20 @@
       inherit inputs;
     };
 
+    nixosConfigurations.one = hostLib.mkHost {
+      name = "one";
+      system = "x86_64-linux";
+      users = ["rafael"];
+      inherit inputs;
+    };
+
     darwinConfigurations.air = hostLib.mkDarwinHost {
       name = "air";
       system = "aarch64-darwin";
       users = ["rafael"];
       inherit inputs;
     };
+
     formatter.x86_64-linux = pkgs.alejandra;
     devShell.x86_64-linux = pkgs.mkShell {
       buildInputs = with pkgs; [
