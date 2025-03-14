@@ -11,12 +11,9 @@
       username = "rafael";
       stateVersion = "24.11";
       packages = [
-        pkgs.nil
-        pkgs-unstable.devenv
         pkgs.fishPlugins.pure
         pkgs.unzip
         pkgs.ffmpeg
-        pkgs-unstable.rmpc
       ];
     };
     # Define programs to be enabled for this user across all hosts.

@@ -1,38 +1,52 @@
-{pkgs, ...}: {
+{pkgs, pkgs-unstable, ...}: {
   home-manager.users.rafael = {
-    home.packages = with pkgs; [
+    home.packages = [
+      # General development
+      pkgs-unstable.devenv
+
+      # Nix development
+      pkgs.nil
+      
       # C Development
-      clang-tools
-      gnumake
-      gcc
+      pkgs.clang-tools
+      pkgs.gnumake
+      pkgs.gcc
+
       # Svelte development
-      nodePackages.svelte-language-server
+      pkgs.nodePackages.svelte-language-server
+
       # HTML LSP
-      vscode-langservers-extracted
-      superhtml
+      pkgs.vscode-langservers-extracted
+      pkgs.superhtml
+
+      # TypeScript LSP
+      pkgs.typescript-language-server
+
       # Godot
-      godot_4
+      pkgs.godot_4
+
       # Rust development
-      rustc
-      rust-analyzer
-      cargo
-      clippy
+      pkgs.rustc
+      pkgs.rust-analyzer
+      pkgs.cargo
+      pkgs.clippy
 
       # Speech utilities
-      espeak
+      pkgs.espeak
 
       # Music
-      nicotine-plus
-      picard
+      pkgs.nicotine-plus
+      pkgs.picard
+      pkgs-unstable.rmpc
 
       # Visualization
-      graphviz
+      pkgs.graphviz
 
       # Accounting
-      gnucash
+      pkgs.gnucash
 
       # Haskell development
-      ghc
+      pkgs.ghc
     ];
   };
 }
