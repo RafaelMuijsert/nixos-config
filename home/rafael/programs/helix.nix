@@ -7,10 +7,15 @@
     package = pkgs-unstable.helix;
     defaultEditor = true;
     settings = {
-      editor.cursor-shape = {
-        insert = "bar";
-        normal = "block";
-        select = "underline";
+      editor = {
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        inline-diagnostics = {
+          cursor-line = "hint";
+        };
       };
       theme = "catppuccin_mocha";
     };
