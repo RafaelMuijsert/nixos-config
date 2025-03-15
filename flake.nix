@@ -16,9 +16,12 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    portfolio.url = "github:RafaelMuijsert/next-portfolio";
+    portfolio.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {nixpkgs, nix-darwin, ...} @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     hostLib = import ./lib/host.nix;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {

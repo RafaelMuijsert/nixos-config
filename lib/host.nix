@@ -13,6 +13,7 @@
     pathUtils = import ./path-utils.nix;
     resolvePath = path: ../. + "/${path}";
     specialArgs = {
+      inherit inputs;
       inherit pathUtils;
       inherit resolvePath;
       pkgs-unstable = import inputs.nixpkgs-unstable {inherit system;};
@@ -70,6 +71,7 @@
     pathUtils = import ./path-utils.nix;
     resolvePath = path: ../. + "/${path}";
     specialArgs = {
+      inherit inputs;
       inherit pathUtils;
       inherit resolvePath;
       pkgs-unstable = import inputs.nixpkgs-unstable {inherit system;};
