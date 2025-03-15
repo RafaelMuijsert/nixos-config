@@ -4,6 +4,7 @@ keys:
   - &hosts:
     - &aorus age19a8pv5ajthkewv95q3lhg5cn5antrsgzxftk3u8cl5v3jj2jwaaqk2wng5
     - &elite age1tcarlg43cfxuu0daemmctvv08pdlwpa4xtc4z9gte0dy2zz97q4srglkz3
+    - &one age18q7gkn6zcys47urf4jrpwjvfhhr2myep958vsvsnd2f0r00urf0qysjutn
 
 creation_rules:
   - path_regex: secrets.yaml$
@@ -12,3 +13,4 @@ creation_rules:
       - *rafael
       - *aorus
       - *elite
+      - *one
