@@ -44,6 +44,9 @@
     enable = true;
     key = config.sops.secrets."syncthing-hosts/elite/key".path;
     cert = config.sops.secrets."syncthing-hosts/elite/cert".path;
+    settings.devices = {
+      "one" = {id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";};
+    };
   };
 
   # Enable fingerprint unlocking.

@@ -36,6 +36,9 @@
     enable = true;
     key = config.sops.secrets."syncthing-hosts/aorus/key".path;
     cert = config.sops.secrets."syncthing-hosts/aorus/cert".path;
+    settings.devices = {
+      "one" = {id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";};
+    };
   };
 
   system.stateVersion = "24.05";

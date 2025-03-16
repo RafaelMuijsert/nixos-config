@@ -107,6 +107,16 @@ in {
     };
   };
 
+  services.syncthing = {
+    enable = true;
+    key = config.sops.secrets."syncthing-hosts/one/key".path;
+    cert = config.sops.secrets."syncthing-hosts/one/cert".path;
+    settings.devices = {
+      "elite" = {id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";};
+      # "aorus" = {id = "";};
+    };
+  };
+
   system.stateVersion = "24.11";
 }
 
