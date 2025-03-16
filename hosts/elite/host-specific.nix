@@ -13,6 +13,19 @@
     hostName = "elite";
     networkmanager.enable = true;
     firewall.enable = false;
+    wireguard.interfaces = {
+      wg0 = {
+        ips = [ "192.168.100.2/32" ];
+        privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
+        peers = [
+          {
+            publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
+            allowedIPs = [ "192.168.42.0/24" ];
+            endpoint = "vpn.muijsert.org:12996";
+          }
+        ];
+      };
+    };
   };
 
   desktop = {

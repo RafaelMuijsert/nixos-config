@@ -1,5 +1,7 @@
-{ inputs, pkgs, pkgs-unstable, ... }:
-{
+{ config, inputs, pkgs, pkgs-unstable, ... }:
+let
+  vpnPort = 12996;  
+in {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -10,6 +12,40 @@
     hostName = "one";
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [ 80 443 ];
+    firewall.allowedUDPPorts = [ vpnPort ];
+
+    nat = {
+      enable = true;
+      externalInterface = "enp4s0";
+      internalInterfaces = [ "wg0" ];
+    };
+
+    wireguard = {
+      enable = true;
+      interfaces = {
+        wg0 = {
+          ips = [ "192.168.100.1/24" ];
+          listenPort = vpnPort;
+          privateKeyFile = config.sops.secrets."vpn-server-key".path;
+
+
+          postSetup = ''
+            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o enp4s0 -j MASQUERADE
+          '';
+
+          postShutdown = ''
+            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o enp4s0 -j MASQUERADE
+          '';
+
+          peers = [
+            {
+              publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
+              allowedIPs = [ "192.168.100.2/32" ];
+            }
+          ];
+        };
+      };
+    };
   };
 
   # Immich

@@ -1,4 +1,4 @@
-{config, ...}: {
+{ ... }: {
   sops = {
     defaultSopsFile = ../../secrets.yaml;
     age = {
@@ -7,6 +7,10 @@
       generateKey = true;
     };
     secrets = {
+      "vpn-server-key" = {};
+
+      "vpn-clients/elite" = {};
+
       "syncthing-hosts/aorus/key" = {};
       "syncthing-hosts/aorus/cert" = {};
 
