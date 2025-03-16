@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, pkgs-unstable, ... }:
+{ config, inputs, lib, pkgs, pkgs-unstable, ... }:
 let
   vpnPort = 12996;  
   syncthingPort = 8384;
@@ -118,6 +118,10 @@ in {
       "elite" = {id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";};
       # "aorus" = {id = "";};
     };
+    settings.folders.Documents.devices = lib.mkForce ["elite"];
+    settings.folders.Music.devices = lib.mkForce ["elite"];
+    settings.folders.Pictures.devices = lib.mkForce ["elite"];
+
   };
 
   system.stateVersion = "24.11";
