@@ -1,6 +1,7 @@
 { config, inputs, pkgs, pkgs-unstable, ... }:
 let
   vpnPort = 12996;  
+  syncthingPort = 8384;
 in {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -11,7 +12,7 @@ in {
   networking = {
     hostName = "one";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ 80 443 ];
+    firewall.allowedTCPPorts = [ 80 443 syncthingPort ];
     firewall.allowedUDPPorts = [ vpnPort ];
 
     nat = {
@@ -109,6 +110,8 @@ in {
 
   services.syncthing = {
     enable = true;
+    guiAddress = "0.0.0.0:${builtins.toString syncthingPort}";
+
     key = config.sops.secrets."syncthing-hosts/one/key".path;
     cert = config.sops.secrets."syncthing-hosts/one/cert".path;
     settings.devices = {
