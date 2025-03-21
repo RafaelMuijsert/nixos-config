@@ -21,7 +21,7 @@
           {
             publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
             allowedIPs = [ "192.168.42.0/24" ];
-            endpoint = "vpn.muijsert.org:12996";
+            endpoint = "vpn.muijsert.org:51820";
           }
         ];
       };

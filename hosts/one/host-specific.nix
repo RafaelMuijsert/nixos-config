@@ -1,6 +1,6 @@
 { config, inputs, lib, pkgs, pkgs-unstable, ... }:
 let
-  vpnPort = 12996;  
+  vpnPort = 51820;  
   syncthingPort = 8384;
 in {
   # Use the systemd-boot EFI boot loader.
