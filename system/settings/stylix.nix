@@ -7,6 +7,10 @@
     base16Scheme = "${config.desktop.theme.scheme}";
     polarity = "${config.desktop.theme.polarity}";
     image = config.desktop.theme.wallpaper;
+    cursor = {
+      package = pkgs.whitesur-cursors;
+      name = "WhiteSur-cursors";
+    };
     fonts = {
       serif = {
         package = pkgs.nerdfonts.override {fonts = ["Arimo"];};
