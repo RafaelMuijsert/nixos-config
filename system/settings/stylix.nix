@@ -10,6 +10,7 @@
     cursor = {
       package = pkgs.whitesur-cursors;
       name = "WhiteSur-cursors";
+      size = 24;
     };
     fonts = {
       serif = {
