@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -24,8 +25,8 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font Mono";
+        package = lib.mkDefault (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
+        name = lib.mkDefault ("JetBrainsMono Nerd Font Mono");
       };
 
       emoji = {

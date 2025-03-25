@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -29,10 +30,19 @@
   };
 
   desktop = {
-    hyprland.enable = true;
+    sway-minimal.enable = true;
     # Use the Catppuccin theme.
-    theme = import ../../themes/catppuccin-yosemite;
+    theme = import ../../themes/nord;
   };
+
+  stylix.fonts.monospace = {
+    # package = lib.mkForce pkgs.nerdfonts.override {fonts = ["CaskaydiaMono"]; };
+    package = pkgs.nerdfonts.override {fonts = ["CascadiaMono"]; };
+    # name = lib.mkForce "CaskaydiaMono Nerd Font Mono";
+    name = "CaskaydiaMono Nerd Font Mono";
+  };
+
+  
   # Enable laptop-specific configuration.
   isLaptop = true;
 

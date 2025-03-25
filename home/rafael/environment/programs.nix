@@ -17,7 +17,7 @@
     (lib.mkIf osConfig.desktop.sway-minimal.enable {
       home.sessionVariables = {
         TERMINAL = "${pkgs.kitty}/bin/kitty";
-        BROWSER = "${pkgs.brave}/bin/brave";
+        BROWSER = "${pkgs.firefox}/bin/firefox";
         LAUNCHER = "${pkgs-unstable.fuzzel}/bin/fuzzel";
       };
     })
