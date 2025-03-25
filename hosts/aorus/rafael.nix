@@ -2,14 +2,26 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   home-manager.users.rafael = {
     home.packages = with pkgs; [
+      # General development
+      pkgs-unstable.devenv
+
       # C Development
       clang-tools
       gnumake
       gcc
+
+      # HTML LSP
+      pkgs.vscode-langservers-extracted
+      pkgs.superhtml
+
+      # TypeScript LSP
+      pkgs.typescript-language-server
+
 
       # Haskell development
       ghc
