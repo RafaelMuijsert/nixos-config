@@ -1,4 +1,5 @@
 {
+  osConfig,
   pkgs,
   pkgs-unstable,
   ...
@@ -17,7 +18,7 @@
           cursor-line = "hint";
         };
       };
-      theme = "catppuccin_mocha";
+      theme = osConfig.desktop.theme.helixTheme;
     };
     languages = {
       language = [
