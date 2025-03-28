@@ -58,8 +58,6 @@ in {
     port = 2283;
     settings = {
       server.externalDomain = "https://photos.muijsert.org";
-      ffmpeg.transcode = "disabled";
-      machineLearning.enabled = false;
     };
   };
 
@@ -130,6 +128,3 @@ in {
 
   system.stateVersion = "24.11";
 }
-
-
-

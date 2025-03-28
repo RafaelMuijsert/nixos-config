@@ -18,7 +18,7 @@
           cursor-line = "hint";
         };
       };
-      theme = osConfig.desktop.theme.helixTheme;
+      theme = (osConfig.desktop.theme or {}).helixTheme or "catppuccin_mocha";
     };
     languages = {
       language = [
@@ -116,3 +116,4 @@
     };
   };
 }
+
