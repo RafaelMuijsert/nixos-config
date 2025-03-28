@@ -54,9 +54,12 @@ in {
     enable = true;
     mediaLocation = "/mnt/data/Photos/";
     package = pkgs-unstable.immich;
+    host = "127.0.0.1";
     port = 2283;
     settings = {
       server.externalDomain = "https://photos.muijsert.org";
+      ffmpeg.transcode = "disabled";
+      machineLearning.enabled = false;
     };
   };
 
@@ -82,12 +85,13 @@ in {
   services.nginx = {
     enable = true;
     recommendedProxySettings = true;
+    clientMaxBodySize = "10G";
     virtualHosts = {
       "muijsert.org" = {
         enableACME = true;
         forceSSL = true;
 
-        locations."/".proxyPass = "http://localhost:3000";
+        locations."/".proxyPass = "http://127.0.0.1:3000";
 
         serverName = "muijsert.org";
         serverAliases = [
@@ -99,7 +103,7 @@ in {
         forceSSL = true;
 
         locations."/" = {
-          proxyPass = "http://localhost:2283";
+          proxyPass = "http://127.0.0.1:2283";
           proxyWebsockets = true;
         };
 
@@ -126,5 +130,6 @@ in {
 
   system.stateVersion = "24.11";
 }
+
 
 
