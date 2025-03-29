@@ -107,7 +107,7 @@
               # Configuration of the user.
               "home/${user}/darwin.nix"
               # Host-specific configuration for this user.
-              # "hosts/${name}/${user}.nix"
+              "hosts/${name}/${user}.nix"
             ]
         )
         users;
