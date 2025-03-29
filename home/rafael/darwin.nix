@@ -37,9 +37,8 @@
       ./academia
       ./desktops
       ./environment
-      ./pograms
+      ./programs
       ./settings
-      ./themes
     ];
   };
 }

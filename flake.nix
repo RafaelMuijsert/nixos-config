@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin?ref=nix-darwin-24.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -24,6 +24,7 @@
   outputs = {nixpkgs, ...} @ inputs: let
     hostLib = import ./lib/host.nix;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    darwinPkgs = nixpkgs.legacyPackages.aarch64-darwin;
   in {
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
@@ -67,6 +68,13 @@
     formatter.x86_64-linux = pkgs.alejandra;
     devShell.x86_64-linux = pkgs.mkShell {
       buildInputs = with pkgs; [
+        just
+        age
+        sops
+      ];
+    };
+    devShell.aarch64-darwin = darwinPkgs.mkShell {
+      buildInputs = with darwinPkgs; [
         just
         age
         sops
