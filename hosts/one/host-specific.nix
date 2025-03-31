@@ -23,10 +23,10 @@ in {
 
     wireguard = {
       enable = true;
-      mtu = 1386;
       interfaces = {
         wg0 = {
           ips = [ "192.168.100.1/24" ];
+          mtu = 1386;
           listenPort = vpnPort;
           privateKeyFile = config.sops.secrets."vpn-server-key".path;
 
