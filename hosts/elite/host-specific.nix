@@ -16,6 +16,7 @@
     firewall.enable = false;
     wireguard.interfaces = {
       wg0 = {
+        mtu = 1386;
         ips = [ "192.168.100.2/32" ];
         privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
         peers = [
