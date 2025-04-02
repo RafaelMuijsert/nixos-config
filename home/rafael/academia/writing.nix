@@ -3,14 +3,15 @@
   lib,
   osConfig,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   config = lib.mkIf osConfig.academia {
-    home.packages = with pkgs; [
+    home.packages = [
       # Typst
-      typst
-      typst-lsp
-      tinymist
+      pkgs-unstable.typst
+      pkgs-unstable.typst-lsp
+      pkgs-unstable.tinymist
     ];
   };
 }
