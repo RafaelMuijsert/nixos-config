@@ -10,7 +10,6 @@
     home.packages = [
       # Typst
       pkgs-unstable.typst
-      pkgs-unstable.typst-lsp
       pkgs-unstable.tinymist
     ];
   };
