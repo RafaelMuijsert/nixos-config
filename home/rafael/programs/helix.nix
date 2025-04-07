@@ -30,6 +30,14 @@
           };
         }
         {
+          name = "typst";
+          formatter = {
+            command = "${pkgs-unstable.typstfmt}/bin/typstfmt";
+            args = [ "--output" "-"];
+          };
+          auto-format = true;
+        }
+        {
           name = "php";
           scope = "source.php";
           injection-regex = "php";
