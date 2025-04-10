@@ -15,6 +15,7 @@
       ppkgs.scikit-image
       ppkgs.scipy
       ppkgs.transformers
+      ppkgs.wget
     ]))
   ];
 }
