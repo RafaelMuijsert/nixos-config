@@ -12,9 +12,6 @@
       pkgs.gnumake
       pkgs.gcc
 
-      # Python development
-      pkgs.uv
-
       # Svelte development
       pkgs.nodePackages.svelte-language-server
 

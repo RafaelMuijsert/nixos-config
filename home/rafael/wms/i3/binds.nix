@@ -27,6 +27,8 @@
       "${modifier}+8" = "workspace number 8";
       "${modifier}+9" = "workspace number 9";
       "${modifier}+0" = "workspace number 10";
+      "${modifier}+minus" = "workspace number 11";
+      "${modifier}+equal" = "workspace number 12";
 
       "${modifier}+Shift+1" = "move container to workspace number 1";
       "${modifier}+Shift+2" = "move container to workspace number 2";
@@ -38,6 +40,8 @@
       "${modifier}+Shift+8" = "move container to workspace number 8";
       "${modifier}+Shift+9" = "move container to workspace number 9";
       "${modifier}+Shift+0" = "move container to workspace number 10";
+      "${modifier}+Shift+minus" = "move container to workspace number 11";
+      "${modifier}+Shift+equal" = "move container to workspace number 12";
 
       "${modifier}+f" = "fullscreen toggle";
 
