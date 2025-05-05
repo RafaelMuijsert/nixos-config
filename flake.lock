@@ -323,11 +323,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745324800,
-        "narHash": "sha256-x28AbGH93YSDlg/86we/ImqHdrge9xRvcTHZvkHQ1r0=",
+        "lastModified": 1746445744,
+        "narHash": "sha256-LxIDe5btTN9vQ9ZjMzBpiqsuzphiDiDtSY1/VCWuptU=",
         "owner": "RafaelMuijsert",
         "repo": "next-portfolio",
-        "rev": "53d0264b69863e9bfdf5b0a83dba049e46c733fc",
+        "rev": "fd456e53172ee757f1270d9a734bfeac98b38b77",
         "type": "github"
       },
       "original": {
