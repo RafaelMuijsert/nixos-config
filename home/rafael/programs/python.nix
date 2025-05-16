@@ -14,6 +14,7 @@
       ppkgs.pytorch
       ppkgs.scikit-image
       ppkgs.scipy
+      ppkgs.torchvision
       ppkgs.transformers
       ppkgs.wget
     ]))
