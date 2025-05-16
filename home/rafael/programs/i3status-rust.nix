@@ -38,6 +38,11 @@ in {
             ];
           }
           {
+            block = "pomodoro";
+            notify_cmd = "${pkgs.libnotify}/bin/notify-send '{msg}'";
+            blocking_cmd = true;
+          }
+          {
             block = "sound";
             format = " $icon {$volume|Muted} ";
             step_width = 1;
