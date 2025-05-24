@@ -25,7 +25,11 @@
         titlebar = false;
       };
       startup = [
+        # Use logind idle configuration
         { command = "swayidle idlehint 1"; }
+        # Auto-execute programs
+        { command = "${pkgs.telegram-desktop}/bin/telegram-desktop"; }
+        { command = "${pkgs.thunderbird}/bin/thunderbird"; }
       ];
     };
     extraConfig = lib.mkIf osConfig.isLaptop (
