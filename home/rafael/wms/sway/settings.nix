@@ -24,6 +24,9 @@
         border = 1;
         titlebar = false;
       };
+      startup = [
+        { command = "swayidle idlehint 1"; }
+      ];
     };
     extraConfig = lib.mkIf osConfig.isLaptop (
       lib.concatLines [

@@ -44,8 +44,18 @@
   };
 
   # udev rule to prevent suspend wakeups from USB controller
+  # services.udev.extraRules = ''
+  #   ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x149c" ATTR{power/wakeup}="disabled"
+  # '';
   services.udev.extraRules = ''
-    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x149c" ATTR{power/wakeup}="disabled"
+    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
+  '';
+
+  # Suspend when power button is pressed
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+    IdleAction=suspend
+    IdleActionSec=600
   '';
 
 
