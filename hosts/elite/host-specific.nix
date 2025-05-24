@@ -37,9 +37,7 @@
   };
 
   stylix.fonts.monospace = {
-    # package = lib.mkForce pkgs.nerdfonts.override {fonts = ["CaskaydiaMono"]; };
-    package = pkgs.nerdfonts.override {fonts = ["CascadiaMono"]; };
-    # name = lib.mkForce "CaskaydiaMono Nerd Font Mono";
+    package = pkgs.nerd-fonts.caskaydia-mono;
     name = "CaskaydiaMono Nerd Font Mono";
   };
 

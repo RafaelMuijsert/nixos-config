@@ -15,17 +15,17 @@
     };
     fonts = {
       serif = {
-        package = pkgs.nerdfonts.override {fonts = ["Arimo"];};
+        package = pkgs.nerd-fonts.arimo;
         name = "Arimo Nerd Font";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override {fonts = ["Arimo"];};
+        package = pkgs.nerd-fonts.arimo;
         name = "Arimo Nerd Font";
       };
 
       monospace = {
-        package = lib.mkDefault (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = lib.mkDefault ("JetBrainsMono Nerd Font Mono");
       };
 

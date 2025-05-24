@@ -11,7 +11,6 @@
       username = "rafael";
       stateVersion = "24.11";
       packages = [
-        pkgs.fishPlugins.pure
         pkgs.unzip
         pkgs.ffmpeg
       ];
