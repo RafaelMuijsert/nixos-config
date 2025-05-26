@@ -1,6 +1,8 @@
 {
   services.mako = {
-    icons = true;
-    padding = "24";
+    settings = {
+      icons = true;
+      padding = "24";
+    };
   };
 }
