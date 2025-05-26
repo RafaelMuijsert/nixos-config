@@ -7,7 +7,7 @@
     tmux
     bat
     jq
-    python3
+    python313
     ripgrep
     tldr
   ];
