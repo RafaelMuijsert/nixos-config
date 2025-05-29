@@ -23,6 +23,7 @@
       eza.enable = true;
       fastfetch.enable = true;
       gpg.enable = true;
+      gh.enable = true;
       home-manager.enable = true;
       fish.enable = true;
       fzf.enable = true;
