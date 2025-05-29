@@ -36,7 +36,7 @@
     theme = import ../../themes/nord;
   };
 
-  stylix.fonts.monospace = {
+  stylix.fonts.monospace = lib.mkForce {
     package = pkgs.nerd-fonts.caskaydia-mono;
     name = "CaskaydiaMono Nerd Font Mono";
   };
