@@ -30,6 +30,10 @@
 
       # Use Logo + V for clipboard history.
       "${secondaryModifier}+v" = "exec ${wmScripts.scClipboardHistory}/bin/sc-clipboard";
+     
+      # Connect/disconnect Bluetooth devices
+      "${secondaryModifier}+c" = "exec ${wmScripts.scBluetoothConnect}/bin/sc-bluetooth-connect";
+      "${secondaryModifier}+d" = "exec ${wmScripts.scBluetoothDisconnect}/bin/sc-bluetooth-disconnect";
 
       # Lock the screen
       "${secondaryModifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
