@@ -11,6 +11,7 @@
       username = "rafael";
       stateVersion = "24.11";
       packages = [
+        pkgs.glow
         pkgs.unzip
         pkgs.ffmpeg
       ];

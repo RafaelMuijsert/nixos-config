@@ -12,6 +12,7 @@
       stateVersion = "24.11";
       packages = [
         pkgs.fishPlugins.done
+        pkgs.glow
         pkgs.unzip
         pkgs.ffmpeg
       ];
