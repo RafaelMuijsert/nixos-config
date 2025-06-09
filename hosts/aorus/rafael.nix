@@ -10,6 +10,9 @@
       # General development
       pkgs-unstable.devenv
 
+      # Music
+      pkgs-unstable.rmpc
+
       # C Development
       clang-tools
       gnumake

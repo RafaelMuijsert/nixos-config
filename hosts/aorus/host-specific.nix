@@ -12,6 +12,7 @@
   networking = {
     hostName = "aorus";
     networkmanager.enable = true;
+    firewall.enable = false;
   };
 
   desktop = {
