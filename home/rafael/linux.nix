@@ -17,6 +17,7 @@
         pkgs.unzip
         pkgs.ffmpeg
       ];
+      shell.enableFishIntegration = true;
     };
     # Define programs to be enabled for this user across all hosts.
     programs = {
