@@ -38,7 +38,11 @@
       # Lock the screen
       "${secondaryModifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
 
+      # Radio
       "${secondaryModifier}+r" = "exec ${wmScripts.scToggleRadio}/bin/sc-toggle-radio";
+
+      # Todo list
+      "${secondaryModifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
