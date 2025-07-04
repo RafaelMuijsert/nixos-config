@@ -1,14 +1,19 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    helix
-    wget
+    bat
+    duf
+    dust
+    fd
     file
     git
-    tmux
-    bat
+    helix
+    lazygit
     jq
     python313
+    procs
     ripgrep
     tldr
+    tmux
+    wget
   ];
 }
