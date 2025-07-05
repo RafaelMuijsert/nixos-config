@@ -22,6 +22,9 @@
       # TypeScript LSP
       pkgs.typescript-language-server
 
+      # OBS
+      pkgs.obs-studio
+
       # Godot
       pkgs.godot_4
 
