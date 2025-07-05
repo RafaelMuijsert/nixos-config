@@ -1,4 +1,5 @@
 {...}: {
+  stylix.targets.firefox.profileNames = [ "default" ];
   programs.firefox = {
     profiles.default = {
       settings = {
