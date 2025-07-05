@@ -27,7 +27,6 @@
       eza.enable = true;
       fastfetch.enable = true;
       gh.enable = true;
-      gpg.enable = true;
       home-manager.enable = true;
       fish.enable = true;
       fzf.enable = true;
@@ -35,10 +34,6 @@
       helix.enable = true;
       yazi.enable = true;
       zoxide.enable = true;
-    };
-
-    services = {
-      gpg-agent.enable = true;
     };
 
     # Enable XDG user dirs.

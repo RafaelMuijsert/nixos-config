@@ -1,7 +1,6 @@
 {pkgs, ...}: {
-  programs.gpg = {
-  };
-  services.gpg-agent = {
-    pinentry.package = pkgs.pinentry-gnome3;
-  };
+  programs.gpg = { };
+  # services.gpg-agent = {
+  #   pinentry.package = pkgs.pinentry-gtk2;
+  # };
 }
