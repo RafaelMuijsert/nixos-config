@@ -19,6 +19,10 @@
           repeat_delay = "200";
           repeat_rate = "30";
         };
+        "type:touchpad" = {
+          tap = "enabled";
+          dwt = "disabled";
+        };
       };
       window = {
         border = 1;
