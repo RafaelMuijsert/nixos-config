@@ -27,6 +27,7 @@
 
       # Godot
       pkgs.godot_4
+      pkgs.libresprite
 
       # Rust development
       pkgs.rustc
