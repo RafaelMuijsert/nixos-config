@@ -18,6 +18,10 @@
       gnumake
       gcc
 
+      # Game development
+      godot_4
+      libresprite
+
       # HTML LSP
       pkgs.vscode-langservers-extracted
       pkgs.superhtml
