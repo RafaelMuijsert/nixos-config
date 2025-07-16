@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = [
     (pkgs.python313.withPackages (ppkgs: [
+      ppkgs.geopandas
       ppkgs.graphviz
       ppkgs.imageio
       ppkgs.jupyter
