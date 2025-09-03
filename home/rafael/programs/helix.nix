@@ -121,6 +121,18 @@
         command = "${pkgs-unstable.phpactor}/bin/phpactor";
         args = [ "language-server"];
       };
+      language-server.tinymist = {
+        command = "${pkgs-unstable.tinymist}/bin/tinymist";
+        config = {
+          exportPdf = "onSave";
+          outputPath = "$root/$name";
+          preview.background.enabled = true;
+          preview.background.args = [
+            "--data-plane-host=127.0.0.1:23635"
+            "--open"
+          ];
+        };
+      };
     };
   };
 }
