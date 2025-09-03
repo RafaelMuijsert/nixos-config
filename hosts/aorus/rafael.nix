@@ -12,6 +12,7 @@
 
       # Music
       pkgs-unstable.rmpc
+      ardour
 
       # C Development
       clang-tools
