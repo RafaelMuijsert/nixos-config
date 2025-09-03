@@ -13,7 +13,7 @@
   networking = {
     hostName = "elite";
     networkmanager.enable = true;
-    firewall.enable = false;
+    firewall.enable = true;
     wireguard.interfaces = {
       wg0 = {
         mtu = 1386;
