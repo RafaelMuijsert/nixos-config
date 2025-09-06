@@ -44,6 +44,16 @@
       # Todo list
       "${secondaryModifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
 
+      # Present
+      "${secondaryModifier}+p" = "exec pkill wl-mirror || ${pkgs.wl-mirror}/bin/wl-present mirror eDP-1 -F";
+
+      # Freeze presentation
+      "${secondaryModifier}+f" = "exec ${pkgs.wl-mirror}/bin/wl-present toggle-freeze";
+
+      # Hide bar
+      "${secondaryModifier}+b" = "bar mode dock";
+      "${secondaryModifier}+n" = "bar mode hide";
+
       # Different dispay scales
       "${secondaryModifier}+left" = "output '*' scale 1";
       "${secondaryModifier}+up" = "output '*' scale 1.5";
