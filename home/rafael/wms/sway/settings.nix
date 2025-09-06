@@ -25,7 +25,7 @@
         };
       };
       window = {
-        border = 1;
+        border = 0;
         titlebar = false;
       };
       startup = [

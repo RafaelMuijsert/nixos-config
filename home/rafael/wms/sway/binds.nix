@@ -44,6 +44,11 @@
       # Todo list
       "${secondaryModifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
 
+      # Different dispay scales
+      "${secondaryModifier}+left" = "output '*' scale 1";
+      "${secondaryModifier}+up" = "output '*' scale 1.5";
+      "${secondaryModifier}+right" = "output '*' scale 2";
+
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
       "${modifier}+3" = "workspace number 3";

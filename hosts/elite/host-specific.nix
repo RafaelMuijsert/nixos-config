@@ -13,7 +13,7 @@
   networking = {
     hostName = "elite";
     networkmanager.enable = true;
-    firewall.enable = true;
+    firewall.enable = false;
     wireguard.interfaces = {
       wg0 = {
         mtu = 1386;
@@ -32,14 +32,13 @@
 
   desktop = {
     sway-minimal.enable = true;
-    # Use the Catppuccin theme.
-    theme = import ../../themes/nord;
+    theme = import ../../themes/catppuccin-nix;
   };
 
-  stylix.fonts.monospace = lib.mkForce {
-    package = pkgs.nerd-fonts.caskaydia-mono;
-    name = "CaskaydiaMono Nerd Font Mono";
-  };
+  # stylix.fonts.monospace = lib.mkForce {
+  #   package = pkgs.nerd-fonts.caskaydia-mono;
+  #   name = "CaskaydiaMono Nerd Font Mono";
+  # };
 
   
   # Enable laptop-specific configuration.

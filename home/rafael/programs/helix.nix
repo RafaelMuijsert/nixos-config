@@ -128,7 +128,7 @@
           outputPath = "$root/$name";
           preview.background.enabled = true;
           preview.background.args = [
-            "--data-plane-host=127.0.0.1:23635"
+            "--data-plane-host=127.0.0.1:0"
             "--open"
           ];
         };

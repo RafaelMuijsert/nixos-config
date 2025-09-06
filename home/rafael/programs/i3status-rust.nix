@@ -5,8 +5,8 @@
   pkgs,
   ...
 }: let
-  background = config.lib.stylix.colors.base01;
-  foreground = config.lib.stylix.colors.base05;
+  background = config.lib.stylix.colors.base00;
+  foreground = config.lib.stylix.colors.base07;
   sbRecordingStatus = pkgs.writeShellApplication {
     name = "sb-recording-status";
     text = ''
