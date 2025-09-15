@@ -25,6 +25,21 @@
   # Install academia-related packages.
   academia = true;
 
+  programs.virt-manager = {
+    enable = true;
+  };
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.swtpm.enable = true;
+  };
+  users.groups.libvirtd.members = ["rafael"];
+
+  # Enable virtual camera
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+  };
+
   # Enable ollama
   services.ollama = {
     enable = true;
@@ -42,12 +57,6 @@
     settings.devices = {
       "one" = {id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";};
     };
-  };
-
-  # enable virtual camera
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
   };
 
   # udev rule to prevent suspend wakeups from USB controller
