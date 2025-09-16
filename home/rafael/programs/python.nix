@@ -9,13 +9,14 @@
       ppkgs.networkx
       ppkgs.numpy
       ppkgs.ollama
+      ppkgs.ortools
       ppkgs.opencv-python
       ppkgs.pandas
       ppkgs.pytest
-      ppkgs.pytorch
+      # ppkgs.pytorch
       ppkgs.scikit-image
       ppkgs.scipy
-      ppkgs.torchvision
+      # ppkgs.torchvision
       ppkgs.transformers
       ppkgs.wget
     ]))
