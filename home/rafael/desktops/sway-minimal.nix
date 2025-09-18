@@ -25,6 +25,7 @@
       mako.enable = true;
       mpd.enable = true;
       cliphist.enable = true;
+      wlsunset.enable = true;
     };
     wayland.windowManager.sway.enable = true;
   };
