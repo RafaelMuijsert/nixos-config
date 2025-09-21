@@ -13,6 +13,7 @@
       # Music
       pkgs-unstable.rmpc
       ardour
+      pkgs-unstable.ncspot
 
       # C Development
       clang-tools
