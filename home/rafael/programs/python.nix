@@ -19,6 +19,7 @@
       # ppkgs.torchvision
       ppkgs.transformers
       ppkgs.wget
+      ppkgs.z3-solver
     ]))
   ];
 }

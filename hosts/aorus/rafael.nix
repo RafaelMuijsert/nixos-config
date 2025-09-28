@@ -15,6 +15,9 @@
       ardour
       pkgs-unstable.ncspot
 
+      # Tools
+      minisat
+
       # C Development
       clang-tools
       gnumake
@@ -30,7 +33,6 @@
 
       # TypeScript LSP
       pkgs.typescript-language-server
-
 
       # Haskell development
       ghc
