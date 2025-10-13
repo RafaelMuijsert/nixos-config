@@ -44,6 +44,9 @@
       # Todo list
       "${secondaryModifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
 
+      # Todo backlog
+      "${secondaryModifier}+Shift+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/backlog.txt";
+
       # Present
       "${secondaryModifier}+p" = "exec pkill wl-mirror || ${pkgs.wl-mirror}/bin/wl-present mirror eDP-1 -F";
 
