@@ -23,15 +23,12 @@
     settings.folders = {
       "Documents" = {
         path = "/home/rafael/Documents";
-        devices = ["one"];
       };
       "Music" = {
         path = "/home/rafael/Music";
-        devices = ["one"];
       };
       "Pictures" = {
         path = "/home/rafael/Pictures";
-        devices = ["one"];
       };
     };
   };

@@ -58,6 +58,9 @@
       "one" = {id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";};
       "elite" = {id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";};
     };
+    settings.folders.Documents.devices = ["one" "elite"];
+    settings.folders.Music.devices = ["one" "elite"];
+    settings.folders.Pictures.devices = ["one" "elite"];
   };
 
   # udev rule to prevent suspend wakeups from USB controller
