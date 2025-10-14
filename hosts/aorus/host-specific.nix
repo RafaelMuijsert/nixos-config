@@ -56,6 +56,7 @@
     cert = config.sops.secrets."syncthing-hosts/aorus/cert".path;
     settings.devices = {
       "one" = {id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";};
+      "elite" = {id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";};
     };
   };
 
