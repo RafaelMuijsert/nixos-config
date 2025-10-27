@@ -44,6 +44,9 @@
       # Todo list
       "${secondaryModifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
 
+      # Weekly todo
+      "${secondaryModifier}+w" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/weekly.txt";
+
       # Todo backlog
       "${secondaryModifier}+Shift+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/backlog.txt";
 
