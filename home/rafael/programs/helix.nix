@@ -31,10 +31,7 @@
         }
         {
           name = "typst";
-          formatter = {
-            command = "${pkgs-unstable.typstfmt}/bin/typstfmt";
-            args = [ "--output" "-"];
-          };
+          formatter.command = "${pkgs.typstyle}/bin/typstyle";
           auto-format = true;
         }
         {
