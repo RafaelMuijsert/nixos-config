@@ -18,6 +18,7 @@
         "type:keyboard" = {
           repeat_delay = "200";
           repeat_rate = "30";
+          xkb_options = "caps:swapescape";
         };
         "type:touchpad" = {
           tap = "enabled";
