@@ -33,6 +33,7 @@
       git.enable = true;
       helix.enable = true;
       yazi.enable = true;
+      zellij.enable = true;
       zoxide.enable = true;
     };
 

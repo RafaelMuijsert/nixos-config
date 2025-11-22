@@ -15,6 +15,5 @@
     tldr
     tmux
     wget
-    zellij
   ];
 }
