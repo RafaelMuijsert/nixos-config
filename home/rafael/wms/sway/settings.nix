@@ -8,7 +8,7 @@
 }: {
   wayland.windowManager.sway = {
     config = {
-      modifier = "Mod1";
+      modifier = "Mod4";
       output = {
         "*" = {
           scale = "1";

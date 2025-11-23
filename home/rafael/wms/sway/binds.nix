@@ -9,12 +9,14 @@
   wayland.windowManager.sway = {
     config.keybindings = let
       modifier = config.wayland.windowManager.sway.config.modifier;
-      secondaryModifier = "Mod4";
+      secondaryModifier = "Mod4+Mod1";
       wmScripts = import ../common/scripts.nix { inherit pkgs; };
     in {
+      # Use Alt + Space to open launcher
+      "Mod1+space" = "exec $LAUNCHER";
+
       "${modifier}+Return" = "exec $TERMINAL";
       "${modifier}+Shift+q" = "kill";
-      "${modifier}+space" = "exec $LAUNCHER";
       "${modifier}+Shift+e" = "exec swaynag -t warning -m 'Do you want to exit Sway?' -b 'Yes' 'swaymsg exit'";
       "${modifier}+i" = "exec $BROWSER";
 
@@ -29,41 +31,37 @@
       "Shift+Print" = "exec ${wmScripts.scToggleRecording}/bin/sc-toggle-recording";
 
       # Use Logo + V for clipboard history.
-      "${secondaryModifier}+v" = "exec ${wmScripts.scClipboardHistory}/bin/sc-clipboard";
+      "${modifier}+v" = "exec ${wmScripts.scClipboardHistory}/bin/sc-clipboard";
      
       # Connect/disconnect Bluetooth devices
-      "${secondaryModifier}+c" = "exec ${wmScripts.scBluetoothConnect}/bin/sc-bluetooth-connect";
-      "${secondaryModifier}+d" = "exec ${wmScripts.scBluetoothDisconnect}/bin/sc-bluetooth-disconnect";
+      "${modifier}+b" = "exec ${wmScripts.scBluetoothConnect}/bin/sc-bluetooth-connect";
+      "${modifier}+Shift+b" = "exec ${wmScripts.scBluetoothDisconnect}/bin/sc-bluetooth-disconnect";
 
       # Lock the screen
-      "${secondaryModifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
+      "${modifier}+x" = "exec ${pkgs-unstable.hyprlock}/bin/hyprlock";
 
       # Radio
-      "${secondaryModifier}+r" = "exec ${wmScripts.scToggleRadio}/bin/sc-toggle-radio";
+      "${modifier}+r" = "exec ${wmScripts.scToggleRadio}/bin/sc-toggle-radio";
 
       # Todo list
-      "${secondaryModifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
+      "${modifier}+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/todo.txt";
 
       # Weekly todo
-      "${secondaryModifier}+w" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/weekly.txt";
+      "${modifier}+w" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/weekly.txt";
 
       # Todo backlog
-      "${secondaryModifier}+Shift+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/backlog.txt";
+      "${modifier}+Shift+t" = "exec ${pkgs.kitty}/bin/kitty hx ~/Documents/Personal/Notes/backlog.txt";
 
       # Present
-      "${secondaryModifier}+p" = "exec pkill wl-mirror || ${pkgs.wl-mirror}/bin/wl-present mirror eDP-1 -F";
+      "${modifier}+p" = "exec pkill wl-mirror || ${pkgs.wl-mirror}/bin/wl-present mirror eDP-1 -F";
 
       # Freeze presentation
-      "${secondaryModifier}+f" = "exec ${pkgs.wl-mirror}/bin/wl-present toggle-freeze";
-
-      # Hide bar
-      "${secondaryModifier}+b" = "bar mode dock";
-      "${secondaryModifier}+n" = "bar mode hide";
+      "${modifier}+Shift+p" = "exec ${pkgs.wl-mirror}/bin/wl-present toggle-freeze";
 
       # Different dispay scales
-      "${secondaryModifier}+left" = "output '*' scale 1";
-      "${secondaryModifier}+up" = "output '*' scale 1.5";
-      "${secondaryModifier}+right" = "output '*' scale 2";
+      "${modifier}+left" = "output '*' scale 1";
+      "${modifier}+up" = "output '*' scale 1.5";
+      "${modifier}+right" = "output '*' scale 2";
 
       "${modifier}+1" = "workspace number 1";
       "${modifier}+2" = "workspace number 2";
@@ -94,10 +92,8 @@
       "${modifier}+Shift+equal" = "move container to workspace number 12";
 
       "${modifier}+f" = "fullscreen toggle";
-      "${modifier}+t" = "floating toggle";
-      "${modifier}+v" = "split vertical";
-      "${modifier}+b" = "split horizontal";
-      "${modifier}+x" = "split toggle";
+      "${modifier}+z" = "floating toggle";
+      "${modifier}+o" = "split toggle";
 
       "${secondaryModifier}+h" = "resize grow left 8px";
       "${secondaryModifier}+j" = "resize grow down 8px";
