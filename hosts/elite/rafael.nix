@@ -1,6 +1,8 @@
 {pkgs, pkgs-unstable, ...}: {
   home-manager.users.rafael = {
     home.packages = [
+      # Communication
+      pkgs.altus
       # General development
       pkgs-unstable.devenv
 
