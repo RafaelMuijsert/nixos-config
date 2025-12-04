@@ -69,11 +69,11 @@
   '';
 
   # Suspend when power button is pressed
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-    IdleAction=suspend
-    IdleActionSec=600
-  '';
+  # services.logind.extraConfig = ''
+  #   HandlePowerKey=suspend
+  #   IdleAction=suspend
+  #   IdleActionSec=600
+  # '';
 
   system.stateVersion = "24.05";
 }
