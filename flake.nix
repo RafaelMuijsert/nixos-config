@@ -2,16 +2,16 @@
   description = "A modular, extensible NixOS configuration.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    nix-darwin.url = "github:nix-darwin/nix-darwin?ref=nix-darwin-25.05";
+    nix-darwin.url = "github:nix-darwin/nix-darwin?ref=nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix/release-25.05";
+    stylix.url = "github:danth/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     sops-nix.url = "github:Mic92/sops-nix";

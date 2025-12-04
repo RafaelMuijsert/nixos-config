@@ -40,8 +40,6 @@
           "hosts/${name}/host-specific.nix"
           # System configuration.
           "system/linux.nix"
-          # Tests to ensure configuration validity.
-          "tests"
         ]
         ++ builtins.concatMap (
           # For each user in the configuration.
@@ -95,8 +93,6 @@
           "hosts/${name}/host-specific.nix"
           # System configuration.
           "system/darwin.nix"
-          # Tests to ensure configuration validity.
-          # "tests"
         ]
         ++ builtins.concatMap (
           # For each user in the configuration.
