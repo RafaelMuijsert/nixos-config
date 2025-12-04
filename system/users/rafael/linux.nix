@@ -4,30 +4,32 @@
   pkgs,
   home-manager,
   ...
-}: {
+}: let
+  homeDirectory = "/home/rafael";
+in {
   users.users.rafael = {
     description = "Rafael Alexander Muijsert";
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;
-    home = "/home/rafael";
+    home = homeDirectory;
   };
   programs.fish.enable = true;
 
   # Configuration for optional file synchronization.
   services.syncthing = {
     user = "rafael";
-    dataDir = "/home/rafael/.local/state/syncthing";
-    configDir = "/home/rafael/.config/syncthing";
+    dataDir = "${homeDirectory}/.local/state/syncthing";
+    configDir = "${homeDirectory}/.config/syncthing";
     settings.folders = {
       "Documents" = {
-        path = "/home/rafael/Documents";
+        path = "${homeDirectory}/Documents";
       };
       "Music" = {
-        path = "/home/rafael/Music";
+        path = "${homeDirectory}Music";
       };
       "Pictures" = {
-        path = "/home/rafael/Pictures";
+        path = "${homeDirectory}/Pictures";
       };
     };
   };
