@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.gpg = { };
+  programs.gpg = {};
   # services.gpg-agent = {
   #   pinentry.package = pkgs.pinentry-gtk2;
   # };

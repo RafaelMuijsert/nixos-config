@@ -40,7 +40,7 @@
           injection-regex = "php";
           file-types = ["php" "inc" "php4" "php5" "phtml" "ctp"];
           shebangs = ["php"];
-          roots = [ "composer.json" "index.php" ];
+          roots = ["composer.json" "index.php"];
           comment-token = "//";
           language-servers = [
             {
@@ -116,7 +116,7 @@
       };
       language-server.phpactor = {
         command = "${pkgs-unstable.phpactor}/bin/phpactor";
-        args = [ "language-server"];
+        args = ["language-server"];
       };
       language-server.tinymist = {
         command = "${pkgs-unstable.tinymist}/bin/tinymist";
@@ -133,4 +133,3 @@
     };
   };
 }
-

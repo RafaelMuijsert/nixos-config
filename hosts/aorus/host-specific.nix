@@ -75,6 +75,5 @@
     IdleActionSec=600
   '';
 
-
   system.stateVersion = "24.05";
 }

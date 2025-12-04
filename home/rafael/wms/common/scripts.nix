@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   scSetVolume = pkgs.writeShellApplication {
     name = "sc-set-volume";
     text = ''

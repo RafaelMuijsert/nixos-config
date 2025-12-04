@@ -5,7 +5,6 @@
   home-manager,
   ...
 }: {
-
   users.users.rafael = {
     description = "Rafael Alexander Muijsert";
     isNormalUser = true;

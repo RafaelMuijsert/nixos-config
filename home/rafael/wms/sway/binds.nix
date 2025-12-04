@@ -10,7 +10,7 @@
     config.keybindings = let
       modifier = config.wayland.windowManager.sway.config.modifier;
       secondaryModifier = "Mod4+Mod1";
-      wmScripts = import ../common/scripts.nix { inherit pkgs; };
+      wmScripts = import ../common/scripts.nix {inherit pkgs;};
     in {
       # Use Alt + Space to open launcher
       "Mod1+space" = "exec $LAUNCHER";
@@ -32,7 +32,7 @@
 
       # Use Logo + V for clipboard history.
       "${modifier}+v" = "exec ${wmScripts.scClipboardHistory}/bin/sc-clipboard";
-     
+
       # Connect/disconnect Bluetooth devices
       "${modifier}+b" = "exec ${wmScripts.scBluetoothConnect}/bin/sc-bluetooth-connect";
       "${modifier}+Shift+b" = "exec ${wmScripts.scBluetoothDisconnect}/bin/sc-bluetooth-disconnect";

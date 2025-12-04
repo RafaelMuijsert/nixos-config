@@ -1,4 +1,8 @@
-{pkgs, pkgs-unstable, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   home-manager.users.rafael = {
     home.packages = [
       # Communication
@@ -8,7 +12,7 @@
 
       # Nix development
       pkgs.nil
-      
+
       # C Development
       pkgs.clang-tools
       pkgs.gnumake

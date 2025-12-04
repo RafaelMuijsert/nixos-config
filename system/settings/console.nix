@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   console = {
     font = "ter-114n";
     keyMap = "us";

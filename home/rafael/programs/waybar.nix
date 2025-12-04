@@ -1,5 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
 {
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   programs.waybar = {
     settings.mainBar = {
       height = 30;
@@ -8,7 +11,7 @@
       modules-right = ["tray" "mpd" "wireplumber" "network" "memory" "battery" "clock"];
 
       "systemd-failed-units" = {
-        "format" = " {nr_failed} failed";        
+        "format" = " {nr_failed} failed";
         "format-ok" = "";
         "hide-on-ok" = false;
       };
@@ -21,7 +24,6 @@
         };
       };
       "tray" = {
-        
       };
       "mpd" = {
         "format" = "{stateIcon} {elapsedTime:%M:%S} / {totalTime:%M:%S}";
@@ -67,7 +69,7 @@
     };
     style = ''
       * {
-        font-family: monospace; 
+        font-family: monospace;
       }
       .modules-right * {
         margin-left: 16px;
@@ -133,6 +135,5 @@
         color: @base0E;
       }
     '';
-
   };
 }

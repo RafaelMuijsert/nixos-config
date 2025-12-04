@@ -1,5 +1,5 @@
 {
   programs.chromium = {
-    extensions = [ { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; } ]; # uBlock origin lite
+    extensions = [{id = "ddkjiahejlhfcafbddmgiahcphecmpfh";}]; # uBlock origin lite
   };
 }

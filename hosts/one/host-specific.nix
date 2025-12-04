@@ -1,6 +1,12 @@
-{ config, inputs, lib, pkgs, pkgs-unstable, ... }:
-let
-  vpnPort = 51820;  
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  pkgs-unstable,
+  ...
+}: let
+  vpnPort = 51820;
   syncthingPort = 8384;
 in {
   # Use the systemd-boot EFI boot loader.
@@ -12,24 +18,23 @@ in {
   networking = {
     hostName = "one";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ 80 443 syncthingPort ];
-    firewall.allowedUDPPorts = [ vpnPort ];
+    firewall.allowedTCPPorts = [80 443 syncthingPort];
+    firewall.allowedUDPPorts = [vpnPort];
 
     nat = {
       enable = true;
       externalInterface = "enp4s0";
-      internalInterfaces = [ "wg0" ];
+      internalInterfaces = ["wg0"];
     };
 
     wireguard = {
       enable = true;
       interfaces = {
         wg0 = {
-          ips = [ "192.168.100.1/24" ];
+          ips = ["192.168.100.1/24"];
           mtu = 1386;
           listenPort = vpnPort;
           privateKeyFile = config.sops.secrets."vpn-server-key".path;
-
 
           postSetup = ''
             ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o enp4s0 -j MASQUERADE
@@ -42,7 +47,7 @@ in {
           peers = [
             {
               publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
-              allowedIPs = [ "192.168.100.2/32" ];
+              allowedIPs = ["192.168.100.2/32"];
             }
           ];
         };
@@ -65,7 +70,7 @@ in {
   # Portfolio website
   systemd.services.portfolio = {
     description = "Portfolio Website";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     serviceConfig = {
       WorkingDirectory = "${inputs.portfolio.packages.x86_64-linux.default}/lib/node_modules/portfolio";
       ExecStart = "${pkgs.nodePackages_latest.npm}/bin/npm run start";
@@ -124,7 +129,6 @@ in {
     settings.folders.Documents.devices = ["elite" "aorus"];
     settings.folders.Music.devices = ["elite" "aorus"];
     settings.folders.Pictures.devices = ["elite" "aorus"];
-
   };
 
   system.stateVersion = "24.11";

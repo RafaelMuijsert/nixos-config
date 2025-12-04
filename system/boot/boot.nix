@@ -1,4 +1,9 @@
-{config, lib, pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     consoleLogLevel = 3;
     initrd.verbose = true;
