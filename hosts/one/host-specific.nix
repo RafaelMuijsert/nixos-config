@@ -72,8 +72,7 @@ in {
     description = "Portfolio Website";
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      WorkingDirectory = "${inputs.portfolio.packages.x86_64-linux.default}/lib/node_modules/portfolio";
-      ExecStart = "${pkgs.nodePackages_latest.npm}/bin/npm run start";
+      ExecStart = "${inputs.portfolio.packages.x86_64-linux.default}/bin/portfolio";
       Restart = "always";
       Environment = "PATH=${pkgs.bash}/bin";
     };
@@ -133,3 +132,4 @@ in {
 
   system.stateVersion = "24.11";
 }
+
