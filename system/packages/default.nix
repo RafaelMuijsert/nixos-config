@@ -12,6 +12,7 @@
     python314
     procs
     ripgrep
+    sbctl
     tldr
     tmux
     wget

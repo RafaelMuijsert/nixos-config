@@ -25,6 +25,8 @@
 
       modules =
         [
+          inputs.lanzaboote.nixosModules.lanzaboote
+
           inputs.home-manager.nixosModules.home-manager
           {home-manager.extraSpecialArgs = specialArgs;}
 
