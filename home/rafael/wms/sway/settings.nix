@@ -18,7 +18,11 @@
         "type:keyboard" = {
           repeat_delay = "200";
           repeat_rate = "30";
-          xkb_options = "caps:swapescape";
+          # Define layouts us, us international
+          # Use lshift + rshift to toggle
+          xkb_options = "caps:swapescape,grp:shifts_toggle";
+          xkb_layout = "us,us";
+          xkb_variant = ",intl";
         };
         "type:touchpad" = {
           tap = "enabled";
