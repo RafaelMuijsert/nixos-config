@@ -68,12 +68,8 @@
             command = "${pythonFormat}/bin/hx-python-format";
           };
           language-servers = [
-            {
-              name = "ruff-lsp";
-            }
-            {
-              name = "basedpyright";
-            }
+            {name = "ruff-lsp";}
+            {name = "ty";}
           ];
         }
         {
@@ -107,12 +103,9 @@
           };
         };
       };
-      language-server.basedpyright = {
-        command = "${pkgs-unstable.basedpyright}/bin/basedpyright-langserver";
-        args = ["--stdio"];
-        config = {
-          basedpyright.analysis.diagnosticMode = "openFilesOnly";
-        };
+      language-server.ty = {
+        command = "${pkgs-unstable.ty}/bin/ty";
+        args = ["server"];
       };
       language-server.phpactor = {
         command = "${pkgs-unstable.phpactor}/bin/phpactor";
