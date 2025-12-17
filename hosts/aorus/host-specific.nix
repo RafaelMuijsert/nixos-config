@@ -69,7 +69,7 @@
   '';
 
   # Suspend when power button is pressed
-  services.logind.settings.Login= {
+  services.logind.settings.Login = {
     HandlePowerKey = "suspend";
     IdleAction = "suspend";
     IdleActionSec = 600;

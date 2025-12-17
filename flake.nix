@@ -29,7 +29,9 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
     darwinPkgs = nixpkgs.legacyPackages.aarch64-darwin;
   in {
-    /* Live ISO for installing/troubleshooting */
+    /*
+    Live ISO for installing/troubleshooting
+    */
     nixosConfigurations.iso = hostLib.mkHost {
       name = "iso";
       system = "x86_64-linux";
@@ -37,7 +39,9 @@
       inherit inputs;
     };
 
-    /* Dell Latitude */
+    /*
+    Dell Latitude
+    */
     nixosConfigurations.latitude = hostLib.mkHost {
       name = "latitude";
       system = "x86_64-linux";
@@ -45,7 +49,9 @@
       inherit inputs;
     };
 
-    /* HP EliteBook */
+    /*
+    HP EliteBook
+    */
     nixosConfigurations.elite = hostLib.mkHost {
       name = "elite";
       system = "x86_64-linux";
@@ -53,7 +59,9 @@
       inherit inputs;
     };
 
-    /* Lenovo Thinkcentre */
+    /*
+    Lenovo Thinkcentre
+    */
     nixosConfigurations.thinkcentre = hostLib.mkHost {
       name = "thinkcentre";
       system = "x86_64-linux";
@@ -61,7 +69,9 @@
       inherit inputs;
     };
 
-    /* Aorus PC */
+    /*
+    Aorus PC
+    */
     nixosConfigurations.aorus = hostLib.mkHost {
       name = "aorus";
       system = "x86_64-linux";
@@ -69,7 +79,9 @@
       inherit inputs;
     };
 
-    /* Homeserver */
+    /*
+    Homeserver
+    */
     nixosConfigurations.one = hostLib.mkHost {
       name = "one";
       system = "x86_64-linux";
@@ -77,7 +89,9 @@
       inherit inputs;
     };
 
-    /* MacBook Air */
+    /*
+    MacBook Air
+    */
     darwinConfigurations.air = hostLib.mkDarwinHost {
       name = "air";
       system = "aarch64-darwin";
