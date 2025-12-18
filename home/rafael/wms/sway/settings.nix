@@ -26,6 +26,7 @@
         };
         "type:touchpad" = {
           tap = "enabled";
+          drag_lock = "disabled";
           dwt = "disabled";
         };
       };
