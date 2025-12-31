@@ -5,7 +5,7 @@
   ...
 }: {
   # Implement options.
-  config = lib.mkIf config.desktop.sway-minimal.enable {
+  config = lib.mkIf config.desktop.niri.enable {
     programs.niri.enable = true;
     services.pipewire = {
       enable = true;

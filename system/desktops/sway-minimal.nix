@@ -15,7 +15,7 @@
       jack.enable = true;
       pulse.enable = true;
     };
-    services.gnome.gnome-keyring.enable = true;
+    services.gnome.gnome-keyring.enable = false;
     stylix.enable = true;
   };
 }
