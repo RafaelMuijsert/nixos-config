@@ -1,15 +1,14 @@
 {
   programs.git = {
-    userName = "Rafael Alexander Muijsert";
-    userEmail = "rafael@muijsert.org";
-
     signing = {
       format = "ssh";
       key = "~/.ssh/id_ed25519.pub";
       signByDefault = true;
     };
 
-    extraConfig = {
+    settings = {
+      user.name = "Rafael Alexander Muijsert";
+      user.email = "rafael@muijsert.org";
       init.defaultBranch = "main";
     };
   };
