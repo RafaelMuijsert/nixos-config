@@ -5,5 +5,8 @@
         isDefault = true;
       };
     };
+    settings = {
+      "network.dns.disableIPv6" = true;
+    };
   };
 }
