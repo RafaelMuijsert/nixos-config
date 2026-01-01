@@ -114,7 +114,6 @@
       language-server.tinymist = {
         command = "${pkgs-unstable.tinymist}/bin/tinymist";
         config = {
-          exportPdf = "onSave";
           outputPath = "$root/$name";
           preview.background.enabled = true;
           preview.background.args = [
