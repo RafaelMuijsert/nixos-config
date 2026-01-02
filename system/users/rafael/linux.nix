@@ -26,7 +26,7 @@ in {
         path = "${homeDirectory}/Documents";
       };
       "Music" = {
-        path = "${homeDirectory}Music";
+        path = "${homeDirectory}/Music";
       };
       "Pictures" = {
         path = "${homeDirectory}/Pictures";

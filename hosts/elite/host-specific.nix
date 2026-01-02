@@ -29,6 +29,9 @@
     };
   };
 
+  # Full disk encryption
+  boot.initrd.luks.devices."luks-dc291857-82a6-4740-8e15-a41f5a5a94b8".device = "/dev/disk/by-uuid/dc291857-82a6-4740-8e15-a41f5a5a94b8";
+
   desktop = {
     niri.enable = true;
     theme = import ../../themes/catppuccin-nix;

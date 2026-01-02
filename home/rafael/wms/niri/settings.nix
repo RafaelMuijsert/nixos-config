@@ -14,6 +14,10 @@
         "Mod+K".action.focus-window-or-workspace-up = [];
         "Mod+L".action.focus-column-right = [];
         "Mod+Shift+Q".action.close-window = [];
+        "Mod+O" = {
+          action.toggle-overview = [];
+          repeat = false;
+        };
 
         # Exit Niri
         "Mod+Shift+E".action.quit.skip-confirmation = true;
