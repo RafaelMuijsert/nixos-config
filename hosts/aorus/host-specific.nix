@@ -16,9 +16,8 @@
   };
 
   desktop = {
-    # Use the Sway-minimal desktop.
-    sway-minimal.enable = true;
-    # Use the Catppuccin theme.
+    # sway-minimal.enable = true;
+    niri.enable = true;
     theme = import ../../themes/catppuccin-nix;
   };
 

@@ -47,9 +47,10 @@
       ./programs
       ./settings
       ./themes
-      ./wms/i3
-      ./wms/sway
       ./wms/hyprland
+      ./wms/i3
+      ./wms/niri
+      ./wms/sway
     ];
   };
 }
