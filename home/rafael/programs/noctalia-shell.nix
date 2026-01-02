@@ -101,7 +101,7 @@
         bluetoothHideUnnamedDevices = false;
       };
       location = {
-        name = "Tokyo";
+        name = "Amsterdam";
         weatherEnabled = true;
         weatherShowEffects = true;
         useFahrenheit = false;

@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -31,7 +30,7 @@
   };
 
   desktop = {
-    sway-minimal.enable = true;
+    niri.enable = true;
     theme = import ../../themes/catppuccin-nix;
   };
 
