@@ -3,10 +3,26 @@
   programs.niri= {
     settings = {
       binds = {
+        # Spawning programs
         "Alt+Space".action.spawn = "${pkgs-unstable.fuzzel}/bin/fuzzel";
         "Mod+I".action.spawn = "${pkgs.firefox}/bin/firefox";
+        "Mod+Return".action.spawn = "${pkgs.kitty}/bin/kitty";
 
+        # Navigation
+        "Mod+H".action.focus-column-left = [];
+        "Mod+J".action.focus-window-down = [];
+        "Mod+K".action.focus-window-up = [];
+        "Mod+L".action.focus-column-right = [];
+        "Mod+Shift+Q".action.close-window = [];
+
+        # Exit Niri
         "Mod+Shift+E".action.quit.skip-confirmation = true;
+      };
+      layout = {
+        preset-column-widths = [
+          { proportion = 1. / 2.; }
+        ];
+        default-column-width = { proportion = 1. / 2.; };
       };
       prefer-no-csd = true;
     };
