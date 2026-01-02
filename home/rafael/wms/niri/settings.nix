@@ -1,6 +1,6 @@
 { pkgs, pkgs-unstable, ... }:
 {
-  programs.niri= {
+  programs.niri = {
     settings = {
       binds = {
         # Spawning programs
@@ -18,6 +18,9 @@
           action.toggle-overview = [];
           repeat = false;
         };
+
+        # Misc
+        "Print".action.screenshot-screen = [];
 
         # Exit Niri
         "Mod+Shift+E".action.quit.skip-confirmation = true;
@@ -37,6 +40,7 @@
         preset-column-widths = [
           { proportion = 1. / 2.; }
         ];
+        always-center-single-column = true;
         default-column-width = { proportion = 1. / 2.; };
       };
       outputs = {
@@ -46,7 +50,10 @@
         "eDP-1" = {
           scale = 1;
         };
-      }; prefer-no-csd = true;
+      };
+
+      screenshot-path = "~/Pictures/Screenshots/%s.png";
+      prefer-no-csd = true;
     };
   };
 }
