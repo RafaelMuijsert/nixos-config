@@ -24,7 +24,11 @@
         ];
         default-column-width = { proportion = 1. / 2.; };
       };
-      prefer-no-csd = true;
+      outputs = {
+        "HDMI-A-3" = {
+          scale = 1;
+        };
+      }; prefer-no-csd = true;
     };
   };
 }
