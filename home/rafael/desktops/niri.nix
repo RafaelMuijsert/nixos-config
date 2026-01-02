@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf osConfig.desktop.sway-minimal.enable {
+  config = lib.mkIf osConfig.desktop.niri.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
     ];
@@ -16,6 +16,7 @@
       imv.enable = true;
       fuzzel.enable = true;
       mpv.enable = true;
+      noctalia-shell.enable = true;
       kitty.enable = true;
       thunderbird.enable = true;
       yt-dlp.enable = true;

@@ -37,11 +37,6 @@
 
       # Haskell development
       ghc
-
-      # Temporary
-      kitty
-      firefox
-      waybar
     ];
     # Host-specific symlinks in home directory.
     imports = [./symlinks.nix];

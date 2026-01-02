@@ -51,6 +51,6 @@
       ./wms/i3
       ./wms/niri
       ./wms/sway
-    ];
+    ] ++ [inputs.noctalia.homeModules.default];
   };
 }
