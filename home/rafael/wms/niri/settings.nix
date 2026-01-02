@@ -4,7 +4,7 @@
     settings = {
       binds = {
         # Spawning programs
-        "Alt+Space".action.spawn = "${pkgs-unstable.fuzzel}/bin/fuzzel";
+        "Alt+Space".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
         "Mod+I".action.spawn = "${pkgs.firefox}/bin/firefox";
         "Mod+Return".action.spawn = "${pkgs.kitty}/bin/kitty";
 
