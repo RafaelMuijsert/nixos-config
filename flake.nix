@@ -35,7 +35,7 @@
     nixosConfigurations.iso = hostLib.mkHost {
       name = "iso";
       system = "x86_64-linux";
-      users = [];
+      users = ["rafael"];
       inherit inputs;
     };
 
