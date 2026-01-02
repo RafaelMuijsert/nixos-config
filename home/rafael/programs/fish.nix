@@ -10,5 +10,6 @@
   };
   home.sessionVariables = {
     pure_symbol_prompt = "λ";
+    pure_enable_single_line_prompt = "true";
   };
 }
