@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   programs.niri= {
     settings = {
@@ -21,6 +21,17 @@
 
         # Exit Niri
         "Mod+Shift+E".action.quit.skip-confirmation = true;
+      };
+      input = {
+        keyboard = {
+          xkb = {
+            options = "caps:swapescape,grp:shifts_toggle";
+            layout = "us,us";
+            variant = ",intl";
+          };
+          repeat-delay = 200;
+          repeat-rate = 30;
+        };
       };
       layout = {
         preset-column-widths = [
