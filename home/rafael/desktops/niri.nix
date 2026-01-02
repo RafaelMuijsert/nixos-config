@@ -11,8 +11,6 @@
     ];
     programs = {
       firefox.enable = true;
-      hyprlock.enable = true;
-      i3status-rust.enable = true;
       imv.enable = true;
       fuzzel.enable = true;
       mpv.enable = true;
@@ -23,7 +21,6 @@
       zathura.enable = true;
     };
     services = {
-      mako.enable = true;
       mpd.enable = true;
       cliphist.enable = true;
       wlsunset.enable = true;
