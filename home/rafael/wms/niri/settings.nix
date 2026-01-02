@@ -10,8 +10,8 @@
 
         # Navigation
         "Mod+H".action.focus-column-left = [];
-        "Mod+J".action.focus-window-down = [];
-        "Mod+K".action.focus-window-up = [];
+        "Mod+J".action.focus-window-or-workspace-down = [];
+        "Mod+K".action.focus-window-or-workspace-up = [];
         "Mod+L".action.focus-column-right = [];
         "Mod+Shift+Q".action.close-window = [];
 
