@@ -11,11 +11,12 @@
     ];
     programs = {
       firefox.enable = true;
-      imv.enable = true;
       fuzzel.enable = true;
+      imv.enable = true;
+      kitty.enable = true;
       mpv.enable = true;
       noctalia-shell.enable = true;
-      kitty.enable = true;
+      rmpc.enable = true;
       thunderbird.enable = true;
       yt-dlp.enable = true;
       zathura.enable = true;

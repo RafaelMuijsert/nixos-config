@@ -47,7 +47,6 @@
       # Music
       pkgs.nicotine-plus
       pkgs.picard
-      pkgs-unstable.rmpc
       pkgs-unstable.ncspot
 
       # Visualization
