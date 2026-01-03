@@ -23,6 +23,9 @@
   # Install academia-related packages.
   academia = true;
 
+  # Use secure boot.
+  secureBoot = true;
+
   programs.virt-manager = {
     enable = true;
   };

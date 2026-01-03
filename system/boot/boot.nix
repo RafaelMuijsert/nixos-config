@@ -1,15 +1,18 @@
 {
+  config,
   lib,
   ...
 }: {
+
   boot = {
     consoleLogLevel = 3;
     initrd.verbose = true;
-    loader.systemd-boot.enable = lib.mkForce false;
-  };
+    loader.systemd-boot.enable = !config.secureBoot;
 
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
+    lanzaboote = {
+      enable = config.secureBoot;
+      pkiBundle = "/var/lib/sbctl";
+    };
   };
 }
+

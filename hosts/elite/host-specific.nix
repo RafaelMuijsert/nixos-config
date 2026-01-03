@@ -48,6 +48,9 @@
   # Install academia-related packages.
   academia = true;
 
+  # Use secure boot.
+  secureBoot = true;
+
   # Enable sync.
   services.syncthing = {
     enable = true;
