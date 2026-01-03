@@ -13,7 +13,18 @@
         "Mod+J".action.focus-window-or-workspace-down = [];
         "Mod+K".action.focus-window-or-workspace-up = [];
         "Mod+L".action.focus-column-right = [];
+
+        "Mod+Shift+H".action.move-column-left = [];
+        "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [];
+        "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [];
+        "Mod+Shift+L".action.move-column-right = [];
+        
         "Mod+Shift+Q".action.close-window = [];
+        "Mod+F".action.maximize-column = [];
+
+        "Mod+Comma".action.consume-window-into-column = [];
+        "Mod+Period".action.expel-window-from-column = [];
+        
         "Mod+O" = {
           action.toggle-overview = [];
           repeat = false;
