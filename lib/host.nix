@@ -31,7 +31,6 @@
           {home-manager.extraSpecialArgs = specialArgs;}
 
           inputs.niri.nixosModules.niri
-          {nixpkgs.overlays = [ inputs.niri.overlays.niri]; }
           {niri-flake.cache.enable = false; }
 
           inputs.stylix.nixosModules.stylix
