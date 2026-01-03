@@ -71,6 +71,12 @@
 
   users.users.rafael.extraGroups = ["libvirtd"];
 
+  # Hibernate when power button pressed
+  services.logind.settings.Login = {
+    HandlePowerKey = "hibernate";
+  };
+
+
   hardware = {
     graphics = {
       enable = true;
