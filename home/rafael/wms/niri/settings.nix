@@ -20,7 +20,7 @@
         };
 
         # Misc
-        "Print".action.screenshot-screen = [];
+        "Print".action.screenshot = [];
 
         # Exit Niri
         "Mod+Shift+E".action.quit.skip-confirmation = true;
@@ -50,6 +50,11 @@
         "eDP-1" = {
           scale = 1;
         };
+      };
+
+      # Lock screen on lid close
+      switch-events = {
+        lid-close.action.spawn = ["noctalia-shell" "ipc" "call" "lockScreen" "lock"];
       };
 
       screenshot-path = "~/Pictures/Screenshots/%s.png";
