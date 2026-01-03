@@ -35,6 +35,7 @@
           repeat-delay = 200;
           repeat-rate = 30;
         };
+        power-key-handling.enable = false;
       };
       layout = {
         preset-column-widths = [
