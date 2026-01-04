@@ -1,11 +1,11 @@
-{ pkgs, inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   programs.noctalia-shell = {
     systemd.enable = true;
     settings = {
       settingsVersion = 0;
       bar = {
-        position = "top";
+        position = "bottom";
         monitors = [ ];
         density = "default";
         showOutline = false;
@@ -19,16 +19,7 @@
         widgets = {
           left = [
             {
-              icon = "rocket";
-              id = "CustomButton";
-              leftClickExec = "noctalia-shell ipc call launcher toggle";
-            }
-            {
-              id = "Clock";
-              usePrimaryColor = false;
-            }
-            {
-              id = "SystemMonitor";
+              id = "Workspace";
             }
             {
               id = "ActiveWindow";
@@ -39,21 +30,15 @@
           ];
           center = [
             {
-              id = "Workspace";
+              id = "ControlCenter";
             }
           ];
           right = [
             {
-              id = "ScreenRecorder";
-            }
-            {
               id = "Tray";
             }
             {
-              id = "NotificationHistory";
-            }
-            {
-              id = "Battery";
+              id = "ScreenRecorder";
             }
             {
               id = "Volume";
@@ -62,13 +47,19 @@
               id = "Brightness";
             }
             {
-              id = "ControlCenter";
+              id = "Battery";
+            }
+            {
+              id = "NotificationHistory";
+            }
+            {
+              id = "Clock";
             }
           ];
         };
       };
       general = {
-        avatarImage = "";
+        avatarImage = inputs.self + "/icons/profile.png";
         dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
