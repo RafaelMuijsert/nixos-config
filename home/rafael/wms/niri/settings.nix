@@ -49,6 +49,11 @@
             "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
             "Mod+E".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
 
+
+            "Mod+T".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/todo.txt"];
+            "Mod+Shift+T".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/backlog.txt"];
+            "Mod+W".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/weekly.txt"];
+
             # Exit Niri
             "Mod+Shift+E".action.quit.skip-confirmation = true;
           };
