@@ -134,7 +134,7 @@
         ];
       };
       screenRecorder = {
-        directory = "";
+        directory = "~/Videos/Recordings";
         frameRate = 60;
         audioCodec = "opus";
         videoCodec = "h264";
