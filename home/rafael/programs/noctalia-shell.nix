@@ -181,7 +181,7 @@
         pinnedExecs = [ ];
         useApp2Unit = false;
         sortByMostUsed = true;
-        terminalCommand = "xterm -e";
+        terminalCommand = "${pkgs.kitty}/bin/kitty";
         customLaunchPrefixEnabled = false;
         customLaunchPrefix = "";
         viewMode = "list";
