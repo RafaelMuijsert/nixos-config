@@ -29,6 +29,7 @@
         
             "Mod+Shift+Q".action.close-window = [];
             "Mod+F".action.maximize-column = [];
+            "Mod+Shift+F".action.fullscreen-window = [];
 
             "Mod+Comma".action.consume-window-into-column = [];
             "Mod+Period".action.expel-window-from-column = [];
@@ -46,6 +47,7 @@
             "XF86AudioMicMute".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "muteInput"];
             "XF86MonBrightnessUp".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "increase"];
             "XF86MonBrightnessDown".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "decrease"];
+            "XF86Display".action.spawn-sh = "pkill wl-mirror || ${pkgs.wl-mirror}/bin/wl-present mirror eDP-1 -F";
             "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
             "Mod+E".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
             "Mod+C".action.spawn = ["noctalia-shell" "ipc" "call" "controlCenter" "toggle"];
