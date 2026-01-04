@@ -47,6 +47,7 @@
             "XF86MonBrightnessUp".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "increase"];
             "XF86MonBrightnessDown".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "decrease"];
             "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
+            "Mod+E".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
 
             # Exit Niri
             "Mod+Shift+E".action.quit.skip-confirmation = true;
