@@ -48,6 +48,7 @@
             "XF86MonBrightnessDown".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "decrease"];
             "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
             "Mod+E".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
+            "Mod+C".action.spawn = ["noctalia-shell" "ipc" "call" "controlCenter" "toggle"];
 
 
             "Mod+T".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/todo.txt"];

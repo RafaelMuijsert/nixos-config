@@ -23,9 +23,13 @@
             }
             {
               id = "ActiveWindow";
+              maxWidth = 200;
+              useFixedWidth = true;
             }
             {
               id = "MediaMini";
+              maxWidth = 200;
+              useFixedWidth = true;
             }
           ];
           center = [
@@ -47,13 +51,19 @@
               id = "Brightness";
             }
             {
+              id = "WiFi";
+            }
+            {
               id = "Battery";
             }
             {
               id = "NotificationHistory";
+              hideWhenZero = true;
             }
             {
+              formatHorizontal = "yyyy-MM-dd HH:mm";
               id = "Clock";
+              tooltipFormat = "HH:mm dddd, MMMM dd";
             }
           ];
         };
@@ -193,9 +203,6 @@
             {
               id = "ScreenRecorder";
             }
-            {
-              id = "WallpaperSelector";
-            }
           ];
           right = [
             {
@@ -206,9 +213,6 @@
             }
             {
               id = "KeepAwake";
-            }
-            {
-              id = "NightLight";
             }
           ];
         };
