@@ -4,12 +4,11 @@
     # https://github.com/sodiboo/niri-flake/issues/1492
     # Override the default to avoid evaluating niri when disabled
     { programs.niri.package = lib.mkDefault pkgs.emptyDirectory; }
-    { programs.niri.settings = null; }
-    { programs.niri.config = null; }
+    # { programs.niri.settings = lib.mkDefault null; }
+    # { programs.niri.config = lib.mkDefault null; }
   
-    (lib.mkIf osConfig.desktop.sway-minimal.enable {
-      # programs.niri.enable = true;
-      # programs.niri.package = pkgs.niri;
+    (lib.mkIf osConfig.desktop.niri.enable {
+      programs.niri.package = pkgs.niri;
       programs.niri.settings = {
           binds = {
             # Spawning programs
@@ -39,8 +38,15 @@
               repeat = false;
             };
 
-            # Misc
+            # System controls
             "Print".action.screenshot = [];
+            "XF86AudioRaiseVolume".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "increase"];
+            "XF86AudioLowerVolume".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "decrease"];
+            "XF86AudioMute".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "muteOutput"];
+            "XF86AudioMicMute".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "muteInput"];
+            "XF86MonBrightnessUp".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "increase"];
+            "XF86MonBrightnessDown".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "decrease"];
+            "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
 
             # Exit Niri
             "Mod+Shift+E".action.quit.skip-confirmation = true;
