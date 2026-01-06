@@ -74,6 +74,7 @@
     HandlePowerKey = "hibernate";
   };
 
+  programs.adb.enable = true;
 
   hardware = {
     graphics = {
