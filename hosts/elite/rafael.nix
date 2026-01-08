@@ -32,7 +32,7 @@
       pkgs.obs-studio
 
       # Godot
-      pkgs.godot_4
+      pkgs.godot
       pkgs.libresprite
 
       # Rust development
