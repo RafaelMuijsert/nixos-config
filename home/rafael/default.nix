@@ -24,7 +24,7 @@
       home-manager.enable = true;
       fish.enable = true;
       fzf.enable = true;
-      gemini.enable = true;
+      gemini-cli.enable = true;
       git.enable = true;
       helix.enable = true;
       yazi.enable = true;
