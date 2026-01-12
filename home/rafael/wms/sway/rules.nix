@@ -1,9 +1,4 @@
 {
-  config,
-  lib,
-  osConfig,
-  pkgs,
-  pkgs-unstable,
   ...
 }: {
   wayland.windowManager.sway = {

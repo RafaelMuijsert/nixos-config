@@ -1,8 +1,4 @@
 {
-  config,
-  lib,
-  osConfig,
-  pkgs,
   ...
 }: {
   xsession.windowManager.i3 = {

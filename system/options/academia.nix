@@ -1,7 +1,5 @@
 {
-  options,
   lib,
-  config,
   ...
 }: {
   options.academia = lib.mkOption {

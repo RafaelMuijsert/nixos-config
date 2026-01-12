@@ -1,7 +1,5 @@
 {
-  options,
   lib,
-  config,
   ...
 }: {
   # Define options.

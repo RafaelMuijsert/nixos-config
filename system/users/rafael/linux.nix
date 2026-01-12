@@ -1,8 +1,5 @@
 {
-  config,
-  options,
   pkgs,
-  home-manager,
   ...
 }: let
   homeDirectory = "/home/rafael";

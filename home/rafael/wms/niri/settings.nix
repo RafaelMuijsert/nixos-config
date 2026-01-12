@@ -1,4 +1,4 @@
-{ config, inputs, lib, osConfig, pkgs, pkgs-unstable, ... }:
+{ lib, osConfig, pkgs, ... }:
 {
   config = lib.mkMerge [
     # https://github.com/sodiboo/niri-flake/issues/1492
@@ -94,9 +94,9 @@
           };
 
           # Lock screen on lid close
-          switch-events = {
-            lid-close.action.spawn = ["noctalia-shell" "ipc" "call" "lockScreen" "lock"];
-          };
+          # switch-events = {
+          #   lid-close.action.spawn = ["noctalia-shell" "ipc" "call" "lockScreen" "lock"];
+          # };
 
           screenshot-path = "~/Pictures/Screenshots/%s.png";
           prefer-no-csd = true;

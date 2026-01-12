@@ -52,9 +52,14 @@
             builtins.map resolvePath [
               # Creation of the user.
               "system/users/${user}/linux.nix"
-              # Configuration of the user.
+
+              # OS-agnostic configuration.
+              "home/${user}/"
+
+              # Linux-specific configuration.
               "home/${user}/linux.nix"
-              # Host-specific configuration for this user.
+
+              # Host-specific configuration.
               "hosts/${name}/${user}.nix"
             ]
         )
@@ -105,8 +110,13 @@
             builtins.map resolvePath [
               # Creation of the user.
               "system/users/${user}/darwin.nix"
-              # Configuration of the user.
+
+              # OS-agnostic configuration
+              "home/${user}/"
+
+              # Darwin-specific configuration.
               "home/${user}/darwin.nix"
+
               # Host-specific configuration for this user.
               "hosts/${name}/${user}.nix"
             ]

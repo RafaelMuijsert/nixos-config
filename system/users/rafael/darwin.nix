@@ -1,8 +1,5 @@
 {
-  config,
-  options,
   pkgs,
-  home-manager,
   ...
 }: {
   users.users.rafael = {
