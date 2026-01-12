@@ -8,14 +8,9 @@
   home-manager.users.rafael = {
     home = {
       username = "rafael";
-      stateVersion = "24.11";
-      packages = [
-        pkgs.fishPlugins.pure
-        pkgs.glow
-        pkgs.unzip
-        pkgs.ffmpeg
-      ];
+      packages = [ pkgs.fishPlugins.pure ];
       shell.enableFishIntegration = true;
+      stateVersion = "24.11";
     };
 
     # Programs to be enabled for this user across all hosts.
@@ -29,6 +24,7 @@
       home-manager.enable = true;
       fish.enable = true;
       fzf.enable = true;
+      gemini.enable = true;
       git.enable = true;
       helix.enable = true;
       yazi.enable = true;
