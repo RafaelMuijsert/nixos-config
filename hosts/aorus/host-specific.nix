@@ -32,7 +32,7 @@
     enable = true;
     qemu.swtpm.enable = true;
   };
-  users.groups.libvirtd.members = ["rafael"];
+  users.users.rafael.extraGroups = [ "libvirtd" ];
 
   # Enable virtual camera
   programs.obs-studio = {
