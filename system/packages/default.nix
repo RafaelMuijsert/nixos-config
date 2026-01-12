@@ -5,6 +5,7 @@
     dust
     fd
     file
+    ffmpeg
     git
     helix
     lazygit
@@ -15,6 +16,7 @@
     sbctl
     tldr
     tmux
+    unzip
     wget
   ];
 }
