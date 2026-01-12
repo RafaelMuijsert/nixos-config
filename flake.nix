@@ -34,91 +34,49 @@
     hostLib = import ./lib/host.nix;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
     darwinPkgs = nixpkgs.legacyPackages.aarch64-darwin;
+
+    mkLinux = name: hostLib.mkHost {
+      inherit name inputs;
+      system = "x86_64-linux";
+      users = ["rafael"];
+    };
   in {
-    /*
-    Live ISO for installing/troubleshooting
-    */
-    nixosConfigurations.iso = hostLib.mkHost {
-      name = "iso";
-      system = "x86_64-linux";
-      users = ["rafael"];
-      inherit inputs;
+    /* NixOS configurations */
+    nixosConfigurations = {
+      /* Live ISO for installing/troubleshooting */
+      iso = mkLinux "iso";
+      /* HP EliteBook */
+      elite = mkLinux "elite";
+      /* Aorus PC */
+      aorus = mkLinux "aorus";
+      /* Homeserver */
+      one = mkLinux "one";
     };
 
-    /*
-    Dell Latitude
-    */
-    nixosConfigurations.latitude = hostLib.mkHost {
-      name = "latitude";
-      system = "x86_64-linux";
-      users = ["rafael"];
-      inherit inputs;
+    /* Darwin configurations */
+    darwinConfigurations = {
+      air = hostLib.mkDarwinHost {
+        name = "air";
+        system = "aarch64-darwin";
+        users = ["rafael"];
+        inherit inputs;
+      };
     };
 
-    /*
-    HP EliteBook
-    */
-    nixosConfigurations.elite = hostLib.mkHost {
-      name = "elite";
-      system = "x86_64-linux";
-      users = ["rafael"];
-      inherit inputs;
+    formatter = {
+      x86_64-linux = pkgs.alejandra;
+      aarch64-darwin = darwinPkgs.alejandra;
     };
 
-    /*
-    Lenovo Thinkcentre
-    */
-    nixosConfigurations.thinkcentre = hostLib.mkHost {
-      name = "thinkcentre";
-      system = "x86_64-linux";
-      users = ["rafael"];
-      inherit inputs;
-    };
-
-    /*
-    Aorus PC
-    */
-    nixosConfigurations.aorus = hostLib.mkHost {
-      name = "aorus";
-      system = "x86_64-linux";
-      users = ["rafael"];
-      inherit inputs;
-    };
-
-    /*
-    Homeserver
-    */
-    nixosConfigurations.one = hostLib.mkHost {
-      name = "one";
-      system = "x86_64-linux";
-      users = ["rafael"];
-      inherit inputs;
-    };
-
-    /*
-    MacBook Air
-    */
-    darwinConfigurations.air = hostLib.mkDarwinHost {
-      name = "air";
-      system = "aarch64-darwin";
-      users = ["rafael"];
-      inherit inputs;
-    };
-
-    formatter.x86_64-linux = pkgs.alejandra;
-    devShell.x86_64-linux = pkgs.mkShell {
-      buildInputs = with pkgs; [
+    devShell = let
+      shellPkgs = pkgs: with pkgs; [
         just
         age
         sops
       ];
-    };
-    devShell.aarch64-darwin = darwinPkgs.mkShell {
-      buildInputs = with darwinPkgs; [
-        just
-        age
-        sops
-      ];
+    in {
+      x86_64-linux = pkgs.mkShell { buildInputs = shellPkgs pkgs; };
+      aarch64-darwin = darwinPkgs.mkShell { buildInputs = shellPkgs darwinPkgs; };
     };
   };
 }
