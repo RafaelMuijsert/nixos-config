@@ -8,6 +8,7 @@
     ffmpeg
     git
     helix
+    just
     lazygit
     jq
     python314
