@@ -125,7 +125,7 @@ in {
         forceSSL = true;
 
         locations."/" = {
-          root = inputs.bomberduck-game.${pkgs.system}.web;
+          root = inputs.bomberduck-game.packages.${pkgs.system}.web;
           index = "bomberduck.html";
           tryFiles = "$uri $uri/ /bomberduck.html";
         };

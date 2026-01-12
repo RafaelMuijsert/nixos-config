@@ -4,8 +4,8 @@
     # https://github.com/sodiboo/niri-flake/issues/1492
     # Override the default to avoid evaluating niri when disabled
     { programs.niri.package = lib.mkDefault pkgs.emptyDirectory; }
-    # { programs.niri.settings = lib.mkDefault null; }
-    # { programs.niri.config = lib.mkDefault null; }
+    { programs.niri.settings = lib.mkDefault null; }
+    { programs.niri.config = lib.mkDefault null; }
   
     (lib.mkIf osConfig.desktop.niri.enable {
       programs.niri.package = pkgs.niri;
