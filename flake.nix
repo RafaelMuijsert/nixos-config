@@ -28,6 +28,12 @@
 
     portfolio.url = "github:RafaelMuijsert/next-portfolio";
     portfolio.inputs.nixpkgs.follows = "nixpkgs";
+
+    bomberduck-game.url = "git+ssh://git@github.com/RafaelMuijsert/bomberduck-game.git";
+    bomberduck-game.inputs.nixpkgs.follows = "nixpkgs";
+
+    bomberduck-server.url = "git+ssh://git@github.com/RafaelMuijsert/bomberduck-server.git";
+    bomberduck-server.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

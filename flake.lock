@@ -68,6 +68,46 @@
         "type": "github"
       }
     },
+    "bomberduck-game": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768177234,
+        "narHash": "sha256-HxX5teURlqEvlPultfQ4q5YLLKMyqptUPC1Mee4VdC4=",
+        "ref": "refs/heads/main",
+        "rev": "1ade81e07834da519a7fe29e994a6f3b4330fec9",
+        "revCount": 16,
+        "type": "git",
+        "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-game.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-game.git"
+      }
+    },
+    "bomberduck-server": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768175177,
+        "narHash": "sha256-eyqZUwrZKkGTfBqGRrQknshrnxbPvmrGUSBfyV2lT9s=",
+        "ref": "refs/heads/main",
+        "rev": "d95edc7601fabbe6719ec105907c99dc57ecb1c1",
+        "revCount": 5,
+        "type": "git",
+        "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-server.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-server.git"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1754269165,
@@ -500,6 +540,8 @@
     },
     "root": {
       "inputs": {
+        "bomberduck-game": "bomberduck-game",
+        "bomberduck-server": "bomberduck-server",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "niri": "niri",

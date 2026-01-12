@@ -77,6 +77,15 @@ in {
     };
   };
 
+  # Bomberduck server
+  systemd.services.bomberduck-server = {
+    description = "Bomberduck Server";
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${inputs.bomberduck-server.packages.x86_64-linux.default}/bin/bomberduck-server";
+    };
+  };
+
   # SSL
   security.acme = {
     acceptTerms = true;
@@ -110,6 +119,21 @@ in {
         };
 
         serverName = "photos.muijsert.org";
+      };
+      "bomberduck.muijsert.org" = {
+        enableACME = true;
+        forceSSL = true;
+
+        locations."/" = {
+          root = inputs.bomberduck-game.${pkgs.system}.web;
+          index = "bomberduck.html";
+          tryFiles = "$uri $uri/ /bomberduck.html";
+        };
+
+        locations."/game" = {
+          proxyPass = "http://127.0.0.1:8080";
+          proxyWebsockets = true;
+        };
       };
     };
   };
