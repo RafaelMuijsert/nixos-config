@@ -7,6 +7,7 @@
     file
     ffmpeg
     git
+    glow
     helix
     just
     lazygit
