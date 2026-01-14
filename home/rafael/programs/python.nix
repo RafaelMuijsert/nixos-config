@@ -14,6 +14,7 @@
       ppkgs.pandas
       ppkgs.pytest
       # ppkgs.pytorch
+      ppkgs.requests
       ppkgs.scikit-image
       ppkgs.scipy
       # ppkgs.torchvision
