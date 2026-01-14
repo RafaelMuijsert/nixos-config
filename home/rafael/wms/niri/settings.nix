@@ -101,10 +101,10 @@
 
           screenshot-path = "~/Pictures/Screenshots/%s.png";
           prefer-no-csd = true;
-          xwayland-satellite = {
-            enable = true;
-            path = "${pkgs-unstable.xwayland-satellite}/bin/xwayland-satellite";
-          };
+          # xwayland-satellite = {
+          #   enable = true;
+          #   path = "${pkgs-unstable.xwayland-satellite}/bin/xwayland-satellite";
+          # };
       };
     })
   ];
