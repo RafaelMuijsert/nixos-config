@@ -83,7 +83,7 @@ in {
     description = "Bomberduck Server";
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = "${inputs.bomberduck-server.packages.x86_64-linux.default}/bin/server --port=${bomberduckServerPort}";
+      ExecStart = "${inputs.bomberduck-server.packages.x86_64-linux.default}/bin/server --port=${builtins.toString bomberduckServerPort}";
     };
   };
 
