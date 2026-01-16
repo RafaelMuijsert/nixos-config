@@ -92,6 +92,13 @@
             "eDP-1" = {
               scale = 1;
             };
+            "Dell Inc. AW2521HFA 7BBQL03" = {
+              mode = {
+                width = 1920;
+                height = 1080;
+                refresh = 239.757;
+              };
+            };
           };
 
           # Lock screen on lid close
