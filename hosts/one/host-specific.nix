@@ -7,6 +7,7 @@
 }: let
   vpnPort = 51820;
   syncthingPort = 8384;
+  bomberduckServerPort = 8080;
 in {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -82,7 +83,7 @@ in {
     description = "Bomberduck Server";
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = "${inputs.bomberduck-server.packages.x86_64-linux.default}/bin/bomberduck-server";
+      ExecStart = "${inputs.bomberduck-server.packages.x86_64-linux.default}/bin/server --port=${bomberduckServerPort}";
     };
   };
 
