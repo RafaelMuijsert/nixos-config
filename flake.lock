@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768605018,
-        "narHash": "sha256-ULkImm/x6JjR3UZJLAWhmE9fOVmK9QYtgnd8tEC4PbQ=",
+        "lastModified": 1768605119,
+        "narHash": "sha256-1u7kggfnXCPWckxDvs9EOsdpfGnehH5EBOFxMMraQjk=",
         "ref": "refs/heads/main",
-        "rev": "179774caae27edd000d9c6e8672623cb81351890",
-        "revCount": 22,
+        "rev": "5795eca0cbe40757b8a8408db0972eba6d252bc6",
+        "revCount": 23,
         "type": "git",
         "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-server.git"
       },
