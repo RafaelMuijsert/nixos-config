@@ -75,11 +75,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768177234,
-        "narHash": "sha256-HxX5teURlqEvlPultfQ4q5YLLKMyqptUPC1Mee4VdC4=",
+        "lastModified": 1768604207,
+        "narHash": "sha256-HuPcZFNl5mXkI/0LDh9UEXgyvkpQfNN/uvfMXyIiETQ=",
         "ref": "refs/heads/main",
-        "rev": "1ade81e07834da519a7fe29e994a6f3b4330fec9",
-        "revCount": 16,
+        "rev": "80bd90e286cd0d4302debd4461e7483ca3fae746",
+        "revCount": 39,
         "type": "git",
         "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-game.git"
       },
@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768175177,
-        "narHash": "sha256-eyqZUwrZKkGTfBqGRrQknshrnxbPvmrGUSBfyV2lT9s=",
+        "lastModified": 1768486386,
+        "narHash": "sha256-DsWl3Ag4+D1+jjZ6vGpFMpddjipcqeQ2NlnWCFi9+as=",
         "ref": "refs/heads/main",
-        "rev": "d95edc7601fabbe6719ec105907c99dc57ecb1c1",
-        "revCount": 5,
+        "rev": "82c73c25d7d9d70f6202b3a548bf24fa03bbb72e",
+        "revCount": 13,
         "type": "git",
         "url": "ssh://git@github.com/RafaelMuijsert/bomberduck-server.git"
       },
