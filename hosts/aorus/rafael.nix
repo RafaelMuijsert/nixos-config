@@ -11,7 +11,6 @@
       pkgs-unstable.devenv
 
       # Music
-      pkgs-unstable.rmpc
       ardour
       pkgs-unstable.ncspot
       nicotine-plus
