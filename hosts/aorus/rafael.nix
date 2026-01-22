@@ -27,6 +27,9 @@
       godot_4
       libresprite
 
+      # Gaming
+      prismlauncher
+
       # HTML LSP
       pkgs.vscode-langservers-extracted
       pkgs.superhtml
