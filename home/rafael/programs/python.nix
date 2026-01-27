@@ -12,6 +12,7 @@
       ppkgs.ortools
       ppkgs.opencv-python
       ppkgs.pandas
+      ppkgs.polars
       ppkgs.pytest
       # ppkgs.pytorch
       ppkgs.scikit-image
