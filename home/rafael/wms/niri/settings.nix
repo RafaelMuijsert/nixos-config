@@ -70,6 +70,9 @@
               repeat-delay = 200;
               repeat-rate = 30;
             };
+            touchpad = {
+              dwt = true;
+            };
             power-key-handling.enable = false;
           };
           layout = {
