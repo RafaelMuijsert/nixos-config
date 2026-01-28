@@ -9,6 +9,7 @@
     helix
     lazygit
     jq
+    just
     python314
     procs
     ripgrep
