@@ -57,6 +57,7 @@
 
       # Haskell development
       pkgs.ghc
+      pkgs.haskell-language-server
     ];
   };
 }
