@@ -120,6 +120,7 @@
             "--data-plane-host=127.0.0.1:0"
             "--open"
           ];
+          typstExtraArgs = ["main.typ"];
         };
       };
     };
