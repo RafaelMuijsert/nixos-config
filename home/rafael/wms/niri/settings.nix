@@ -1,4 +1,4 @@
-{ config, inputs, lib, osConfig, pkgs, pkgs-unstable, ... }:
+{ lib, osConfig, pkgs, ... }:
 {
   config = lib.mkMerge [
     # https://github.com/sodiboo/niri-flake/issues/1492
@@ -51,6 +51,8 @@
             "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
             "Mod+E".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
             "Mod+C".action.spawn = ["noctalia-shell" "ipc" "call" "controlCenter" "toggle"];
+            "Mod+X".action.spawn = ["noctalia-shell" "ipc" "call" "lockScreen" "lock"];
+
 
 
             "Mod+T".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/todo.txt"];
