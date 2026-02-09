@@ -96,11 +96,14 @@
             "eDP-1" = {
               scale = 1;
             };
-          };
-
-          # Lock screen on lid close
-          switch-events = {
-            lid-close.action.spawn = ["noctalia-shell" "ipc" "call" "lockScreen" "lock"];
+            "Dell Inc. AW2521HFA 7BBQL03" = {
+              scale = 1;
+              mode = {
+                width = 1920;
+                height = 1080;
+                refresh = 239.757;
+              };
+            };
           };
 
           screenshot-path = "~/Pictures/Screenshots/%s.png";
