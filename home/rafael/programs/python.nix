@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, pkgs-unstable, ...}: {
   home.packages = [
     (pkgs.python313.withPackages (ppkgs: [
       ppkgs.geopandas
@@ -22,5 +22,6 @@
       ppkgs.wget
       ppkgs.z3-solver
     ]))
+    pkgs-unstable.uv
   ];
 }
