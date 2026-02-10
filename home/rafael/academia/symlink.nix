@@ -9,7 +9,7 @@
     home.file = {
       "Uni".source =
         config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/Documents/Academia/BSc-Computer-Science/Year 3/Semester 2";
+        "${config.home.homeDirectory}/Documents/Academia/BSc-Computer-Science/Year-3/Semester-2";
     };
   };
 }
