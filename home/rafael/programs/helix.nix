@@ -69,7 +69,7 @@
           };
           language-servers = [
             {name = "ruff-lsp";}
-            {name = "ty";}
+            {name = "pyrefly";}
           ];
         }
         {
@@ -103,9 +103,9 @@
           };
         };
       };
-      language-server.ty = {
-        command = "${pkgs-unstable.ty}/bin/ty";
-        args = ["server"];
+      language-server.pyrefly = {
+        command = "${pkgs-unstable.pyrefly}/bin/pyrefly";
+        args = ["lsp"];
       };
       language-server.phpactor = {
         command = "${pkgs-unstable.phpactor}/bin/phpactor";
