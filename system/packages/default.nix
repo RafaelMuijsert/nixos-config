@@ -16,6 +16,7 @@
     sbctl
     tldr
     tmux
+    watchexec
     wget
   ];
 }
