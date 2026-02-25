@@ -90,6 +90,14 @@
           };
           auto-format = true;
         }
+        {
+          name = "javascript";
+          formatter = {
+            command = "${pkgs.biome}/bin/biome";
+            args = ["format" "--stdin-file-path" "index.js"];
+          };
+          auto-format = true;
+        }
       ];
       language-server.ruff-lsp = {
         command = "${pkgs-unstable.ruff}/bin/ruff";
