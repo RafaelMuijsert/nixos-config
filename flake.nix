@@ -106,14 +106,14 @@
     };
 
     formatter.x86_64-linux = pkgs.alejandra;
-    devShell.x86_64-linux = pkgs.mkShell {
+    devShells.x86_64-linux.default = pkgs.mkShell {
       buildInputs = with pkgs; [
         just
         age
         sops
       ];
     };
-    devShell.aarch64-darwin = darwinPkgs.mkShell {
+    devShells.aarch64-darwin.default = darwinPkgs.mkShell {
       buildInputs = with darwinPkgs; [
         just
         age
