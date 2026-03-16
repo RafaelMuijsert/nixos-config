@@ -7,7 +7,6 @@
     file
     git
     helix
-    lazygit
     jq
     just
     python314

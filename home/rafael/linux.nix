@@ -25,12 +25,13 @@
       direnv.enable = true;
       eza.enable = true;
       fastfetch.enable = true;
-      gh.enable = true;
-      home-manager.enable = true;
       fish.enable = true;
       fzf.enable = true;
+      gh.enable = true;
       git.enable = true;
       helix.enable = true;
+      home-manager.enable = true;
+      lazygit.enable = true;
       yazi.enable = true;
       zellij.enable = true;
       zoxide.enable = true;
