@@ -1,6 +1,7 @@
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "zero" = {
         hostname = "192.168.42.2";
