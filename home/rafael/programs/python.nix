@@ -1,27 +1,26 @@
 {pkgs, pkgs-unstable, ...}: {
   home.packages = [
-    (pkgs.python313.withPackages (ppkgs: [
-      ppkgs.geopandas
-      ppkgs.graphviz
-      ppkgs.imageio
-      ppkgs.jupyter
-      ppkgs.matplotlib
-      ppkgs.networkx
-      ppkgs.numpy
-      ppkgs.ollama
-      ppkgs.ortools
-      ppkgs.opencv-python
-      ppkgs.pandas
-      ppkgs.polars
-      ppkgs.pytest
-      # ppkgs.pytorch
-      ppkgs.scikit-image
-      ppkgs.scipy
-      ppkgs.sympy
-      # ppkgs.torchvision
-      ppkgs.transformers
-      ppkgs.wget
-      ppkgs.z3-solver
+    (pkgs.python313.withPackages (ppkgs: with ppkgs; [
+      geopandas
+      graphviz
+      imageio
+      jupyter
+      matplotlib
+      networkx
+      numpy
+      ollama
+      ortools
+      opencv-python
+      pandas
+      polars
+      pytest
+      scikit-image
+      scipy
+      sympy
+      torchvision
+      transformers
+      wget
+      z3-solver
     ]))
     pkgs-unstable.uv
   ];
