@@ -8,6 +8,7 @@
 }: let
   vpnPort = 51820;
   syncthingPort = 8384;
+  pinmedownPort = 9000;
 in {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -78,6 +79,17 @@ in {
     };
   };
 
+  # PinMeDown website
+  systemd.services.pinmedown = {
+    description = "PinMeDown Website";
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web -p ${builtins.toString pinmedownPort}";
+      Restart = "always";
+      Environment = "PATH=${pkgs.bash}/bin";
+    };
+  };
+
   # SSL
   security.acme = {
     acceptTerms = true;
@@ -112,6 +124,18 @@ in {
 
         serverName = "photos.muijsert.org";
       };
+
+      "pinmedown.app" = {
+        enableACME = true;
+        forceSSL = true;
+
+        locations."/".proxyPass = "http://127.0.0.1:${builtins.toString pinmedownPort}";
+
+        serverName = "pinmedown.app";
+        serverAliases = [
+          "www.pinmedown.app"
+        ];
+      };
     };
   };
 
@@ -132,3 +156,4 @@ in {
 
   system.stateVersion = "24.11";
 }
+

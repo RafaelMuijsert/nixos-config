@@ -28,6 +28,10 @@
 
     portfolio.url = "github:RafaelMuijsert/next-portfolio";
     portfolio.inputs.nixpkgs.follows = "nixpkgs";
+
+    pinmedown.url = "git+ssh://git@github.com/RafaelMuijsert/pinmedown-web";
+    pinmedown.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
