@@ -8,6 +8,7 @@
   config = lib.mkIf osConfig.desktop.niri.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
+      nautilus
     ];
     programs = {
       firefox.enable = true;
