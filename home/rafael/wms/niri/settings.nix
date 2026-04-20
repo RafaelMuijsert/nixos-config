@@ -105,7 +105,13 @@
               };
             };
           };
-
+          spawn-at-startup = [
+            {
+              command = [
+                "noctalia-shell"
+              ];
+            }
+          ];
           screenshot-path = "~/Pictures/Screenshots/%s.png";
           prefer-no-csd = true;
           # xwayland-satellite.enable = true;

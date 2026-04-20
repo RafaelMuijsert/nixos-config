@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }:
 {
   programs.noctalia-shell = {
-    systemd.enable = true;
     settings = {
       settingsVersion = 0;
       bar = {
