@@ -14,6 +14,9 @@
       "snellius" = {
         hostname = "snellius.surf.nl";
         user = "rmuijsert";
+        extraOptions = {
+          warnweakcrypto = "no";
+        };
       };
     };
   };
