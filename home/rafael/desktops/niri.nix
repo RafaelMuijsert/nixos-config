@@ -25,7 +25,6 @@
     services = {
       mpd.enable = true;
       cliphist.enable = true;
-      wlsunset.enable = true;
     };
   };
 }

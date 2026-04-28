@@ -108,6 +108,8 @@
 
           screenshot-path = "~/Pictures/Screenshots/%s.png";
           prefer-no-csd = true;
+          # xwayland-satellite.enable = true;
+          # xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       };
     })
   ];
