@@ -9,6 +9,7 @@
       pkgs.altus
       # General development
       pkgs-unstable.devenv
+      pkgs-unstable.opencode
 
       # Nix development
       pkgs.nil
