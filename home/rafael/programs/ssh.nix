@@ -13,9 +13,10 @@
       };
       "snellius" = {
         hostname = "snellius.surf.nl";
+        forwardAgent = true;
         user = "rmuijsert";
         extraOptions = {
-          warnweakcrypto = "no";
+          WarnWeakCrypto = "no";
         };
       };
     };
