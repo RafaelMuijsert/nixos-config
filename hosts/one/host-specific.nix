@@ -1,158 +1,22 @@
 {
-  config,
-  inputs,
-  lib,
-  pkgs,
-  pkgs-unstable,
-  ...
-}: let
-  vpnPort = 51820;
-  syncthingPort = 8384;
-  pinmedownPort = 9000;
-in {
-  # Use the systemd-boot EFI boot loader.
+  # Bootloader
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  # Use NetworkManager for networking.
-  networking = {
-    hostName = "one";
-    networkmanager.enable = true;
-    firewall.allowedTCPPorts = [80 443 syncthingPort];
-    firewall.allowedUDPPorts = [vpnPort];
 
-    nat = {
-      enable = true;
-      externalInterface = "enp4s0";
-      internalInterfaces = ["wg0"];
-    };
+  # Networking
+  networking.hostName = "one";
 
-    wireguard = {
-      enable = true;
-      interfaces = {
-        wg0 = {
-          ips = ["192.168.100.1/24"];
-          mtu = 1386;
-          listenPort = vpnPort;
-          privateKeyFile = config.sops.secrets."vpn-server-key".path;
-
-          postSetup = ''
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o enp4s0 -j MASQUERADE
-          '';
-
-          postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o enp4s0 -j MASQUERADE
-          '';
-
-          peers = [
-            {
-              publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
-              allowedIPs = ["192.168.100.2/32"];
-            }
-          ];
-        };
-      };
-    };
-  };
-
-  # Immich
-  services.immich = {
-    enable = true;
-    mediaLocation = "/mnt/data/Photos/";
-    package = pkgs-unstable.immich;
-    host = "127.0.0.1";
-    port = 2283;
-    settings = {
-      server.externalDomain = "https://photos.muijsert.org";
-    };
-  };
-
-  # Portfolio website
-  systemd.services.portfolio = {
-    description = "Portfolio Website";
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      ExecStart = "${inputs.portfolio.packages.x86_64-linux.default}/bin/portfolio";
-      Restart = "always";
-      Environment = "PATH=${pkgs.bash}/bin";
-    };
-  };
-
-  # PinMeDown website
-  systemd.services.pinmedown = {
-    description = "PinMeDown Website";
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web -p ${builtins.toString pinmedownPort}";
-      Restart = "always";
-      Environment = "PATH=${pkgs.bash}/bin";
-    };
-  };
-
-  # SSL
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "rafael@muijsert.org";
-  };
-
-  # Reverse proxy
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    clientMaxBodySize = "10G";
-    virtualHosts = {
-      "muijsert.org" = {
-        enableACME = true;
-        forceSSL = true;
-
-        locations."/".proxyPass = "http://127.0.0.1:3000";
-
-        serverName = "muijsert.org";
-        serverAliases = [
-          "www.muijsert.org"
-        ];
-      };
-      "photos.muijsert.org" = {
-        enableACME = true;
-        forceSSL = true;
-
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:2283";
-          proxyWebsockets = true;
-        };
-
-        serverName = "photos.muijsert.org";
-      };
-
-      "pinmedown.app" = {
-        enableACME = true;
-        forceSSL = true;
-
-        locations."/".proxyPass = "http://127.0.0.1:${builtins.toString pinmedownPort}";
-
-        serverName = "pinmedown.app";
-        serverAliases = [
-          "www.pinmedown.app"
-        ];
-      };
-    };
-  };
-
-  services.syncthing = {
-    enable = true;
-    guiAddress = "0.0.0.0:${builtins.toString syncthingPort}";
-
-    key = config.sops.secrets."syncthing-hosts/one/key".path;
-    cert = config.sops.secrets."syncthing-hosts/one/cert".path;
-    settings.devices = {
-      "elite" = {id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";};
-      "aorus" = {id = "FSFRLFB-FPC2GX6-H34V4YQ-ZS5FJ3M-NT6IZF5-567G3JA-CHBDLUN-TTCUUAN";};
-    };
-    settings.folders.Documents.devices = ["elite" "aorus"];
-    settings.folders.Music.devices = ["elite" "aorus"];
-    settings.folders.Pictures.devices = ["elite" "aorus"];
-  };
+  imports = [
+    ./services/immich.nix
+    ./services/nginx.nix
+    ./services/pinmedown.nix
+    ./services/portfolio.nix
+    ./services/snackvalue.nix
+    ./services/syncthing.nix
+    ./services/wireguard.nix
+  ];
 
   system.stateVersion = "24.11";
 }

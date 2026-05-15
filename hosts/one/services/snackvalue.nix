@@ -1,0 +1,62 @@
+{ inputs, pkgs, ... }:
+let
+    snackvaluePort  = 9094;
+    snackvalueDomain = "snackvalue.nl";
+    hardening = {
+      ProtectSystem            = "strict";
+      ProtectHome              = true;
+      PrivateTmp               = true;
+      PrivateDevices           = true;
+      ProtectKernelTunables    = true;
+      ProtectKernelModules     = true;
+      ProtectKernelLogs        = true;
+      ProtectControlGroups     = true;
+      ProtectClock             = true;
+      ProtectHostname          = true;
+
+      NoNewPrivileges          = true;
+      RestrictSUIDSGID         = true;
+      RemoveIPC                = true;
+
+      PrivateNetwork           = false; # needs loopback
+      RestrictAddressFamilies  = [ "AF_INET" "AF_INET6" "AF_NETLINK" ];
+
+      SystemCallArchitectures  = "native";
+      SystemCallFilter         = [ "@system-service" ];
+
+      CapabilityBoundingSet    = "";
+      AmbientCapabilities      = "";
+
+      PrivateUsers             = true;
+      RestrictNamespaces       = true;
+
+      LockPersonality          = true;
+      RestrictRealtime         = true;
+      UMask                    = "0077";
+  };
+
+in {
+  # SnackValue 
+  systemd.services.snackvalue = {
+    description = "SnackValue Website";
+    wantedBy    = [ "multi-user.target" ];
+    after       = [ "network.target" ];
+    serviceConfig = hardening // {
+      ExecStart   = "${inputs.snackvalue.packages.x86_64-linux.default}/bin/snackvalue";
+      Restart     = "on-failure";
+      RestartSec  = "5s";
+      DynamicUser = true;
+      StateDirectory = "snackvalue";
+      Environment = [
+        "PATH=${pkgs.bash}/bin"
+        "PORT=${builtins.toString snackvaluePort}"
+      ];
+    };
+  };
+  services.nginx.virtualHosts."${snackvalueDomain}" = {
+    enableACME    = true;
+    forceSSL      = true;
+    serverAliases = [ "www.${snackvalueDomain}" ];
+    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString snackvaluePort}";
+  };
+}
