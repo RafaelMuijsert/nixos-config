@@ -1,12 +1,15 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   externalInterface = "enp4s0";
-  vpnPort           = 51820;
-  vpnSubnet         = "192.168.100.0/24";
-  vpnServerIP       = "192.168.100.1/24";
+  vpnPort = 51820;
+  vpnSubnet = "192.168.100.0/24";
+  vpnServerIP = "192.168.100.1/24";
   vpnPeers = [
     {
-      publicKey  = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
+      publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
       allowedIPs = ["192.168.100.2/32"];
     }
   ];
@@ -15,9 +18,9 @@ in {
     wireguard = {
       enable = true;
       interfaces.wg0 = {
-        ips            = [ vpnServerIP ];
-        mtu            = 1280;
-        listenPort     = vpnPort;
+        ips = [vpnServerIP];
+        mtu = 1280;
+        listenPort = vpnPort;
         privateKeyFile = config.sops.secrets."vpn-server-key".path;
 
         postSetup = ''
@@ -34,9 +37,9 @@ in {
     };
     nat = {
       enable = true;
-      externalInterface  = externalInterface;
-      internalInterfaces = [ "wg0" ];
+      externalInterface = externalInterface;
+      internalInterfaces = ["wg0"];
     };
-    firewall.allowedUDPPorts = [ vpnPort ];
+    firewall.allowedUDPPorts = [vpnPort];
   };
 }

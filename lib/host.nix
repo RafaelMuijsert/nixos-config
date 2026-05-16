@@ -31,7 +31,7 @@
           {home-manager.extraSpecialArgs = specialArgs;}
 
           inputs.niri.nixosModules.niri
-          {niri-flake.cache.enable = false; }
+          {niri-flake.cache.enable = false;}
 
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops

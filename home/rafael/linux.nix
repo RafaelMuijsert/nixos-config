@@ -40,17 +40,19 @@
     # Enable XDG user dirs.
     xdg.userDirs.enable = true;
 
-    imports = builtins.concatMap (dir: pathUtils.readDirectory dir) [
-      ./academia
-      ./desktops
-      ./environment
-      ./programs
-      ./settings
-      ./themes
-      ./wms/hyprland
-      ./wms/i3
-      ./wms/niri
-      ./wms/sway
-    ] ++ [inputs.noctalia.homeModules.default];
+    imports =
+      builtins.concatMap (dir: pathUtils.readDirectory dir) [
+        ./academia
+        ./desktops
+        ./environment
+        ./programs
+        ./settings
+        ./themes
+        ./wms/hyprland
+        ./wms/i3
+        ./wms/niri
+        ./wms/sway
+      ]
+      ++ [inputs.noctalia.homeModules.default];
   };
 }

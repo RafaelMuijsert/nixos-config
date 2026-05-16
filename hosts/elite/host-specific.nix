@@ -74,7 +74,6 @@
     HandlePowerKey = "hibernate";
   };
 
-
   hardware = {
     graphics = {
       enable = true;

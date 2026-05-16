@@ -1,11 +1,14 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.noctalia-shell = {
     settings = {
       settingsVersion = 0;
       bar = {
         position = "bottom";
-        monitors = [ ];
+        monitors = [];
         density = "default";
         showOutline = false;
         showCapsule = true;
@@ -148,7 +151,7 @@
         enabled = true;
         overviewEnabled = false;
         directory = "";
-        monitorDirectories = [ ];
+        monitorDirectories = [];
         enableMultiMonitorDirectories = false;
         recursiveSearch = false;
         setWallpaperOnAllMonitors = true;
@@ -178,7 +181,7 @@
         enableClipboardHistory = true;
         enableClipPreview = true;
         position = "center";
-        pinnedExecs = [ ];
+        pinnedExecs = [];
         useApp2Unit = false;
         sortByMostUsed = true;
         terminalCommand = "${pkgs.kitty}/bin/kitty";
@@ -273,8 +276,8 @@
         floatingRatio = 1;
         size = 1;
         onlySameOutput = true;
-        monitors = [ ];
-        pinnedApps = [ ];
+        monitors = [];
+        pinnedApps = [];
         colorizeIcons = false;
         pinnedStatic = false;
         inactiveIndicators = false;
@@ -321,7 +324,7 @@
       };
       notifications = {
         enabled = true;
-        monitors = [ ];
+        monitors = [];
         location = "top_right";
         overlayLayer = true;
         respectExpireTimeout = false;
@@ -355,14 +358,14 @@
           2
           4
         ];
-        monitors = [ ];
+        monitors = [];
       };
       audio = {
         volumeStep = 5;
         volumeOverdrive = false;
         cavaFrameRate = 30;
         visualizerType = "linear";
-        mprisBlacklist = [ ];
+        mprisBlacklist = [];
         preferredPlayer = "";
         externalMixer = "pwvucontrol || pavucontrol";
       };
@@ -429,7 +432,7 @@
       desktopWidgets = {
         enabled = false;
         gridSnap = false;
-        monitorWidgets = [ ];
+        monitorWidgets = [];
       };
     };
   };

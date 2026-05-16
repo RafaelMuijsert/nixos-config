@@ -1,21 +1,21 @@
 let
-  acmeEmail       = "rafael@muijsert.org";
+  acmeEmail = "rafael@muijsert.org";
 in {
-  # TLS / ACME 
+  # TLS / ACME
   security.acme = {
-    acceptTerms      = true;
-    defaults.email   = acmeEmail;
+    acceptTerms = true;
+    defaults.email = acmeEmail;
   };
 
-  # Nginx reverse proxy 
+  # Nginx reverse proxy
   services.nginx = {
-    enable                  = true;
+    enable = true;
     recommendedProxySettings = true;
-    recommendedTlsSettings   = true;
-    recommendedOptimisation  = true;
-    recommendedGzipSettings  = true;
+    recommendedTlsSettings = true;
+    recommendedOptimisation = true;
+    recommendedGzipSettings = true;
   };
 
   # Firewall config
-  networking.firewall.allowedTCPPorts = [ 443 ];
+  networking.firewall.allowedTCPPorts = [443];
 }

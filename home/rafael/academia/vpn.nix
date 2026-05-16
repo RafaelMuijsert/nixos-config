@@ -1,9 +1,12 @@
-{ lib, osConfig, pkgs, ...}:
 {
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}: {
   config = lib.mkIf osConfig.academia {
     home.packages = [
       pkgs.eduvpn-client
     ];
   };
-
 }

@@ -1,4 +1,8 @@
-{pkgs, pkgs-unstable, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   home.packages = [
     (pkgs.python313.withPackages (ppkgs: [
       ppkgs.geopandas

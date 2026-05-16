@@ -1,4 +1,8 @@
-{lib, modulesPath, ...}: {
+{
+  lib,
+  modulesPath,
+  ...
+}: {
   # Default installer configuration
   imports = ["${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"];
 
@@ -34,4 +38,3 @@
     appendToMenuLabel = " Live System";
   };
 }
-
