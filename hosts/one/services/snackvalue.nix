@@ -30,6 +30,7 @@
     CapabilityBoundingSet = "";
     AmbientCapabilities = "";
 
+    DynamicUser = true;
     PrivateUsers = true;
     RestrictNamespaces = true;
 
@@ -37,7 +38,19 @@
     RestrictRealtime = true;
     UMask = "0077";
   };
+
 in {
+  # SnackValue scraper
+  systemd.services.snackvalue-scraper = {
+    serviceConfig = hardening // {
+      StateDirectory = "snackvalue";
+      Type = "simple";
+      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.scraper}/bin/snackvalue-scraper";
+        Environment = [
+          "DB_PATH=/var/lib/snackvalue/snackvalue.db"
+        ];
+    };
+  };
   # SnackValue
   systemd.services.snackvalue = {
     description = "SnackValue Website";
@@ -49,10 +62,10 @@ in {
         ExecStart = "${inputs.snackvalue.packages.x86_64-linux.default}/bin/snackvalue";
         Restart = "on-failure";
         RestartSec = "5s";
-        DynamicUser = true;
         StateDirectory = "snackvalue";
         Environment = [
           "PATH=${pkgs.bash}/bin"
+          "DB_PATH=/var/lib/snackvalue/snackvalue.db"
           "PORT=${builtins.toString snackvaluePort}"
         ];
       };
