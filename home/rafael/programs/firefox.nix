@@ -1,6 +1,7 @@
-{...}: {
+{ config, ...}: {
   stylix.targets.firefox.profileNames = ["default"];
   programs.firefox = {
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.default = {
       settings = {
         # Disable warning when entering about:config.

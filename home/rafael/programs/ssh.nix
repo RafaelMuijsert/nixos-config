@@ -2,7 +2,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "zero" = {
         hostname = "192.168.42.2";
         user = "rafael";
@@ -15,9 +15,9 @@
         hostname = "snellius.surf.nl";
         forwardAgent = true;
         user = "rmuijsert";
-        extraOptions = {
-          WarnWeakCrypto = "no";
-        };
+        # extraOptions = {
+        #   WarnWeakCrypto = "no";
+        # };
       };
     };
   };

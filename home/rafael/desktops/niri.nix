@@ -7,7 +7,7 @@
 }: {
   config = lib.mkIf osConfig.desktop.niri.enable {
     home.packages = with pkgs; [
-      bitwarden-desktop
+      # bitwarden-desktop
       nautilus
     ];
     programs = {

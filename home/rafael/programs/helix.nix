@@ -76,7 +76,7 @@
           name = "tsx";
           roots = ["package-lock.json" "tsconfig.json" ".prettierrc.json"];
           formatter = {
-            command = "${pkgs.nodePackages.prettier}/bin/prettier";
+            command = "${pkgs.prettier}/bin/prettier";
             args = ["--stdin-filepath" "index.tsx"];
           };
           auto-format = true;
@@ -85,7 +85,7 @@
           name = "typescript";
           roots = ["package-lock.json" "tsconfig.json" ".prettierrc.json"];
           formatter = {
-            command = "${pkgs.nodePackages.prettier}/bin/prettier";
+            command = "${pkgs.prettier}/bin/prettier";
             args = ["--stdin-filepath" "index.ts"];
           };
           auto-format = true;

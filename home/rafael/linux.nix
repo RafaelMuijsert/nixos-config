@@ -39,6 +39,7 @@
 
     # Enable XDG user dirs.
     xdg.userDirs.enable = true;
+    xdg.userDirs.setSessionVariables = true;
 
     imports =
       builtins.concatMap (dir: pathUtils.readDirectory dir) [

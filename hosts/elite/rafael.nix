@@ -19,16 +19,6 @@
       pkgs.gnumake
       pkgs.gcc
 
-      # Svelte development
-      pkgs.nodePackages.svelte-language-server
-
-      # HTML LSP
-      pkgs.vscode-langservers-extracted
-      pkgs.superhtml
-
-      # TypeScript LSP
-      pkgs.typescript-language-server
-
       # OBS
       pkgs.obs-studio
 
