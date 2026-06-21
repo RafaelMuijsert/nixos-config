@@ -5,6 +5,7 @@
   pkgs-unstable,
   ...
 }: {
+  programs.fish.interactiveShellInit = "devenv hook fish | source";
   home-manager.users.rafael = {
     home.packages = with pkgs; [
       # General development
