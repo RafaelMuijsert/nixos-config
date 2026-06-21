@@ -9,6 +9,7 @@
     home.packages = with pkgs; [
       # General development
       pkgs-unstable.devenv
+      pkgs-unstable.opencode
 
       # Music
       ardour
