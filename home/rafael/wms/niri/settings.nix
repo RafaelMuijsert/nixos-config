@@ -113,6 +113,7 @@
             }
           ];
           screenshot-path = "~/Pictures/Screenshots/%s.png";
+          hotkey-overlay.skip-at-startup = true;
           prefer-no-csd = true;
           # xwayland-satellite.enable = true;
           # xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
