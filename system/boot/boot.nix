@@ -14,6 +14,8 @@
     };
 
     consoleLogLevel = 4;
+    kernelParams = [ "quiet" "splash" ];
+
     initrd.verbose = true;
 
     lanzaboote = {
