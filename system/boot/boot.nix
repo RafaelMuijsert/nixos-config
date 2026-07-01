@@ -5,9 +5,12 @@
 }: {
   boot = {
     loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.enable = !config.secureBoot;
+    loader.systemd-boot = {
+      enable = !config.secureBoot;
+      consoleMode = "max";
+    };
 
-    consoleLogLevel = 3;
+    consoleLogLevel = 4;
     initrd.verbose = true;
 
     lanzaboote = {
