@@ -4,10 +4,13 @@
   ...
 }: {
   boot = {
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot = {
-      enable = !config.secureBoot;
-      consoleMode = "max";
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+      systemd-boot = {
+        enable = !config.secureBoot;
+        consoleMode = "max";
+      };
     };
 
     consoleLogLevel = 4;
