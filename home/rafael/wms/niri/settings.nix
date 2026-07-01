@@ -12,7 +12,7 @@
       programs.niri.settings = {
           binds = {
             # Spawning programs
-            "Alt+Space".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
+            "Alt+Space".action.spawn = ["noctalia" "msg" "panel-toggle" "launcher"];
             "Mod+I".action.spawn = "${pkgs.firefox}/bin/firefox";
             "Mod+Return".action.spawn = "${pkgs.kitty}/bin/kitty";
 
@@ -41,19 +41,16 @@
 
             # System controls
             "Print".action.screenshot = [];
-            "XF86AudioRaiseVolume".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "increase"];
-            "XF86AudioLowerVolume".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "decrease"];
-            "XF86AudioMute".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "muteOutput"];
-            "XF86AudioMicMute".action.spawn = ["noctalia-shell" "ipc" "call" "volume" "muteInput"];
-            "XF86MonBrightnessUp".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "increase"];
-            "XF86MonBrightnessDown".action.spawn = ["noctalia-shell" "ipc" "call" "brightness" "decrease"];
+            "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
+            "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
+            "XF86AudioMute".action.spawn = ["noctalia" "msg" "volume-mute"];
+            "XF86AudioMicMute".action.spawn = ["noctalia" "msg" "mic-mute"];
+            "XF86MonBrightnessUp".action.spawn = ["noctalia" "msg" "brightness-up"];
+            "XF86MonBrightnessDown".action.spawn = ["noctalia" "msg" "brightness-down"];
             "XF86Display".action.spawn-sh = "pkill wl-mirror || ${pkgs.wl-mirror}/bin/wl-present mirror eDP-1 -F";
-            "Mod+V".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "clipboard"];
-            "Mod+E".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "emoji"];
-            "Mod+C".action.spawn = ["noctalia-shell" "ipc" "call" "controlCenter" "toggle"];
-            "Mod+X".action.spawn = ["noctalia-shell" "ipc" "call" "lockScreen" "lock"];
-
-
+            "Mod+V".action.spawn = ["noctalia" "msg" "panel-toggle" "clipboard"];
+            "Mod+E".action.spawn = ["noctalia" "msg" "panel-toggle" "launcher" "/emo"];
+            "Mod+C".action.spawn = ["noctalia" "msg" "panel-toggle" "control-center"];
 
             "Mod+T".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/todo.txt"];
             "Mod+Shift+T".action.spawn = ["${pkgs.kitty}/bin/kitty" "hx" "~/Documents/Personal/Notes/backlog.txt"];
@@ -108,7 +105,7 @@
           spawn-at-startup = [
             {
               command = [
-                "noctalia-shell"
+                "noctalia"
               ];
             }
           ];

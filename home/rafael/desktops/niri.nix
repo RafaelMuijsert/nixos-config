@@ -16,7 +16,7 @@
       imv.enable = true;
       kitty.enable = true;
       mpv.enable = true;
-      noctalia-shell.enable = true;
+      noctalia.enable = true;
       rmpc.enable = true;
       thunderbird.enable = true;
       yt-dlp.enable = true;
