@@ -11,6 +11,7 @@
       package = pkgs.niri;
       enable = true;
     };
+    services.displayManager.ly.enable = true;
     services.pipewire = {
       enable = true;
       alsa.enable = true;
