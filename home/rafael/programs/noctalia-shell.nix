@@ -384,33 +384,6 @@
         matugenSchemeType = "scheme-fruit-salad";
         generateTemplatesForPredefined = true;
       };
-      templates = {
-        gtk = false;
-        qt = false;
-        kcolorscheme = false;
-        alacritty = false;
-        kitty = false;
-        ghostty = false;
-        foot = false;
-        wezterm = false;
-        fuzzel = false;
-        discord = false;
-        pywalfox = false;
-        vicinae = false;
-        walker = false;
-        code = false;
-        spicetify = false;
-        telegram = false;
-        cava = false;
-        yazi = false;
-        emacs = false;
-        niri = false;
-        hyprland = false;
-        mango = false;
-        zed = false;
-        helix = false;
-        enableUserTemplates = false;
-      };
       nightLight = {
         enabled = true;
         forced = false;
@@ -429,6 +402,14 @@
         performanceModeEnabled = "";
         performanceModeDisabled = "";
       };
+      idle = {
+        enabled = true;
+        screenOffTimeout = 300;
+        lockTimeout = 360;
+        suspendTimeout = 600;
+        fadeDuration = 5;
+      };
+
       desktopWidgets = {
         enabled = false;
         gridSnap = false;
