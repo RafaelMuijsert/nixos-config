@@ -15,6 +15,21 @@
     theme = import ../../themes/catppuccin-nix;
   };
 
+  # Auto login to niri
+  services.greetd = {
+    enable = true;
+    settings = {
+      initial_session = {
+        command = "niri-session";
+        user = "rafael";
+      };
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd niri-session";
+        user = "rafael";
+      };
+    };
+  };
+
   # Install academia-related packages.
   academia = true;
 
