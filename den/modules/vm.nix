@@ -4,8 +4,7 @@
 { inputs, den, ... }:
 {
 
-  # USER TODO: remove this tty-autologin used for the VM
-  den.aspects.igloo.includes = [ (den.batteries.tty-autologin "tux") ];
+  den.aspects.elite.includes = [ (den.batteries.tty-autologin "rafael") ];
 
   perSystem =
     { pkgs, ... }:
@@ -14,7 +13,7 @@
         name = "vm";
         text =
           let
-            host = inputs.self.nixosConfigurations.igloo.config;
+            host = inputs.self.nixosConfigurations.elite.config;
           in
           ''
             ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
