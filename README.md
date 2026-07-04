@@ -1,15 +1,33 @@
-<h1 align="center">:snowflake: Rafael's NixOS Configurations :snowflake:</h1>
+# Getting Started Guide
 
-[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
-> This configuration is a work in progress. It is _not_ feature-complete or stable as of yet. 
+Steps you can follow after cloning this template:
 
-My ever-evolving NixOS flake + home-manager configuration.
+- Be sure to read the [den documentation](https://den.denful.dev)
 
-## Sway minimal
-![Sway-minimal](img/sway-minimal.png)
+- Update den input.
 
-## Structure
-The definition of a host is largely outlined in ```lib/host.nix```. 
-This configuration attempts to enforce modularity and correctness by predefining a structure which every host must conform to.
+```console
+nix flake update den
+```
 
+- Edit [modules/hosts.nix](modules/hosts.nix)
 
+- Build
+
+```console
+# default action is build
+nix run .#igloo
+
+# pass any other nh action
+nix run .#igloo -- switch
+```
+
+- Run the VM
+
+We recommend to use a VM develop cycle so you can play with the system before applying to your hardware.
+
+See [modules/vm.nix](modules/vm.nix)
+
+```console
+nix run .#vm
+```
