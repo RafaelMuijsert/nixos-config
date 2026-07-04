@@ -6,10 +6,10 @@
 }: {
   # Create a symlink to the current semester in university.
   config = lib.mkIf osConfig.academia {
-    home.file = {
-      "Uni".source =
-        config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/Documents/Academia/BSc-Computer-Science/Year-3/Semester-2/Thesis";
-    };
+    # home.file = {
+    #   "Uni".source =
+    #     config.lib.file.mkOutOfStoreSymlink
+    #     "${config.home.homeDirectory}/Documents/Academia/BSc-Computer-Science/Year-3/Semester-2/Thesis";
+    # };
   };
 }
