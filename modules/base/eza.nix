@@ -1,6 +1,5 @@
 {
-  programs.eza = {
-    enableFishIntegration = true;
+  den.default.homeManager.programs.eza = {
     icons = "auto";
     git = true;
     extraOptions = [
