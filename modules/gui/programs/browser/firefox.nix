@@ -1,6 +1,7 @@
 {
   den.ful.browser.firefox = {
     homeManager.programs.firefox = {
+      enable = true;
       profiles.default = {
         settings = {
           # Disable warning when entering about:config.

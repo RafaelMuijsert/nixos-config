@@ -9,15 +9,12 @@ in
     rafael = {};
   };
 
-  den.aspects.rafael.includes = [
-    <desktops/niri>
-  ];
-
   /* Host configuration */
   den.aspects.${hostname}.includes = [
-    <desktops/niri>
-    <stylix>
+    <desktop/niri>
     <hardware/bluetooth>
     <hardware/fingerprint>
+    <hardware/secureboot>
+    <stylix>
   ];
 }

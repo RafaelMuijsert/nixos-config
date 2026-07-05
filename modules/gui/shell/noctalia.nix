@@ -1,3 +1,3 @@
 {
-  den.aspects.noctalia = {};
+  den.ful.shell.noctalia = {};
 }

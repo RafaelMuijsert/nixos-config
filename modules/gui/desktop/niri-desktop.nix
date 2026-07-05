@@ -3,7 +3,7 @@
   den.ful.desktop.niri = {
     includes = [
       <wm/niri>      
-      <desktop-shell/noctalia>
+      <shell/noctalia>
       <audio/pipewire>
       <browser/firefox>
       <terminal/kitty>
