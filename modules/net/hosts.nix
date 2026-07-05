@@ -1,0 +1,13 @@
+{
+  den.aspects.hosts.nixos = {
+    networking.stevenblack = {
+      enable = true;
+      block = [
+        "fakenews"
+        "gambling"
+        "porn"
+        "social"
+      ];
+    };
+  };
+}

@@ -1,3 +1,4 @@
+# TODO: Refactor
 switch:
     sudo nixos-rebuild --flake . switch
 
