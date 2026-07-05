@@ -1,5 +1,6 @@
 {
-  programs.fastfetch = {
+  den.default.homeManager.programs.fastfetch = {
+    enable = true;
     settings = {
       logo = {
         source = "nixos";

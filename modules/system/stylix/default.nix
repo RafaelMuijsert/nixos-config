@@ -12,7 +12,8 @@
       ];
       stylix = {
         enable = true;
-        base16Scheme = ../../../_legacy/themes/catppuccin-nix/scheme.yaml;
+        # TODO: don't hardcode this
+        base16Scheme = ../../themes/_catppuccin-nix/scheme.yaml;
         polarity = "dark";
         cursor = {
           package = pkgs.whitesur-cursors;

@@ -1,3 +1,12 @@
 {
-  den.ful.email.thunderbird = {};
+  den.ful.email.thunderbird.homeManager.programs.thunderbird = {
+    profiles = {
+      Primary = {
+        isDefault = true;
+      };
+    };
+    settings = {
+      "network.dns.disableIPv6" = true;
+    };
+  };
 }
