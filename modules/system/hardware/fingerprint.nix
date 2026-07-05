@@ -1,5 +1,5 @@
 {
-  den.ful.auth.fingerprint = {
+  den.ful.hardware.fingerprint = {
     nixos.services.fprintd.enable = true;
   };
 }

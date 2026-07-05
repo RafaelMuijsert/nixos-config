@@ -6,17 +6,20 @@
   };
 
   den.ful.wms.niri = {
-    includes = [
-      inputs.niri-flake.nixosModules.niri
-    ];
     nixos = {
       programs.niri = {
         enable = true;
       };
     };
     homeManager = {
+      imports = [ inputs.niri-flake.homeModules.niri ];
       programs.niri = {
         enable = true;
+        settings = {
+          screenshot-path = "~/Pictures/Screenshots/%s.png";
+          hotkey-overlay.skip-at-startup = true;
+          prefer-no-csd = true;
+        };
       };
     };
   };

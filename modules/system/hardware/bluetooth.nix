@@ -1,5 +1,5 @@
 {
-  den.aspects.bluetooth = {
+  den.ful.hardware.bluetooth = {
     nixos.hardware.bluetooth.enable = true;
   };
 }
