@@ -16,6 +16,10 @@
       url = "github:nix-community/home-manager/release-26.05";
     };
     import-tree.url = "github:vic/import-tree";
+    niri-flake = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sodiboo/niri-flake";
+    };
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-lib.follows = "nixpkgs";
   };
