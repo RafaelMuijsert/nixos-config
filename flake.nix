@@ -13,11 +13,12 @@
     };
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
     };
     import-tree.url = "github:vic/import-tree";
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-lib.follows = "nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
 }
