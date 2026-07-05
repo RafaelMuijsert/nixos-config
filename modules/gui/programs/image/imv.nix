@@ -1,3 +1,3 @@
 {
-  den.aspects.imv = {};
+  den.ful.image.imv = {};
 }

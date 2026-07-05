@@ -1,5 +1,5 @@
 {
-  den.ful.wms.niri.homeManager.programs.niri.settings.layout = {
+  den.ful.wm.niri.homeManager.programs.niri.settings.layout = {
     preset-column-widths = [
       { proportion = 1. / 2.; }
     ];

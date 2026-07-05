@@ -1,5 +1,5 @@
 {
-  den.ful.wms.niri.homeManager = { pkgs, ... }: {
+  den.ful.wm.niri.homeManager = { pkgs, ... }: {
     programs.niri.settings.binds = {
       # Spawning programs
       "Alt+Space".action.spawn = ["noctalia" "msg" "panel-toggle" "launcher"];

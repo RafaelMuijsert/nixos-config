@@ -1,3 +1,3 @@
 {
-  den.aspects.rmpc = {};
+  den.ful.music.rmpc = {};
 }

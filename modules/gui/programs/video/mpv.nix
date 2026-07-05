@@ -1,3 +1,3 @@
 {
-  den.aspects.mpv = {};
+  den.ful.video.mpv = {};
 }

@@ -1,5 +1,5 @@
 {
-  den.aspects.firefox = {
+  den.ful.browser.firefox = {
     homeManager.programs.firefox = {
       profiles.default = {
         settings = {

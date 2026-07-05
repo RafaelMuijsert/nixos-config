@@ -1,5 +1,5 @@
 {
-  den.aspects.kitty = {
+  den.ful.terminal.kitty = {
     homeManager.programs.kitty = {
       enable = true;
       enableGitIntegration = true;

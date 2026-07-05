@@ -1,0 +1,3 @@
+{
+  den.ful.email.thunderbird = {};
+}

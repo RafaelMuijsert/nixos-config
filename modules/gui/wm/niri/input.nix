@@ -1,5 +1,5 @@
 {
-  den.ful.wms.niri.homeManager.programs.niri.settings.input = {
+  den.ful.wm.niri.homeManager.programs.niri.settings.input = {
     keyboard = {
       xkb = {
         options = "caps:swapescape,grp:shifts_toggle";
