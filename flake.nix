@@ -18,7 +18,6 @@
     import-tree.url = "github:vic/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-lib.follows = "nixpkgs";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
 }

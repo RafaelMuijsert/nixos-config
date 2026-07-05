@@ -1,12 +1,11 @@
+{ __findFile, ... }:
 let
   hostname = "elite";
+  root = "6d1f7eae-21ea-44b5-bca2-8a4e3cd9991b";
+  swap = "dc291857-82a6-4740-8e15-a41f5a5a94b8";
+  esp = "3FB6-1941";
 in
 {
-  /* Define host with users */
-  den.hosts.x86_64-linux.${hostname} = {
-    users.rafael = {};
-  };
-
   /* Hardware configuration */
   den.aspects.${hostname} = {
     nixos = { config, lib, pkgs, ... }: {
@@ -17,20 +16,24 @@ in
       boot.extraModulePackages = [];
 
       fileSystems."/" = {
-        device = "/dev/mapper/luks-6d1f7eae-21ea-44b5-bca2-8a4e3cd9991b";
+        device = "/dev/mapper/luks-${root}";
         fsType = "ext4";
       };
 
-      boot.initrd.luks.devices."luks-6d1f7eae-21ea-44b5-bca2-8a4e3cd9991b".device = "/dev/disk/by-uuid/6d1f7eae-21ea-44b5-bca2-8a4e3cd9991b";
+      # Encrypted root
+      boot.initrd.luks.devices."luks-${root}".device = "/dev/disk/by-uuid/${root}";
+
+      # Encrypted swap
+      boot.initrd.luks.devices."luks-${swap}".device = "/dev/disk/by-uuid/${swap}";
 
       fileSystems."/boot" = {
-        device = "/dev/disk/by-uuid/3FB6-1941";
+        device = "/dev/disk/by-uuid/${esp}";
         fsType = "vfat";
         options = ["fmask=0077" "dmask=0077"];
       };
 
       swapDevices = [
-        {device = "/dev/mapper/luks-dc291857-82a6-4740-8e15-a41f5a5a94b8";}
+        {device = "/dev/mapper/luks-${swap}";}
       ];
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
