@@ -16,6 +16,7 @@ in
   /* Host configuration */
   den.aspects.${hostname}.includes = [
     <desktops/niri>
+    <stylix>
     <hardware/bluetooth>
     <hardware/fingerprint>
   ];

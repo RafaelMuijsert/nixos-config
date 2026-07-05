@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   den.default.homeManager.programs.helix = {
     enable = true;
@@ -13,7 +14,7 @@
           cursor-line = "hint";
         };
       };
-      theme = "catppuccin_mocha";
+      theme = lib.mkDefault "catppuccin_mocha";
     };
   };
 }

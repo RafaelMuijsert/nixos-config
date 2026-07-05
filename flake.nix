@@ -22,6 +22,10 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-lib.follows = "nixpkgs";
+    stylix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:danth/stylix/release-26.05";
+    };
   };
 
 }
