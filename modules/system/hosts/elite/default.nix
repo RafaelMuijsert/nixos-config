@@ -9,11 +9,6 @@ in
     rafael = {};
   };
 
-  # TODO: fix this; shouldn't be required
-  den.aspects.rafael.includes = [
-    <desktop/niri>
-  ];
-
   /* Host configuration */
   den.aspects.${hostname}.includes = [
     <desktop/niri>
