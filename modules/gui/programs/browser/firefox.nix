@@ -1,8 +1,11 @@
-{
-  den.ful.browser.firefox = {
-    homeManager.programs.firefox = {
+let
+  profile = "default";
+in {
+  den.ful.browser.firefox.homeManager = {
+    stylix.targets.firefox.profileNames = [ profile ];
+    programs.firefox = {
       enable = true;
-      profiles.default = {
+      profiles.${profile}= {
         settings = {
           # Disable warning when entering about:config.
           "browser.aboutConfig.showWarning" = false;
