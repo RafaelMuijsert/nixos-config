@@ -6,6 +6,9 @@
 let
   pinmedownPort = 9000;
   pinmedownDomain = "pinmedown.app";
+  # Hardened systemd service: runs as an unprivileged DynamicUser with
+  # strict filesystem isolation, restricted namespaces, and minimal
+  # capabilities. This is shared across all web services on the server.
   hardening = {
     ProtectSystem = "strict";
     ProtectHome = true;
@@ -44,7 +47,6 @@ let
   };
 in
 {
-  # PinMeDown
   systemd.services.pinmedown = {
     description = "PinMeDown Website";
     wantedBy = [ "multi-user.target" ];

@@ -1,15 +1,15 @@
 { __findFile, ... }:
 let
-  # Host info
   hostname = "elite";
 in
 {
-  # Define host with users
+  # Host definition: creates an NixOS configuration for x86_64-linux
+  # with the 'rafael' user under the 'elite' hostname.
+  # Theme is set here so Stylix can apply Catppuccin Mocha globally.
   den.hosts.x86_64-linux.${hostname} = {
     users = {
       rafael = { };
     };
-    # TODO: set this automatically when importing a theme
     theme = {
       scheme = ../../../theme/catppuccin/scheme.yaml;
       polarity = "dark";
@@ -17,23 +17,24 @@ in
     };
   };
 
-  # Host configuration
+  # Aspect composition: each angle-bracket include pulls in a
+  # self-contained module from the modules/ tree.
   den.aspects.${hostname} = {
     includes = [
-      # Desktop
+      # Desktop environment — niri WM + noctalia shell + core GUI apps
       <desktop/niri>
       <theme/catppuccin>
 
-      # Hardware
+      # Hardware support — Bluetooth, fingerprint reader, Secure Boot, power management
       <hardware/bluetooth>
       <hardware/fingerprint>
       <hardware/secureboot>
       <hardware/upower>
 
-      # Network
+      # WireGuard VPN client — connects to home VPN server
       <net/home-vpn>
 
-      # Directory Sync
+      # Syncthing — 3-way sync between elite, aorus, and one
       <sync>
     ];
   };

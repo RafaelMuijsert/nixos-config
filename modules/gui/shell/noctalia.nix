@@ -1,3 +1,6 @@
+# Noctalia desktop shell: integrated bar, control center, notifications,
+# clipboard, wallpaper engine, nightlight, idle daemon, and lockscreen.
+# Themes itself from the system Catppuccin palette and uses Stylix wallpaper.
 {
   inputs,
   ...

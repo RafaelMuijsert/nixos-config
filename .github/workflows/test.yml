@@ -1,3 +1,6 @@
+# CI: runs `nix flake check` on every push and pull request.
+# Ensures all NixOS and home-manager configurations evaluate correctly.
+# A temporary CI runtime module is injected to set `CI = true`.
 on:
   pull_request:
   push:
@@ -18,6 +21,7 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: actions/checkout@v5
       - run: nix flake metadata
+      # Inject a CI flag so modules can skip interactive features
       - run: |
           cat <<-EOF > modules/ci-runtime.nix
           {

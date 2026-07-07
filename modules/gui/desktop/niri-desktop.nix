@@ -1,3 +1,6 @@
+# Full desktop composition: bundles the niri WM with noctalia shell,
+# audio, and all essential GUI applications into a single import.
+# Include <desktop/niri> in any host aspect to get the complete desktop.
 { __findFile, ... }:
 {
   den.ful.desktop.niri = {

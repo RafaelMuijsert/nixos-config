@@ -1,3 +1,7 @@
+# Syncthing configuration shared by all hosts.
+# Base settings enable the service and open default ports.
+# The rafael user aspect adds device identities and the 3 shared folders
+# (Documents, Music, Pictures) synced between elite, aorus, and one.
 {
   den.aspects.sync = {
     nixos = {

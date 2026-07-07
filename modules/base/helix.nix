@@ -1,3 +1,6 @@
+# Helix editor: modal editing with LSP and tree-sitter.
+# Catppuccin Mocha theme, distinct cursor shapes per mode,
+# and inline diagnostics on the cursor line.
 { lib, ... }:
 {
   den.default.homeManager.programs.helix = {

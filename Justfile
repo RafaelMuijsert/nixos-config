@@ -1,16 +1,19 @@
-# List available options
+# NixOS configuration management shortcuts.
+# Run `just` without arguments to see all available commands.
+
+# List available commands
 default:
     @just --list
 
-# Rebuild and switch configuration matching hostname (persists beteween reboots)
+# Apply the configuration to the current system (persists across reboots)
 switch:
     sudo nixos-rebuild --flake . switch
 
-# Rebuild and test configuration matching hostname (does not persist between reboots)
+# Test the configuration without making it the boot default
 test:
     sudo nixos-rebuild --flake . test
 
-# Update flake inputs
+# Update all flake inputs to their latest versions
 update:
     nix flake update
 

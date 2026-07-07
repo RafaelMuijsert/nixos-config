@@ -1,3 +1,5 @@
+# Aorus desktop: host-specific user packages including development tools,
+# game engines, music production, and language servers for Helix.
 {
   config,
   lib,

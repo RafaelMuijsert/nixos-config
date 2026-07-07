@@ -1,3 +1,7 @@
+# Stylix: system-wide base16 theming. Applies the host's configured
+# color scheme, polarity, and wallpaper to all Stylix-compatible
+# applications (Firefox, Kitty, Helix, GTK, etc.).
+# Fonts: Arimo Nerd Font for UI, JetBrainsMono Nerd Font for monospace.
 { inputs, lib, ... }:
 {
   flake-file.inputs = {
@@ -10,6 +14,7 @@
       imports = [ inputs.stylix.nixosModules.stylix ];
       stylix = {
         enable = true;
+        # Dynamically loaded from the host's theme definition
         base16Scheme = host.theme.scheme;
         polarity = host.theme.polarity;
         image = host.theme.wallpaper;

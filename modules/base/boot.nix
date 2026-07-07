@@ -1,3 +1,6 @@
+# Bootloader configuration shared across all hosts.
+# Uses systemd-boot with EFI, quiet/splash kernel params,
+# and zero-second timeout for fast boots.
 {
   den.default.nixos.boot = {
     loader = {
