@@ -32,6 +32,9 @@ in
 
       /* Network */
       <net/home-vpn>
+
+      /* Directory Sync */
+      <sync>
     ];
   };
 }
