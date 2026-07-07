@@ -21,7 +21,7 @@ in {
         ips = [vpnServerIP];
         mtu = 1280;
         listenPort = vpnPort;
-        privateKeyFile = config.sops.secrets."vpn-server-key".path;
+        privateKeyFile = config.sops.secrets."vpn-server/key".path;
 
         postSetup = ''
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING \

@@ -1,5 +1,12 @@
-{...}: {
-  sops = {
+{ inputs, ... }:
+{
+  flake-file.inputs = {
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  den.aspects.sops.nixos = {
+    imports = [ inputs.sops-nix.nixosModules.sops ];
     defaultSopsFile = ../../secrets.yaml;
     age = {
       sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
@@ -7,7 +14,7 @@
       generateKey = true;
     };
     secrets = {
-      "vpn-server-key" = {};
+      "vpn-server/key" = {};
 
       "vpn-clients/elite" = {};
 

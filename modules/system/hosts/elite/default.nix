@@ -20,12 +20,18 @@ in
   /* Host configuration */
   den.aspects.${hostname} = {
     includes = [
+      /* Desktop */
       <desktop/niri>
       <theme/catppuccin>
+
+      /* Hardware */
       <hardware/bluetooth>
       <hardware/fingerprint>
       <hardware/secureboot>
       <hardware/upower>
+
+      /* Network */
+      <net/home-vpn>
     ];
   };
 }
