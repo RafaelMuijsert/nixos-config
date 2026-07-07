@@ -1,13 +1,13 @@
 { __findFile, ... }:
 let
-  /* Host info */
+  # Host info
   hostname = "elite";
 in
 {
-  /* Define host with users */
+  # Define host with users
   den.hosts.x86_64-linux.${hostname} = {
     users = {
-      rafael = {};
+      rafael = { };
     };
     # TODO: set this automatically when importing a theme
     theme = {
@@ -17,23 +17,23 @@ in
     };
   };
 
-  /* Host configuration */
+  # Host configuration
   den.aspects.${hostname} = {
     includes = [
-      /* Desktop */
+      # Desktop
       <desktop/niri>
       <theme/catppuccin>
 
-      /* Hardware */
+      # Hardware
       <hardware/bluetooth>
       <hardware/fingerprint>
       <hardware/secureboot>
       <hardware/upower>
 
-      /* Network */
+      # Network
       <net/home-vpn>
 
-      /* Directory Sync */
+      # Directory Sync
       <sync>
     ];
   };

@@ -4,7 +4,8 @@
   pkgs,
   pkgs-unstable,
   ...
-}: {
+}:
+{
   programs.fish.interactiveShellInit = "devenv hook fish | source";
   home-manager.users.rafael = {
     home.packages = with pkgs; [
@@ -43,6 +44,6 @@
       ghc
     ];
     # Host-specific symlinks in home directory.
-    imports = [./symlinks.nix];
+    imports = [ ./symlinks.nix ];
   };
 }

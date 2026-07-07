@@ -1,3 +1,3 @@
 {
-  den.ful.music.rmpc = {};
+  den.ful.music.rmpc = { };
 }

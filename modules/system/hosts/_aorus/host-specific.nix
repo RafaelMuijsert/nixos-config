@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # Use NetworkManager for networking.
   networking = {
     hostName = "aorus";
@@ -43,7 +44,7 @@
     enable = true;
     qemu.swtpm.enable = true;
   };
-  users.groups.libvirtd.members = ["rafael"];
+  users.groups.libvirtd.members = [ "rafael" ];
 
   # Enable virtual camera
   programs.obs-studio = {
@@ -64,12 +65,25 @@
     key = config.sops.secrets."syncthing-hosts/aorus/key".path;
     cert = config.sops.secrets."syncthing-hosts/aorus/cert".path;
     settings.devices = {
-      "one" = {id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";};
-      "elite" = {id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";};
+      "one" = {
+        id = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";
+      };
+      "elite" = {
+        id = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";
+      };
     };
-    settings.folders.Documents.devices = ["one" "elite"];
-    settings.folders.Music.devices = ["one" "elite"];
-    settings.folders.Pictures.devices = ["one" "elite"];
+    settings.folders.Documents.devices = [
+      "one"
+      "elite"
+    ];
+    settings.folders.Music.devices = [
+      "one"
+      "elite"
+    ];
+    settings.folders.Pictures.devices = [
+      "one"
+      "elite"
+    ];
   };
 
   # udev rules to prevent suspend wakeups from motherboard and mouse usb receiver

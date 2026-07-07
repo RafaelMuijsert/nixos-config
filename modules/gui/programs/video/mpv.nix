@@ -1,3 +1,3 @@
 {
-  den.ful.video.mpv = {};
+  den.ful.video.mpv = { };
 }

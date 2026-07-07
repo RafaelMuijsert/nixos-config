@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   portfolioPort = 3000;
   portfolioDomain = "muijsert.org";
   hardening = {
@@ -22,10 +23,14 @@
     RemoveIPC = true;
 
     PrivateNetwork = false; # needs loopback
-    RestrictAddressFamilies = ["AF_INET" "AF_INET6" "AF_NETLINK"];
+    RestrictAddressFamilies = [
+      "AF_INET"
+      "AF_INET6"
+      "AF_NETLINK"
+    ];
 
     SystemCallArchitectures = "native";
-    SystemCallFilter = ["@system-service"];
+    SystemCallFilter = [ "@system-service" ];
 
     CapabilityBoundingSet = "";
     AmbientCapabilities = "";
@@ -37,31 +42,30 @@
     RestrictRealtime = true;
     UMask = "0077";
   };
-in {
+in
+{
   # Portfolio website
   systemd.services.portfolio = {
     description = "Portfolio Website";
-    wantedBy = ["multi-user.target"];
-    after = ["network.target"];
-    serviceConfig =
-      hardening
-      // {
-        ExecStart = "${inputs.portfolio.packages.x86_64-linux.default}/bin/portfolio";
-        Restart = "on-failure";
-        RestartSec = "5s";
-        DynamicUser = true;
-        StateDirectory = "portfolio";
-        Environment = [
-          "PATH=${pkgs.bash}/bin"
-          "HOME=/var/lib/portfolio"
-        ];
-      };
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = hardening // {
+      ExecStart = "${inputs.portfolio.packages.x86_64-linux.default}/bin/portfolio";
+      Restart = "on-failure";
+      RestartSec = "5s";
+      DynamicUser = true;
+      StateDirectory = "portfolio";
+      Environment = [
+        "PATH=${pkgs.bash}/bin"
+        "HOME=/var/lib/portfolio"
+      ];
+    };
   };
 
   services.nginx.virtualHosts."${portfolioDomain}" = {
     enableACME = true;
     forceSSL = true;
-    serverAliases = ["www.${portfolioDomain}"];
+    serverAliases = [ "www.${portfolioDomain}" ];
     locations."/".proxyPass = "http://127.0.0.1:${builtins.toString portfolioPort}";
   };
 }

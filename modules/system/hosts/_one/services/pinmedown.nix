@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   pinmedownPort = 9000;
   pinmedownDomain = "pinmedown.app";
   hardening = {
@@ -22,10 +23,14 @@
     RemoveIPC = true;
 
     PrivateNetwork = false; # needs loopback
-    RestrictAddressFamilies = ["AF_INET" "AF_INET6" "AF_NETLINK"];
+    RestrictAddressFamilies = [
+      "AF_INET"
+      "AF_INET6"
+      "AF_NETLINK"
+    ];
 
     SystemCallArchitectures = "native";
-    SystemCallFilter = ["@system-service"];
+    SystemCallFilter = [ "@system-service" ];
 
     CapabilityBoundingSet = "";
     AmbientCapabilities = "";
@@ -37,30 +42,29 @@
     RestrictRealtime = true;
     UMask = "0077";
   };
-in {
+in
+{
   # PinMeDown
   systemd.services.pinmedown = {
     description = "PinMeDown Website";
-    wantedBy = ["multi-user.target"];
-    after = ["network.target"];
-    serviceConfig =
-      hardening
-      // {
-        ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web";
-        Restart = "on-failure";
-        RestartSec = "5s";
-        DynamicUser = true;
-        StateDirectory = "pinmedown";
-        Environment = [
-          "PATH=${pkgs.bash}/bin"
-          "PORT=${builtins.toString pinmedownPort}"
-        ];
-      };
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = hardening // {
+      ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web";
+      Restart = "on-failure";
+      RestartSec = "5s";
+      DynamicUser = true;
+      StateDirectory = "pinmedown";
+      Environment = [
+        "PATH=${pkgs.bash}/bin"
+        "PORT=${builtins.toString pinmedownPort}"
+      ];
+    };
   };
   services.nginx.virtualHosts."${pinmedownDomain}" = {
     enableACME = true;
     forceSSL = true;
-    serverAliases = ["www.${pinmedownDomain}"];
+    serverAliases = [ "www.${pinmedownDomain}" ];
     locations."/".proxyPass = "http://127.0.0.1:${builtins.toString pinmedownPort}";
   };
 }

@@ -1,7 +1,9 @@
-{pkgs-unstable, ...}: let
+{ pkgs-unstable, ... }:
+let
   immichPort = 4821;
   immichDomain = "photos.muijsert.org";
-in {
+in
+{
   # Immich
   services.immich = {
     enable = true;

@@ -1,11 +1,12 @@
 let
   profile = "default";
-in {
+in
+{
   den.ful.browser.firefox.homeManager = {
     stylix.targets.firefox.profileNames = [ profile ];
     programs.firefox = {
       enable = true;
-      profiles.${profile}= {
+      profiles.${profile} = {
         settings = {
           # Disable warning when entering about:config.
           "browser.aboutConfig.showWarning" = false;
@@ -27,8 +28,8 @@ in {
           # UI layout.
           "browser.uiCustomization.state" = {
             "placements" = {
-              "widget-overflow-fixed-list" = [];
-              "unified-extensions-area" = [];
+              "widget-overflow-fixed-list" = [ ];
+              "unified-extensions-area" = [ ];
               "nav-bar" = [
                 "back-button"
                 "forward-button"
@@ -41,12 +42,29 @@ in {
                 "downloads-button"
                 "unified-extensions-button"
               ];
-              "toolbar-menubar" = ["menubar-items"];
-              "TabsToolbar" = ["firefox-view-button" "tabbrowser-tabs" "new-tab-button" "alltabs-button"];
-              "PersonalToolbar" = ["import-button" "personal-bookmarks"];
+              "toolbar-menubar" = [ "menubar-items" ];
+              "TabsToolbar" = [
+                "firefox-view-button"
+                "tabbrowser-tabs"
+                "new-tab-button"
+                "alltabs-button"
+              ];
+              "PersonalToolbar" = [
+                "import-button"
+                "personal-bookmarks"
+              ];
             };
-            "seen" = ["save-to-pocket-button" "ublock0_raymondhill_net-browser-action" "_testpilot-containers-browser-action" "developer-button"];
-            "dirtyAreaCache" = ["unified-extensions-area" "nav-bar" "PersonalToolbar"];
+            "seen" = [
+              "save-to-pocket-button"
+              "ublock0_raymondhill_net-browser-action"
+              "_testpilot-containers-browser-action"
+              "developer-button"
+            ];
+            "dirtyAreaCache" = [
+              "unified-extensions-area"
+              "nav-bar"
+              "PersonalToolbar"
+            ];
             "currentVersion" = 20;
             "newElementCount" = 4;
           };

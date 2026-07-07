@@ -6,6 +6,9 @@
       systemd-boot.consoleMode = "max";
     };
     consoleLogLevel = 4;
-    kernelParams = [ "quiet" "splash" ];
+    kernelParams = [
+      "quiet"
+      "splash"
+    ];
   };
 }

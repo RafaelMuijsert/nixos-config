@@ -1,5 +1,5 @@
 {
-  den.default.homeManager = { pkgs, ...}: {
+  den.default.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       fishPlugins.pure
     ];

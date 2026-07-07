@@ -1,7 +1,8 @@
 {
   inputs,
   ...
-}: {
+}:
+{
   flake-file.inputs = {
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
@@ -14,16 +15,16 @@
       settings = {
         bar.default = {
           end = [
-              "tray"
-              "notifications"
-              "clipboard"
-              "network"
-              "bluetooth"
-              "volume"
-              "brightness"
-              "battery"
-              "control-center"
-              "session"
+            "tray"
+            "notifications"
+            "clipboard"
+            "network"
+            "bluetooth"
+            "volume"
+            "brightness"
+            "battery"
+            "control-center"
+            "session"
           ];
           font_family = "JetBrainsMono NFM";
           font_weight = 400;
@@ -41,17 +42,20 @@
 
         desktop_widgets = {
           schema_version = 2;
-          widget_order = [];
+          widget_order = [ ];
           grid = {
             cell_size = 16;
             major_interval = 4;
             visible = true;
           };
-          widget = {};
+          widget = { };
         };
 
         idle = {
-          behavior_order = [ "idle-behavior" "idle-behavior-3" ];
+          behavior_order = [
+            "idle-behavior"
+            "idle-behavior-3"
+          ];
 
           behavior = {
             idle-behavior = {

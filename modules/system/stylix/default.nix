@@ -1,4 +1,4 @@
-{ inputs, lib, ...}:
+{ inputs, lib, ... }:
 {
   flake-file.inputs = {
     stylix.url = "github:danth/stylix/release-26.05";

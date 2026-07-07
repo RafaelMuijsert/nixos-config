@@ -1,6 +1,7 @@
 let
   acmeEmail = "rafael@muijsert.org";
-in {
+in
+{
   # TLS / ACME
   security.acme = {
     acceptTerms = true;
@@ -17,5 +18,8 @@ in {
   };
 
   # Firewall config
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }
