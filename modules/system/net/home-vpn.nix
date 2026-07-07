@@ -36,4 +36,9 @@ in
       privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
     };
   };
+
+  den.aspects.aorus.nixos = { config, ... }: {
+    ips = [ "192.168.100.3/32" ];
+    privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
+  };
 }

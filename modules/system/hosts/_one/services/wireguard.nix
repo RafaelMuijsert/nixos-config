@@ -18,6 +18,10 @@ let
       publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
       allowedIPs = [ "192.168.100.2/32" ];
     }
+    {
+      publicKey = "HUwvFF4XTPGiQgpWeoT9Vh7D47hUrXk2MHiS5/0S7As=";
+      allowedIPs = [ "192.168.100.3/32" ];
+    }
   ];
 in
 {
