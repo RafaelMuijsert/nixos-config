@@ -3,12 +3,9 @@ let
   hostname = "elite";
 in
 {
-  # Host definition: creates an NixOS configuration for x86_64-linux
-  # with the 'rafael' user under the 'elite' hostname.
-  # Theme is set here so Stylix can apply Catppuccin Mocha globally.
   den.hosts.x86_64-linux.${hostname} = {
     users = {
-      rafael = { };
+      rafael = {};
     };
     theme = {
       scheme = ../../../theme/catppuccin/scheme.yaml;
