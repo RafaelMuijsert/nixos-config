@@ -7,7 +7,7 @@
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.ful.shell.noctalia.homeManager = { pkgs, ... }: {
+  den.ful.shell.noctalia.homeManager = { config, pkgs, ... }: {
     imports = [ inputs.noctalia.homeModules.default ];
     programs.noctalia = {
       enable = true;
@@ -120,9 +120,9 @@
           source = "builtin";
           wallpaper_scheme = "m3-content";
         };
-        # wallpaper = {
-        #   default.path = config.stylix.image;
-        # };
+        wallpaper = {
+          default.path = config.stylix.image;
+        };
       };
     };
   };
