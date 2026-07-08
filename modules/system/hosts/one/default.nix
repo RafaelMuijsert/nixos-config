@@ -9,6 +9,8 @@ in {
   };
 
   den.aspects.${hostname} = {
-    includes = [];
+    includes = [
+      <net/ssh>
+    ];
   };
 }
