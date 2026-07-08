@@ -51,7 +51,7 @@ in
     pinmedown.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.aspects.one.nixos = { pkgs, ...}: {
+  den.ful.services.pinmedown.nixos = { pkgs, ...}: {
     systemd.services.pinmedown = {
       description = "PinMeDown Website";
       wantedBy = [ "multi-user.target" ];

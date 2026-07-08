@@ -49,7 +49,7 @@ in
     snackvalue.url = "git+ssh://git@github.com/RafaelMuijsert/snackvalue";
     snackvalue.inputs.nixpkgs.follows = "nixpkgs";
   };
-  den.aspects.one.nixos = { pkgs, ... }: {
+  den.ful.services.snackvalue.nixos = { pkgs, ... }: {
     # SnackValue scraper
     systemd.services.snackvalue-scraper = {
       serviceConfig = hardening // {

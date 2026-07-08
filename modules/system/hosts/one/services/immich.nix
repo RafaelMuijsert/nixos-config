@@ -4,7 +4,7 @@ let
 in
 {
   # Immich
-  den.aspects.one.nixos = { pkgs, ... }: {
+  den.ful.services.immich.nixos = { pkgs, ... }: {
     services.immich = {
       enable = true;
       mediaLocation = "/mnt/data/Photos/";

@@ -24,7 +24,7 @@ let
   ];
 in
 {
-  den.aspects.one.nixos = { config, pkgs, ... }: {
+  den.ful.services.wireguard.nixos = { config, pkgs, ... }: {
     networking = {
       wireguard = {
         enable = true;

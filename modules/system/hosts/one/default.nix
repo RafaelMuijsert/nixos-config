@@ -12,6 +12,11 @@ in {
   den.aspects.${hostname} = {
     includes = [
       <net/ssh>
+      <services/pinmedown>
+      <services/snackvalue>
+      <services/immich>
+      <services/nginx>
+      <services/wireguard>
     ];
   };
 }
