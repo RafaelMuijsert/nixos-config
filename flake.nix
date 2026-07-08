@@ -28,6 +28,14 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pinmedown = {
+      url = "git+ssh://git@github.com/RafaelMuijsert/pinmedown-web";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    snackvalue = {
+      url = "git+ssh://git@github.com/RafaelMuijsert/snackvalue";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -46,6 +46,10 @@ let
 
 in
 {
+  flake-file.inputs = {
+    snackvalue.url = "git+ssh://git@github.com/RafaelMuijsert/snackvalue";
+    snackvalue.inputs.nixpkgs.follows = "nixpkgs";
+  };
   # SnackValue scraper
   den.aspects.one.nixos.systemd.services.snackvalue-scraper = {
     serviceConfig = hardening // {

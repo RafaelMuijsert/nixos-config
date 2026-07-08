@@ -25,6 +25,7 @@
 
         # WireGuard client keys
         "vpn-clients/elite" = { };
+        "vpn-clients/aorus" = { };
 
         # Syncthing device identities (3 hosts)
         "syncthing-hosts/aorus/key" = { };

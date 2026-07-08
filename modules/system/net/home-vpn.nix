@@ -38,7 +38,9 @@ in
   };
 
   den.aspects.aorus.nixos = { config, ... }: {
-    ips = [ "192.168.100.3/32" ];
-    privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
+    networking.wireguard.interfaces.${interface} = {
+      ips = [ "192.168.100.3/32" ];
+      privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
+    };
   };
 }

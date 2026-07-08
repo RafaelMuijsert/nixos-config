@@ -23,16 +23,18 @@ in
   # Syncthing relay on the home server. Shares Documents, Music, and
   # Pictures with all other hosts. Device identity keys are stored in SOPS.
   # Web GUI is bound to localhost only and accessed via SSH tunnel.
-  den.aspects.one.nixos.services.syncthing = {
-    enable = true;
-    guiAddress = "127.0.0.1:${builtins.toString syncthingPort}";
-    key = config.sops.secrets."syncthing-hosts/one/key".path;
-    cert = config.sops.secrets."syncthing-hosts/one/cert".path;
-    settings = {
-      devices = syncthingDevices;
-      folders = lib.genAttrs syncthingSharedFolders (_: {
-        devices = builtins.attrNames syncthingDevices;
-      });
+  den.aspects.one.nixos = { config, ... }: {
+    services.syncthing = {
+      enable = true;
+      guiAddress = "127.0.0.1:${builtins.toString syncthingPort}";
+      key = config.sops.secrets."syncthing-hosts/one/key".path;
+      cert = config.sops.secrets."syncthing-hosts/one/cert".path;
+      settings = {
+        devices = syncthingDevices;
+        folders = lib.genAttrs syncthingSharedFolders (_: {
+          devices = builtins.attrNames syncthingDevices;
+        });
+      };
     };
   };
 }

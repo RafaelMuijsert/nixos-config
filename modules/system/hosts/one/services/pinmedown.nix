@@ -47,6 +47,11 @@ let
   };
 in
 {
+  flake-file.inputs = {
+    pinmedown.url = "git+ssh://git@github.com/RafaelMuijsert/pinmedown-web";
+    pinmedown.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   den.aspects.one.nixos.systemd.services.pinmedown = {
     description = "PinMeDown Website";
     wantedBy = [ "multi-user.target" ];
