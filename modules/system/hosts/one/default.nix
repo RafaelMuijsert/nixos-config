@@ -1,3 +1,4 @@
+{ __findFile, ... }:
 let
   hostname = "one";
 in {

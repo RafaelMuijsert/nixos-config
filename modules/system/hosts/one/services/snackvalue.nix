@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   ...
 }:
 let
@@ -50,38 +49,41 @@ in
     snackvalue.url = "git+ssh://git@github.com/RafaelMuijsert/snackvalue";
     snackvalue.inputs.nixpkgs.follows = "nixpkgs";
   };
-  # SnackValue scraper
-  den.aspects.one.nixos.systemd.services.snackvalue-scraper = {
-    serviceConfig = hardening // {
-      StateDirectory = "snackvalue";
-      Type = "simple";
-      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.scraper}/bin/snackvalue-scraper";
-      Environment = [
-        "DB_PATH=/var/lib/snackvalue/snackvalue.db"
-      ];
+  den.aspects.one.nixos = { pkgs, ... }: {
+    # SnackValue scraper
+    systemd.services.snackvalue-scraper = {
+      serviceConfig = hardening // {
+        StateDirectory = "snackvalue";
+        Type = "simple";
+        ExecStart = "${inputs.snackvalue.packages.x86_64-linux.scraper}/bin/snackvalue-scraper";
+        Environment = [
+          "DB_PATH=/var/lib/snackvalue/snackvalue.db"
+        ];
+      };
     };
-  };
-  # SnackValue
-  den.aspects.one.nixos.systemd.services.snackvalue = {
-    description = "SnackValue Website";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = hardening // {
-      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.default}/bin/snackvalue";
-      Restart = "on-failure";
-      RestartSec = "5s";
-      StateDirectory = "snackvalue";
-      Environment = [
-        "PATH=${pkgs.bash}/bin"
-        "DB_PATH=/var/lib/snackvalue/snackvalue.db"
-        "PORT=${builtins.toString snackvaluePort}"
-      ];
+    # SnackValue
+    systemd.services.snackvalue = {
+      description = "SnackValue Website";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      serviceConfig = hardening // {
+        ExecStart = "${inputs.snackvalue.packages.x86_64-linux.default}/bin/snackvalue";
+        Restart = "on-failure";
+        RestartSec = "5s";
+        StateDirectory = "snackvalue";
+        Environment = [
+          "PATH=${pkgs.bash}/bin"
+          "DB_PATH=/var/lib/snackvalue/snackvalue.db"
+          "PORT=${builtins.toString snackvaluePort}"
+        ];
+      };
     };
-  };
-  den.aspects.one.nixos.services.nginx.virtualHosts."${snackvalueDomain}" = {
-    enableACME = true;
-    forceSSL = true;
-    serverAliases = [ "www.${snackvalueDomain}" ];
-    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString snackvaluePort}";
+
+    services.nginx.virtualHosts."${snackvalueDomain}" = {
+      enableACME = true;
+      forceSSL = true;
+      serverAliases = [ "www.${snackvalueDomain}" ];
+      locations."/".proxyPass = "http://127.0.0.1:${builtins.toString snackvaluePort}";
+    };
   };
 }
