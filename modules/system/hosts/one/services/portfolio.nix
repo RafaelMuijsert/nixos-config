@@ -4,11 +4,8 @@
   ...
 }:
 let
-  pinmedownPort = 9000;
-  pinmedownDomain = "pinmedown.app";
-  # Hardened systemd service: runs as an unprivileged DynamicUser with
-  # strict filesystem isolation, restricted namespaces, and minimal
-  # capabilities. This is shared across all web services on the server.
+  portfolioPort = 3000;
+  portfolioDomain = "muijsert.org";
   hardening = {
     ProtectSystem = "strict";
     ProtectHome = true;
@@ -47,26 +44,28 @@ let
   };
 in
 {
-  systemd.services.pinmedown = {
-    description = "PinMeDown Website";
+  # Portfolio website
+  den.aspects.one.nixos.systemd.services.portfolio = {
+    description = "Portfolio Website";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = hardening // {
-      ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web";
+      ExecStart = "${inputs.portfolio.packages.x86_64-linux.default}/bin/portfolio";
       Restart = "on-failure";
       RestartSec = "5s";
       DynamicUser = true;
-      StateDirectory = "pinmedown";
+      StateDirectory = "portfolio";
       Environment = [
         "PATH=${pkgs.bash}/bin"
-        "PORT=${builtins.toString pinmedownPort}"
+        "HOME=/var/lib/portfolio"
       ];
     };
   };
-  services.nginx.virtualHosts."${pinmedownDomain}" = {
+
+  den.aspects.one.nixos.services.nginx.virtualHosts."${portfolioDomain}" = {
     enableACME = true;
     forceSSL = true;
-    serverAliases = [ "www.${pinmedownDomain}" ];
-    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString pinmedownPort}";
+    serverAliases = [ "www.${portfolioDomain}" ];
+    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString portfolioPort}";
   };
 }

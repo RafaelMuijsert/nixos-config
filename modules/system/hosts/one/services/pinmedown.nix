@@ -4,8 +4,11 @@
   ...
 }:
 let
-  snackvaluePort = 9094;
-  snackvalueDomain = "snackvalue.nl";
+  pinmedownPort = 9000;
+  pinmedownDomain = "pinmedown.app";
+  # Hardened systemd service: runs as an unprivileged DynamicUser with
+  # strict filesystem isolation, restricted namespaces, and minimal
+  # capabilities. This is shared across all web services on the server.
   hardening = {
     ProtectSystem = "strict";
     ProtectHome = true;
@@ -35,7 +38,6 @@ let
     CapabilityBoundingSet = "";
     AmbientCapabilities = "";
 
-    DynamicUser = true;
     PrivateUsers = true;
     RestrictNamespaces = true;
 
@@ -43,41 +45,28 @@ let
     RestrictRealtime = true;
     UMask = "0077";
   };
-
 in
 {
-  # SnackValue scraper
-  systemd.services.snackvalue-scraper = {
-    serviceConfig = hardening // {
-      StateDirectory = "snackvalue";
-      Type = "simple";
-      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.scraper}/bin/snackvalue-scraper";
-      Environment = [
-        "DB_PATH=/var/lib/snackvalue/snackvalue.db"
-      ];
-    };
-  };
-  # SnackValue
-  systemd.services.snackvalue = {
-    description = "SnackValue Website";
+  den.aspects.one.nixos.systemd.services.pinmedown = {
+    description = "PinMeDown Website";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = hardening // {
-      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.default}/bin/snackvalue";
+      ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web";
       Restart = "on-failure";
       RestartSec = "5s";
-      StateDirectory = "snackvalue";
+      DynamicUser = true;
+      StateDirectory = "pinmedown";
       Environment = [
         "PATH=${pkgs.bash}/bin"
-        "DB_PATH=/var/lib/snackvalue/snackvalue.db"
-        "PORT=${builtins.toString snackvaluePort}"
+        "PORT=${builtins.toString pinmedownPort}"
       ];
     };
   };
-  services.nginx.virtualHosts."${snackvalueDomain}" = {
+  den.aspects.one.nixos.services.nginx.virtualHosts."${pinmedownDomain}" = {
     enableACME = true;
     forceSSL = true;
-    serverAliases = [ "www.${snackvalueDomain}" ];
-    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString snackvaluePort}";
+    serverAliases = [ "www.${pinmedownDomain}" ];
+    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString pinmedownPort}";
   };
 }

@@ -5,7 +5,7 @@ let
 in
 {
   # Immich
-  services.immich = {
+  den.aspects.one.nixos.services.immich = {
     enable = true;
     mediaLocation = "/mnt/data/Photos/";
     package = pkgs-unstable.immich;
@@ -14,7 +14,7 @@ in
     settings.server.externalDomain = "https://${immichDomain}";
   };
 
-  services.nginx = {
+  den.aspects.one.nixos.services.nginx = {
     # Required for larger files
     clientMaxBodySize = "10G";
 

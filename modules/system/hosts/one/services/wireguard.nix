@@ -25,7 +25,7 @@ let
   ];
 in
 {
-  networking = {
+  den.aspects.one.nixos.networking = {
     wireguard = {
       enable = true;
       interfaces.wg0 = {

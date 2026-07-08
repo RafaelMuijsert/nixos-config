@@ -5,12 +5,12 @@ let
   acmeEmail = "rafael@muijsert.org";
 in
 {
-  security.acme = {
+  den.aspects.one.nixos.security.acme = {
     acceptTerms = true;
     defaults.email = acmeEmail;
   };
 
-  services.nginx = {
+  den.aspects.one.nixos.services.nginx = {
     enable = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
@@ -19,7 +19,7 @@ in
   };
 
   # Open HTTP (80) and HTTPS (443) for ACME challenges and traffic
-  networking.firewall.allowedTCPPorts = [
+  den.aspects.one.nixos.networking.firewall.allowedTCPPorts = [
     80
     443
   ];

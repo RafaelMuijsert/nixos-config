@@ -4,8 +4,8 @@
   ...
 }:
 let
-  portfolioPort = 3000;
-  portfolioDomain = "muijsert.org";
+  snackvaluePort = 9094;
+  snackvalueDomain = "snackvalue.nl";
   hardening = {
     ProtectSystem = "strict";
     ProtectHome = true;
@@ -35,6 +35,7 @@ let
     CapabilityBoundingSet = "";
     AmbientCapabilities = "";
 
+    DynamicUser = true;
     PrivateUsers = true;
     RestrictNamespaces = true;
 
@@ -42,30 +43,41 @@ let
     RestrictRealtime = true;
     UMask = "0077";
   };
+
 in
 {
-  # Portfolio website
-  systemd.services.portfolio = {
-    description = "Portfolio Website";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+  # SnackValue scraper
+  den.aspects.one.nixos.systemd.services.snackvalue-scraper = {
     serviceConfig = hardening // {
-      ExecStart = "${inputs.portfolio.packages.x86_64-linux.default}/bin/portfolio";
-      Restart = "on-failure";
-      RestartSec = "5s";
-      DynamicUser = true;
-      StateDirectory = "portfolio";
+      StateDirectory = "snackvalue";
+      Type = "simple";
+      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.scraper}/bin/snackvalue-scraper";
       Environment = [
-        "PATH=${pkgs.bash}/bin"
-        "HOME=/var/lib/portfolio"
+        "DB_PATH=/var/lib/snackvalue/snackvalue.db"
       ];
     };
   };
-
-  services.nginx.virtualHosts."${portfolioDomain}" = {
+  # SnackValue
+  den.aspects.one.nixos.systemd.services.snackvalue = {
+    description = "SnackValue Website";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = hardening // {
+      ExecStart = "${inputs.snackvalue.packages.x86_64-linux.default}/bin/snackvalue";
+      Restart = "on-failure";
+      RestartSec = "5s";
+      StateDirectory = "snackvalue";
+      Environment = [
+        "PATH=${pkgs.bash}/bin"
+        "DB_PATH=/var/lib/snackvalue/snackvalue.db"
+        "PORT=${builtins.toString snackvaluePort}"
+      ];
+    };
+  };
+  den.aspects.one.nixos.services.nginx.virtualHosts."${snackvalueDomain}" = {
     enableACME = true;
     forceSSL = true;
-    serverAliases = [ "www.${portfolioDomain}" ];
-    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString portfolioPort}";
+    serverAliases = [ "www.${snackvalueDomain}" ];
+    locations."/".proxyPass = "http://127.0.0.1:${builtins.toString snackvaluePort}";
   };
 }
