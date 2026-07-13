@@ -22,6 +22,7 @@ let
       allowedIPs = [ "192.168.100.3/32" ];
     }
   ];
+  mtu = 1386;
 in
 {
   den.ful.services.wireguard.nixos = { config, pkgs, ... }: {
@@ -29,6 +30,7 @@ in
       wireguard = {
         enable = true;
         interfaces.wg0 = {
+          inherit mtu;
           ips = [ vpnServerIP ];
           listenPort = vpnPort;
           privateKeyFile = config.sops.secrets."vpn-server/key".path;
