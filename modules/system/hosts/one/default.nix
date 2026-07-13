@@ -17,6 +17,8 @@ in {
       <services/immich>
       <services/nginx>
       <services/wireguard>
+      <services/arr>
+      <services/jellyfin>
     ];
   };
 }
