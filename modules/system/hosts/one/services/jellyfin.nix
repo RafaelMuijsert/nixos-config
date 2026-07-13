@@ -1,5 +1,5 @@
 {
-  den.ful.services.jellyfin.nixos = {
+  den.ful.services.jellyfin.nixos = { lib, pkgs, ... }: {
     systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD";
     environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
