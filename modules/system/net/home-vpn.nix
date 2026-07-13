@@ -6,6 +6,7 @@ let
   allowedIPs = [ "192.168.42.0/24" ];
   endpoint = "vpn.muijsert.org:51820";
   interface = "wg0";
+  mtu = 1386;
 in
 {
   # Shared VPN peer configuration for all clients
@@ -20,6 +21,7 @@ in
       wireguard = {
         enable = true;
         interfaces.${interface} = {
+          inherit mtu;
           peers = [
             {
               inherit publicKey allowedIPs endpoint;
