@@ -14,6 +14,10 @@
           enable = true;
           openFirewall = true;
         };
+        qbittorrent = {
+          enable = true;
+          openFirewall = true;
+        };
       };
     };
   };
