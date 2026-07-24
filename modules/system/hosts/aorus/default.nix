@@ -21,7 +21,7 @@ in
       <theme/catppuccin>  
 
       <hardware/secureboot>
-      # <net/home-vpn>
+      <net/home-vpn>
       <sync>
     ];
 
