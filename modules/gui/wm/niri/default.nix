@@ -11,7 +11,7 @@
         enable = true;
       };
     };
-    homeManager = {
+    homeManager = { lib, pkgs, ... }: {
       imports = [ inputs.niri-flake.homeModules.niri ];
       programs.niri = {
         enable = true;
@@ -19,6 +19,10 @@
           screenshot-path = "~/Pictures/Screenshots/%s.png";
           hotkey-overlay.skip-at-startup = true;
           prefer-no-csd = true;
+          xwayland-satellite = {
+            enable = true;
+            path = lib.getExe pkgs.xwayland-satellite;
+          };
         };
       };
     };
