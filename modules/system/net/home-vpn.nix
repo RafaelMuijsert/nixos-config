@@ -13,10 +13,10 @@ in
   den.ful.net.home-vpn = {
     nixos.networking = {
       # Use local DNS server
-      networkmanager = {
-        dns = "none";
-        insertNameservers = [ "192.168.42.2" ];
-      };
+      # networkmanager = {
+      #   dns = "none";
+      #   insertNameservers = [ "192.168.42.2" ];
+      # };
 
       wireguard = {
         enable = true;
