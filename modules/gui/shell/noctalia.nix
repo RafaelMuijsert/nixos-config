@@ -17,18 +17,9 @@
       enable = true;
       settings = {
         bar.default = {
-          end = [
-            "tray"
-            "notifications"
-            "clipboard"
-            "network"
-            "bluetooth"
-            "volume"
-            "brightness"
-            "battery"
-            "control-center"
-            "session"
-          ];
+          start = [ "workspaces" "active_window" ];
+          center = [ "control-center" ];
+          end = [ "recorder" "brightness" "volume" "network" "battery" "notifications" "clock" ];
           font_family = "JetBrainsMono NFM";
           font_weight = 400;
           margin_edge = 0;
@@ -36,7 +27,6 @@
           position = "bottom";
           radius = 0;
           shadow = false;
-          start = [ "workspaces" ];
           thickness = 32;
         };
         control_center = {
@@ -63,13 +53,13 @@
           behavior = {
             idle-behavior = {
               action = "screen_off";
-              enabled = false;
+              enabled = true;
               timeout = 300.0;
             };
 
             idle-behavior-3 = {
               action = "lock_and_suspend";
-              enabled = false;
+              enabled = true;
               timeout = 360.0;
             };
           };
@@ -129,6 +119,26 @@
         };
         wallpaper = {
           default.path = config.stylix.image;
+        };
+        widget.active_window = {
+          capsule = true;
+          capsule_opacity = 0.5;
+          capsule_padding = 16;
+          color = "tertiary";
+        };
+        widget.battery = {
+          display_mode = "graphic";
+          scale = 0.75;
+          show_label = false;
+        };
+        widget.brightness = {
+          show_label = false;
+        };
+        widget.network = {
+          show_label = false;
+        };
+        widget.volume = {
+          show_label = false;
         };
       };
     };

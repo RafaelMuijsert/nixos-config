@@ -33,6 +33,11 @@ in
 
       # Syncthing — 3-way sync between elite, aorus, and one
       <sync>
+
+      # Base development packages
+      <development/base>
+      # Game development packages
+      <development/game>
     ];
   };
 }
