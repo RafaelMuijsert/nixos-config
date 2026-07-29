@@ -1,8 +1,5 @@
 {
   den.ful.wm.niri.homeManager.programs.niri.settings.layout = {
-    preset-column-widths = [
-      { proportion = 1. / 2.; }
-    ];
     border = {
       enable = true;
       width = 2;
@@ -13,5 +10,13 @@
     default-column-width = {
       proportion = 1. / 2.;
     };
+    preset-column-widths = [
+      { proportion = 1. / 2.; }
+      { proportion = 1. / 3.; }
+    ];
+    preset-window-heights = [
+      { proportion = 1.; }
+      { proportion = 1. / 2.; }
+    ];
   };
 }

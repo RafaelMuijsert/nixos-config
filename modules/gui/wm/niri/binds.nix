@@ -17,6 +17,9 @@
       "Mod+K".action.focus-window-or-workspace-up = [ ];
       "Mod+L".action.focus-column-right = [ ];
 
+      "Mod+Shift+R".action.switch-preset-window-height = [ ];
+      "Mod+R".action.switch-preset-column-width = [ ];
+
       "Mod+Shift+H".action.move-column-left = [ ];
       "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [ ];
       "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [ ];
