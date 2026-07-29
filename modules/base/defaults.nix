@@ -1,12 +1,17 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
-  # Pinned flake inputs managed through flake-file's declarative input system.
-  # All inputs must be declared here AND in flake.nix.
   flake-file.inputs = {
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
+
+  den.schema.host.includes = [
+    ({ host, ... }: {
+      nixos._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
+    })
+  ];
 
   # Defaults applied to all hosts unless overridden per-host.
   den.default.nixos.system.stateVersion = "26.05";

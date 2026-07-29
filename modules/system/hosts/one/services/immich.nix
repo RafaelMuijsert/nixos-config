@@ -4,7 +4,7 @@ let
 in
 {
   # Immich
-  den.ful.services.immich.nixos = { pkgs, ... }: {
+  den.ful.services.immich.nixos = { pkgs, pkgs-unstable, ... }: {
     services.immich = {
       enable = true;
       mediaLocation = "/mnt/data/Photos/";
