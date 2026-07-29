@@ -19,6 +19,8 @@
         keyFile = "/var/lib/sops-nix/key.txt";
         generateKey = true;
       };
+      # Grafana secret key
+      secrets.grafana-secret-key.owner = "grafana";
       secrets = {
         # WireGuard server private key
         "vpn-server/key" = { };
