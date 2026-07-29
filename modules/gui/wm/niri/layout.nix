@@ -13,6 +13,7 @@
     preset-column-widths = [
       { proportion = 1. / 2.; }
       { proportion = 1. / 3.; }
+      { proportion = 1. / 4.; }
     ];
     preset-window-heights = [
       { proportion = 1.; }
