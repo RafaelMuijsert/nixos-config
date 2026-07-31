@@ -6,6 +6,11 @@ in {
       /* Downloads directory must be writable by both qBittorrent and *arr to create hard links */
       users.groups.${mediaGroup} = {};
       services = {
+        bazarr = {
+          enable = true;
+          openFirewall = true;
+          group = mediaGroup;
+        };
         radarr = {
           enable = true;
           openFirewall = true;
