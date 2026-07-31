@@ -11,12 +11,11 @@ in
 {
   # Shared VPN peer configuration for all clients
   den.ful.net.home-vpn = {
+    # Use systemd-resolved
+    nixos.services.resolved.enable = true;
     nixos.networking = {
       # Use local DNS server
-      # networkmanager = {
-      #   dns = "none";
-      #   insertNameservers = [ "192.168.42.2" ];
-      # };
+      networkmanager.dns = "systemd-resolved";
 
       wireguard = {
         enable = true;
@@ -27,6 +26,16 @@ in
               inherit publicKey allowedIPs endpoint;
             }
           ];
+
+          # Use local DNS server
+            postSetup = ''
+              ${pkgs.systemd}/bin/resolvectl dns wg0 192.168.42.2
+              ${pkgs.systemd}/bin/resolvectl domain wg0 '~.'
+            '';
+            postShutdown = ''
+              ${pkgs.systemd}/bin/resolvectl revert wg0
+            '';
+          
         };
       };
     };
