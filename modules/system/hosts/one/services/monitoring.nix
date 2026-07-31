@@ -1,6 +1,7 @@
 {
   den.ful.services.monitoring = {
     nixos = { config, ... }: {
+      sops.secrets.grafana-secret-key.owner = "grafana";
       services = {
         grafana = {
           enable = true;
