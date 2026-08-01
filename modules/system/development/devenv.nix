@@ -1,8 +1,6 @@
 {
   den.ful.development.devenv.homeManager = { pkgs, pkgs-unstable, ... }: {
-    home.packages = with pkgs; [
-      devenv
-    ];
+    home.packages = [ pkgs-unstable.devenv ];
     programs.fish.interactiveShellInit = "devenv hook fish | source";
   };
 }
