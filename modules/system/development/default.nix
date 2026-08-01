@@ -3,12 +3,7 @@
   den.ful.development.base = {
     includes = [
       <development/opencode>
+      <development/devenv>
     ];
-
-    homeManager = { pkgs, ... }: {
-      home.packages = with pkgs; [
-        devenv
-      ];
-    };
   };
 }

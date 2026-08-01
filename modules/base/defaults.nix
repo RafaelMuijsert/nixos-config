@@ -13,6 +13,12 @@
     })
   ];
 
+  den.schema.user.includes = [
+    ({ host, ... }: {  
+      homeManager._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};  
+    })  
+  ];
+
   # Defaults applied to all hosts unless overridden per-host.
   den.default.nixos.system.stateVersion = "26.05";
   den.default.homeManager.home.stateVersion = "26.05";
