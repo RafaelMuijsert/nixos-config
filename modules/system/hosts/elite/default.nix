@@ -5,7 +5,7 @@ in
 {
   den.hosts.x86_64-linux.${hostname} = {
     users = {
-      rafael = {};
+      rafael = { };
     };
     theme = {
       scheme = ../../../theme/catppuccin/scheme.yaml;

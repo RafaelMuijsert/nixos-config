@@ -6,9 +6,14 @@
         Primary = {
           isDefault = true;
           feedAccounts = {
-            Feeds = {};
+            Feeds = { };
           };
-          accountsOrder = [ "Primary" "Student" "Work" "Feeds" ];
+          accountsOrder = [
+            "Primary"
+            "Student"
+            "Work"
+            "Feeds"
+          ];
         };
       };
       settings = {

@@ -15,39 +15,41 @@ in
     };
   };
 
-  den.aspects.rafael = let
-    user = "rafael";
-    home = "/home/${user}";
-  in {
-    nixos = { config, host, ... }: {
-      services.syncthing = {
-        inherit user;
-        dataDir = "${home}/.local/state/syncthing";
-        configDir = "${home}/.config/syncthing";
-        key = config.sops.secrets."syncthing-hosts/${host.hostName}/key".path;
-        cert = config.sops.secrets."syncthing-hosts/${host.hostName}/cert".path;
-        settings.devices = {
-          one.id = oneID;
-          elite.id = eliteID;
-          aorus.id = aorusID;
-        };
-        settings.folders = {
-          "Documents" = {
-            path = "${home}/Documents";
-            devices = [ "one" ];
+  den.aspects.rafael =
+    let
+      user = "rafael";
+      home = "/home/${user}";
+    in
+    {
+      nixos = { config, host, ... }: {
+        services.syncthing = {
+          inherit user;
+          dataDir = "${home}/.local/state/syncthing";
+          configDir = "${home}/.config/syncthing";
+          key = config.sops.secrets."syncthing-hosts/${host.hostName}/key".path;
+          cert = config.sops.secrets."syncthing-hosts/${host.hostName}/cert".path;
+          settings.devices = {
+            one.id = oneID;
+            elite.id = eliteID;
+            aorus.id = aorusID;
           };
-          "Music" = {
-            path = "${home}/Music";
-            devices = [ "one" ];
-          };
-          "Pictures" = {
-            path = "${home}/Pictures";
-            devices = [ "one" ];
+          settings.folders = {
+            "Documents" = {
+              path = "${home}/Documents";
+              devices = [ "one" ];
+            };
+            "Music" = {
+              path = "${home}/Music";
+              devices = [ "one" ];
+            };
+            "Pictures" = {
+              path = "${home}/Pictures";
+              devices = [ "one" ];
+            };
           };
         };
       };
+      provides.aorus.nixos.services.syncthing.settings.folders.Documents.devices = [ "elite" ];
+      provides.elite.nixos.services.syncthing.settings.folders.Documents.devices = [ "aorus" ];
     };
-    provides.aorus.nixos.services.syncthing.settings.folders.Documents.devices = ["elite"];
-    provides.elite.nixos.services.syncthing.settings.folders.Documents.devices = ["aorus"];
-  };
 }

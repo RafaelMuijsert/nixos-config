@@ -17,9 +17,20 @@
       enable = true;
       settings = {
         bar.default = {
-          start = [ "workspaces" "active_window" ];
+          start = [
+            "workspaces"
+            "active_window"
+          ];
           center = [ "control-center" ];
-          end = [ "recorder" "brightness" "volume" "network" "battery" "notifications" "clock" ];
+          end = [
+            "recorder"
+            "brightness"
+            "volume"
+            "network"
+            "battery"
+            "notifications"
+            "clock"
+          ];
           font_family = "JetBrainsMono NFM";
           font_weight = 400;
           margin_edge = 0;

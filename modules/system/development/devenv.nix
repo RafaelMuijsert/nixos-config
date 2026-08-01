@@ -3,8 +3,6 @@
     home.packages = with pkgs; [
       devenv
     ];
-    programs.fish.interactiveShellInit = ''
-      set fish_greeting
-    '';
+    programs.fish.interactiveShellInit = "devenv hook fish | source";
   };
 }

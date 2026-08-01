@@ -1,17 +1,24 @@
 { __findFile, ... }:
 let
   hostname = "elite";
-  root = "6d1f7eae-21ea-44b5-bca2-8a4e3cd9991b";  # LUKS-encrypted root partition
-  swap = "dc291857-82a6-4740-8e15-a41f5a5a94b8";  # LUKS-encrypted swap partition
-  esp = "3FB6-1941";                                 # EFI system partition
+  root = "6d1f7eae-21ea-44b5-bca2-8a4e3cd9991b"; # LUKS-encrypted root partition
+  swap = "dc291857-82a6-4740-8e15-a41f5a5a94b8"; # LUKS-encrypted swap partition
+  esp = "3FB6-1941"; # EFI system partition
 in
 {
   # Elite hardware configuration: Intel laptop with full disk encryption,
   # Thunderbolt support, NVMe storage, and Intel CPU microcode updates.
   # LUKS is used for both root and swap; the ESP is mounted with restricted
   # permissions (fmask=0077, dmask=0077) to prevent unauthorized access.
-  den.aspects.${hostname}.nixos = { config, lib, pkgs, ... }: {
-    boot.initrd.availableKernelModules = [
+  den.aspects.${hostname}.nixos =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      boot.initrd.availableKernelModules = [
         "xhci_pci"
         "thunderbolt"
         "nvme"
@@ -22,7 +29,6 @@ in
       boot.kernelModules = [ "kvm-intel" ];
       boot.extraModulePackages = [ ];
       boot.supportedFilesystems = [ "nfs" ];
-
 
       # LUKS-encrypted root filesystem
       fileSystems."/" = {
@@ -54,5 +60,5 @@ in
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
       hardware.enableRedistributableFirmware = true;
       hardware.cpu.intel.updateMicrocode = true;
-  };
+    };
 }

@@ -18,7 +18,7 @@ in
   den.aspects.${hostname} = {
     includes = [
       <desktop/niri>
-      <theme/catppuccin>  
+      <theme/catppuccin>
 
       <hardware/secureboot>
       <net/home-vpn>

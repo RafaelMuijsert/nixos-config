@@ -1,15 +1,19 @@
 {
   den.ful.services.jellyfin.nixos = { lib, pkgs, ... }: {
     systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD";
-    environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "intel-ocl"
-    ];
+    environment.sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
+    nixpkgs.config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "intel-ocl"
+      ];
     hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [
         intel-ocl
-        intel-media-driver  
+        intel-media-driver
       ];
     };
     services.jellyfin = {

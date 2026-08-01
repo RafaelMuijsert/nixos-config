@@ -1,7 +1,8 @@
 { __findFile, ... }:
 let
   hostname = "one";
-in {
+in
+{
   # Define host
   den.hosts.x86_64-linux.${hostname} = {
     users = {

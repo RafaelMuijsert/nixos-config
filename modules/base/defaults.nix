@@ -14,9 +14,9 @@
   ];
 
   den.schema.user.includes = [
-    ({ host, ... }: {  
-      homeManager._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};  
-    })  
+    ({ host, ... }: {
+      homeManager._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
+    })
   ];
 
   # Defaults applied to all hosts unless overridden per-host.
