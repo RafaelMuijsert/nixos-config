@@ -27,16 +27,6 @@ in
                 inherit publicKey allowedIPs endpoint;
               }
             ];
-
-            # Use local DNS server
-              postSetup = ''
-                ${pkgs.systemd}/bin/resolvectl dns wg0 192.168.42.2
-                ${pkgs.systemd}/bin/resolvectl domain wg0 '~.'
-              '';
-              postShutdown = ''
-                ${pkgs.systemd}/bin/resolvectl revert wg0
-              '';
-          
           };
         };
       };
