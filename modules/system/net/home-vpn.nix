@@ -7,7 +7,7 @@ let
   subnet = "192.168.100.0/24";
   serverIP = "192.168.100.1/24";
   interface = "wg0";
-  externalInterface = "enp4s0";
+  externalInterface = "ens18";
   mtu = 1386;
   peers = [
     {
