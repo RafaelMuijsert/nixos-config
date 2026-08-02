@@ -1,15 +1,18 @@
 { __findFile, ... }:
 let
-  publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
   port = 51820;
-  endpoint = "vpn.muijsert.org:${builtins.toString port}";
-  allowedIPs = [ "192.168.42.0/24" ];
-  subnet = "192.168.100.0/24";
   serverIP = "192.168.100.1/24";
+  subnet = "192.168.100.0/24";
   interface = "wg0";
   externalInterface = "ens18";
   mtu = 1386;
-  peers = [
+  serverPeer =
+    {
+      publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
+      allowedIPs = [ "192.168.42.0/24" ];
+      endpoint = "vpn.muijsert.org:${builtins.toString port}";
+    };
+  clientPeers = [
     {
       publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
       allowedIPs = [ "192.168.100.2/32" ];
@@ -33,11 +36,6 @@ in
           enable = true;
           interfaces.${interface} = {
             inherit mtu;
-            peers = [
-              {
-                inherit publicKey allowedIPs endpoint;
-              }
-            ];
           };
         };
         nat.enable = host.name == "infra";
@@ -49,6 +47,7 @@ in
     networking.wireguard.interfaces.${interface} = {
       ips = [ "192.168.100.2/32" ];
       privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
+      peers = [ serverPeer ];
     };
   };
 
@@ -56,6 +55,7 @@ in
     networking.wireguard.interfaces.${interface} = {
       ips = [ "192.168.100.3/32" ];
       privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
+      peers = [ serverPeer ];
     };
   };
 
@@ -64,7 +64,7 @@ in
       wireguard.interfaces.${interface} = {
         ips = [ serverIP ];
         listenPort = port;
-        inherit peers;
+        peers = clientPeers;
         privateKeyFile = config.sops.secrets."vpn-server/key".path;
         # Set up NAT masquerading for VPN traffic
         postSetup = ''
