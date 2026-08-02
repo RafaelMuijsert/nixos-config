@@ -13,6 +13,7 @@ in
   den.aspects.${hostname} = {
     includes = [
       <net/ssh>
+      <net/home-vpn>
     ];
   };
 }

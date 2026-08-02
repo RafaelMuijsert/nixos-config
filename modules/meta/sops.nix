@@ -8,7 +8,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.default.nixos = {
+  den.aspects.sops.nixos = {
     imports = [ inputs.sops-nix.nixosModules.sops ];
     sops = {
       defaultSopsFile = ../../secrets.yaml;

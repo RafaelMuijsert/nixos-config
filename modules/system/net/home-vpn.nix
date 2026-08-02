@@ -1,23 +1,34 @@
-# WireGuard VPN client configuration. Provides a shared base definition
-# (den.ful.net.home-vpn) that any host can include, plus host-specific
-# settings for the 'elite' laptop (private key from SOPS, static IP).
+{ __findFile, ... }:
 let
   publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
+  port = 51820;
+  endpoint = "vpn.muijsert.org:${builtins.toString port}";
   allowedIPs = [ "192.168.42.0/24" ];
-  endpoint = "vpn.muijsert.org:51820";
+  subnet = "192.168.100.0/24";
+  serverIP = "192.168.100.1/24";
   interface = "wg0";
+  externalInterface = "enp4s0";
   mtu = 1386;
+  peers = [
+    {
+      publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
+      allowedIPs = [ "192.168.100.2/32" ];
+    }
+    {
+      publicKey = "HUwvFF4XTPGiQgpWeoT9Vh7D47hUrXk2MHiS5/0S7As=";
+      allowedIPs = [ "192.168.100.3/32" ];
+    }
+    {
+      publicKey = "p0IUax8yZ7U5IYWeLxjTDbmhY9u3iCtJ5DRcygtGd0Q=";
+      allowedIPs = [ "192.168.100.4/32" ];
+    }
+  ];
 in
 {
-  # Shared VPN peer configuration for all clients
   den.ful.net.home-vpn = {
-    # Use systemd-resolved
-    nixos = { pkgs, ... }: {
-      services.resolved.enable = true;
+    includes = [ <sops> ];
+    nixos = { host, pkgs, ... }: {
       networking = {
-        # Use local DNS server
-        networkmanager.dns = "systemd-resolved";
-
         wireguard = {
           enable = true;
           interfaces.${interface} = {
@@ -29,10 +40,11 @@ in
             ];
           };
         };
+        nat.enable = host.name == "infra";
       };
     };
   };
-  # Elite-specific: static VPN IP + private key from SOPS secrets
+
   den.aspects.elite.nixos = { config, ... }: {
     networking.wireguard.interfaces.${interface} = {
       ips = [ "192.168.100.2/32" ];
@@ -46,4 +58,32 @@ in
       privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
     };
   };
+
+  den.aspects.infra.nixos = { config, pkgs, ... }: {
+    networking = {
+      wireguard.interfaces.${interface} = {
+        ips = [ serverIP ];
+        listenPort = port;
+        inherit peers;
+        privateKeyFile = config.sops.secrets."vpn-server/key".path;
+        # Set up NAT masquerading for VPN traffic
+        postSetup = ''
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING \
+            -s ${subnet} -o ${externalInterface} -j MASQUERADE
+        '';
+        # Tear down the masquerade rule on shutdown
+        postShutdown = ''
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING \
+            -s ${subnet} -o ${externalInterface} -j MASQUERADE
+        '';
+      };
+      nat = {
+        externalInterface = externalInterface;
+        internalInterfaces = [ "wg0" ];
+      };
+      # Open the WireGuard port in the firewall
+      firewall.allowedUDPPorts = [ port ];
+    };
+  };
 }
+
