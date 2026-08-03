@@ -20,7 +20,7 @@
         };
         "prox" = {
           hostname = "prox.internal";
-          user = "rafael";
+          user = "root";
         };
         "infra" = {
           hostname = "infra.internal";
