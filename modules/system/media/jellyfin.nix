@@ -5,7 +5,7 @@ let
 in {
   flake.den =  den;
   den.ful.services.jellyfin = {
-    services.internal = [
+    webServices.internal = [
       {
         name = "media";
         inherit port;

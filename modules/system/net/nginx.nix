@@ -5,13 +5,13 @@ let
   acmeEmail = "rafael@${domain}";
 in
 {
-  den.quirks.services = {
-    description = "Service declarations";
+  den.quirks.webServices = {
+    description = "Web service declarations";
   };
 
   den.ful.services.nginx = {
     includes = [ <sops> ];
-    nixos = { config, services, ... }: {
+    nixos = { config, webServices, ... }: {
       networking.firewall.allowedTCPPorts = [ 80 443 ];
       services.nginx = {
         enable = true;
@@ -31,7 +31,7 @@ in
               deny all;
             '';
           };
-        }) (lib.concatMap (s: s.internal or []) services));  
+        }) (lib.concatMap (s: s.internal or []) webServices));  
       };
       security.acme = {
         acceptTerms = true;
