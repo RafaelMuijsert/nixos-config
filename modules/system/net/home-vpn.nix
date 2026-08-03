@@ -25,7 +25,7 @@ let
     }
     {
       /* iPhone */
-      publicKey = "p0IUax8yZ7U5IYWeLxjTDbmhY9u3iCtJ5DRcygtGd0Q=";
+      publicKey = "aIIPQWeumBE5HvC9bc15IATrfRr6cEBLql2OKgU6iWk=";
       allowedIPs = [ "192.168.100.4/32" ];
     }
   ];
