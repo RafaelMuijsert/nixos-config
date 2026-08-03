@@ -5,6 +5,7 @@ keys:
     - &aorus age10nxalwhup83s8x7pk20cs5cqf5ge336ddwh84zcvycq650hld52qrtu6xj
     - &elite age1tcarlg43cfxuu0daemmctvv08pdlwpa4xtc4z9gte0dy2zz97q4srglkz3
     - &infra age17jcjyngaa72w8xpnldea8s3hwxfk02vmwrnj3ruvms3y5vakydcsvp27xe
+    - &core age1yn9r6g93a8ztcq7dqy2g7mpw0ws6aarhhc78dlz0kuq9sr79aups5lwf76
 
 creation_rules:
   - path_regex: secrets.yaml$
@@ -14,4 +15,5 @@ creation_rules:
       - *aorus
       - *elite
       - *infra
+      - *core
 
