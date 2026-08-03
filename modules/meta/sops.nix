@@ -21,6 +21,8 @@
       };
       # Grafana secret key
       secrets = {
+        # Cloudflare dns api token
+        "cloudflare-dns-api-token" = { };
         # WireGuard server private key
         "vpn-server/key" = { };
 
