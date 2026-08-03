@@ -10,6 +10,7 @@
       helix
       jq
       just
+      kitty.terminfo
       ripgrep
       tldr
       watchexec
