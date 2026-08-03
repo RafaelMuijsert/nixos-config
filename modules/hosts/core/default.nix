@@ -13,6 +13,8 @@ in
   den.aspects.${hostname} = {
     includes = [
       <net/ssh>
+      <services/nginx>
+      <services/jellyfin>
     ];
   };
 }
