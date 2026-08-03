@@ -15,6 +15,7 @@ in
       <net/ssh>
       <services/nginx>
       <services/jellyfin>
+      <services/lidarr>
     ];
   };
 }
