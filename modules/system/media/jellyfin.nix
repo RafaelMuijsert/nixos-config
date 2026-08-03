@@ -1,9 +1,7 @@
-{ den, ...}:
 let
   group = "media";
   port = 8096;
 in {
-  flake.den =  den;
   den.ful.services.jellyfin = {
     webServices.internal = [
       {
