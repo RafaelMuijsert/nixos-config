@@ -2,6 +2,7 @@
 let
   port = 51820;
   serverIP = "192.168.100.1/24";
+  serverHost = "infra";
   subnet = "192.168.100.0/24";
   interface = "wg0";
   externalInterface = "ens18";
@@ -31,6 +32,7 @@ in
   den.ful.net.home-vpn = {
     includes = [ <sops> ];
     nixos = { host, pkgs, ... }: {
+      services.resolved.enable = true;
       networking = {
         wireguard = {
           enable = true;
@@ -38,7 +40,9 @@ in
             inherit mtu;
           };
         };
-        nat.enable = host.name == "infra";
+        nameservers =[ "192.168.42.2" ];
+        networkmanager.dns = "systemd-resolved";
+        nat.enable = host.name == serverHost;
       };
     };
   };
@@ -59,7 +63,7 @@ in
     };
   };
 
-  den.aspects.infra.nixos = { config, pkgs, ... }: {
+  den.aspects.${serverHost}.nixos = { config, pkgs, ... }: {
     networking = {
       wireguard.interfaces.${interface} = {
         ips = [ serverIP ];
