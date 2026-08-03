@@ -16,7 +16,7 @@
         "zero" = {
           hostname = "zero.internal";
           user = "rafael";
-        }:
+        };
         "prox" = {
           hostname = "prox.internal";
           user = "rafael";
