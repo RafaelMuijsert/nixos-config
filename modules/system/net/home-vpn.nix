@@ -29,64 +29,68 @@ let
   ];
 in
 {
-  den.ful.net.home-vpn = {
-    includes = [ <sops> ];
-    nixos = { host, pkgs, ... }: {
-      services.resolved.enable = true;
-      networking = {
-        wireguard = {
-          enable = true;
-          interfaces.${interface} = {
-            inherit mtu;
+  den = {
+    ful.net.home-vpn = {
+      includes = [ <sops> ];
+      nixos = { host, pkgs, ... }: {
+        services.resolved.enable = true;
+        networking = {
+          wireguard = {
+            enable = true;
+            interfaces.${interface} = {
+              inherit mtu;
+            };
           };
+          nameservers =[ "192.168.42.2" ];
+          networkmanager.dns = "systemd-resolved";
+          nat.enable = host.name == serverHost;
         };
-        nameservers =[ "192.168.42.2" ];
-        networkmanager.dns = "systemd-resolved";
-        nat.enable = host.name == serverHost;
       };
     };
-  };
 
-  den.aspects.elite.nixos = { config, ... }: {
-    networking.wireguard.interfaces.${interface} = {
-      ips = [ "192.168.100.2/32" ];
-      privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
-      peers = [ serverPeer ];
-    };
-  };
-
-  den.aspects.aorus.nixos = { config, ... }: {
-    networking.wireguard.interfaces.${interface} = {
-      ips = [ "192.168.100.3/32" ];
-      privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
-      peers = [ serverPeer ];
-    };
-  };
-
-  den.aspects.${serverHost}.nixos = { config, pkgs, ... }: {
-    networking = {
-      wireguard.interfaces.${interface} = {
-        ips = [ serverIP ];
-        listenPort = port;
-        peers = clientPeers;
-        privateKeyFile = config.sops.secrets."vpn-server/key".path;
-        # Set up NAT masquerading for VPN traffic
-        postSetup = ''
-          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING \
-            -s ${subnet} -o ${externalInterface} -j MASQUERADE
-        '';
-        # Tear down the masquerade rule on shutdown
-        postShutdown = ''
-          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING \
-            -s ${subnet} -o ${externalInterface} -j MASQUERADE
-        '';
+    aspects = {
+      elite.nixos = { config, ... }: {
+        networking.wireguard.interfaces.${interface} = {
+          ips = [ "192.168.100.2/32" ];
+          privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
+          peers = [ serverPeer ];
+        };
       };
-      nat = {
-        externalInterface = externalInterface;
-        internalInterfaces = [ "wg0" ];
+
+      aorus.nixos = { config, ... }: {
+        networking.wireguard.interfaces.${interface} = {
+          ips = [ "192.168.100.3/32" ];
+          privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
+          peers = [ serverPeer ];
+        };
       };
-      # Open the WireGuard port in the firewall
-      firewall.allowedUDPPorts = [ port ];
+
+      ${serverHost}.nixos = { config, pkgs, ... }: {
+        networking = {
+          wireguard.interfaces.${interface} = {
+            ips = [ serverIP ];
+            listenPort = port;
+            peers = clientPeers;
+            privateKeyFile = config.sops.secrets."vpn-server/key".path;
+            # Set up NAT masquerading for VPN traffic
+            postSetup = ''
+              ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING \
+                -s ${subnet} -o ${externalInterface} -j MASQUERADE
+            '';
+            # Tear down the masquerade rule on shutdown
+            postShutdown = ''
+              ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING \
+                -s ${subnet} -o ${externalInterface} -j MASQUERADE
+            '';
+          };
+          nat = {
+            inherit externalInterface;
+            internalInterfaces = [ "wg0" ];
+          };
+          # Open the WireGuard port in the firewall
+          firewall.allowedUDPPorts = [ port ];
+        };
+      };
     };
   };
 }

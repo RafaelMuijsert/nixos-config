@@ -7,22 +7,28 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  den.schema.host.includes = [
-    ({ host, ... }: {
-      nixos._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
-    })
-  ];
+  den = {
+    default = {
+      nixos.system.stateVersion = "26.05";
+      homeManager.home.stateVersion = "26.05";
+    };
+    schema = {
+      host.includes = [
+        ({ host, ... }: {
+          nixos._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
+        })
+      ];
 
-  den.schema.user.includes = [
-    ({ host, ... }: {
-      homeManager._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
-    })
-  ];
+      user = {
+        classes = lib.mkDefault [ "homeManager" ];
+        includes = [
+          ({ host, ... }: {
+            homeManager._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
+          })
+        ];
+        };
+    };
+  };
 
-  # Defaults applied to all hosts unless overridden per-host.
-  den.default.nixos.system.stateVersion = "26.05";
-  den.default.homeManager.home.stateVersion = "26.05";
 
-  # All users get home-manager integration by default.
-  den.schema.user.classes = lib.mkDefault [ "homeManager" ];
 }

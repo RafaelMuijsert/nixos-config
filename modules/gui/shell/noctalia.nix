@@ -131,25 +131,27 @@
         wallpaper = {
           default.path = config.stylix.image;
         };
-        widget.active_window = {
-          capsule = true;
-          capsule_opacity = 0.5;
-          capsule_padding = 16;
-          color = "tertiary";
-        };
-        widget.battery = {
-          display_mode = "graphic";
-          scale = 0.75;
-          show_label = false;
-        };
-        widget.brightness = {
-          show_label = false;
-        };
-        widget.network = {
-          show_label = false;
-        };
-        widget.volume = {
-          show_label = false;
+        widget = {
+          active_window = {
+            capsule = true;
+            capsule_opacity = 0.5;
+            capsule_padding = 16;
+            color = "tertiary";
+          };
+          battery = {
+            display_mode = "graphic";
+            scale = 0.75;
+            show_label = false;
+          };
+          brightness = {
+            show_label = false;
+          };
+          network = {
+            show_label = false;
+          };
+          volume = {
+            show_label = false;
+          };
         };
       };
     };

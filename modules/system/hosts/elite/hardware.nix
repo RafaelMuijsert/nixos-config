@@ -18,17 +18,25 @@ in
       ...
     }:
     {
-      boot.initrd.availableKernelModules = [
-        "xhci_pci"
-        "thunderbolt"
-        "nvme"
-        "usb_storage"
-        "sd_mod"
-      ];
-      boot.initrd.kernelModules = [ ];
-      boot.kernelModules = [ "kvm-intel" ];
-      boot.extraModulePackages = [ ];
-      boot.supportedFilesystems = [ "nfs" ];
+      boot = {
+        initrd = {
+          availableKernelModules = [
+            "xhci_pci"
+            "thunderbolt"
+            "nvme"
+            "usb_storage"
+            "sd_mod"
+          ];
+          kernelModules = [ ];
+          # Decrypt root on boot via initrd
+          luks.devices."luks-${root}".device = "/dev/disk/by-uuid/${root}";
+        };
+        # Decrypt swap on boot via initrd
+        initrd.luks.devices."luks-${swap}".device = "/dev/disk/by-uuid/${swap}";
+        kernelModules = [ "kvm-intel" ];
+        extraModulePackages = [ ];
+        supportedFilesystems = [ "nfs" ];
+      };
 
       # LUKS-encrypted root filesystem
       fileSystems."/" = {
@@ -36,11 +44,6 @@ in
         fsType = "ext4";
       };
 
-      # Decrypt root on boot via initrd
-      boot.initrd.luks.devices."luks-${root}".device = "/dev/disk/by-uuid/${root}";
-
-      # Decrypt swap on boot via initrd
-      boot.initrd.luks.devices."luks-${swap}".device = "/dev/disk/by-uuid/${swap}";
 
       # EFI system partition — restricted permissions for security
       fileSystems."/boot" = {

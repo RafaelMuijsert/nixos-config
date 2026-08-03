@@ -55,7 +55,7 @@ in
       };
       nat = {
         enable = true;
-        externalInterface = externalInterface;
+        inherit externalInterface;
         internalInterfaces = [ "wg0" ];
       };
       # Open the WireGuard port in the firewall
