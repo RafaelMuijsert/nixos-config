@@ -7,12 +7,11 @@ let
   interface = "wg0";
   externalInterface = "ens18";
   mtu = 1386;
-  serverPeer =
-    {
-      publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
-      allowedIPs = [ "192.168.42.0/24" ];
-      endpoint = "vpn.muijsert.org:${builtins.toString port}";
-    };
+  serverPeer = {
+    publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
+    allowedIPs = [ "192.168.42.0/24" ];
+    endpoint = "vpn.muijsert.org:${builtins.toString port}";
+  };
   clientPeers = [
     {
       publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
@@ -41,7 +40,7 @@ in
               inherit mtu;
             };
           };
-          nameservers =[ "192.168.42.2" ];
+          nameservers = [ "192.168.42.2" ];
           networkmanager.dns = "systemd-resolved";
           nat.enable = host.name == serverHost;
         };
@@ -94,4 +93,3 @@ in
     };
   };
 }
-

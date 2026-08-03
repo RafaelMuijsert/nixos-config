@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
   git-hooks.hooks.statix = {
     enable = true;

@@ -26,9 +26,8 @@
             homeManager._module.args.pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${host.system};
           })
         ];
-        };
+      };
     };
   };
-
 
 }

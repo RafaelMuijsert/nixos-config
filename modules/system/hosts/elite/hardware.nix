@@ -44,7 +44,6 @@ in
         fsType = "ext4";
       };
 
-
       # EFI system partition — restricted permissions for security
       fileSystems."/boot" = {
         device = "/dev/disk/by-uuid/${esp}";
