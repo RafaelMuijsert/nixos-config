@@ -10,18 +10,21 @@ let
   serverPeer = {
     publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
     allowedIPs = [ "192.168.42.0/24" ];
-    endpoint = "vpn.muijsert.org:${builtins.toString port}";
+    endpoint = "vpn.muijsert.org:${toString port}";
   };
   clientPeers = [
     {
+      /* Elite */
       publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
       allowedIPs = [ "192.168.100.2/32" ];
     }
     {
+      /* Aorus */
       publicKey = "HUwvFF4XTPGiQgpWeoT9Vh7D47hUrXk2MHiS5/0S7As=";
       allowedIPs = [ "192.168.100.3/32" ];
     }
     {
+      /* iPhone */
       publicKey = "p0IUax8yZ7U5IYWeLxjTDbmhY9u3iCtJ5DRcygtGd0Q=";
       allowedIPs = [ "192.168.100.4/32" ];
     }
