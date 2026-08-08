@@ -1,96 +1,105 @@
-{ __findFile, ... }:
+{ __findFile ? __findFile, lib, ... }:
 let
-  port = 51820;
-  serverIP = "192.168.100.1/24";
-  serverHost = "infra";
-  subnet = "192.168.100.0/24";
-  interface = "wg0";
-  externalInterface = "ens18";
-  mtu = 1386;
-  serverPeer = {
-    publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
-    allowedIPs = [ "192.168.42.0/24" ];
-    endpoint = "vpn.muijsert.org:${toString port}";
+  wg = {
+    interface = "wg0";
+    port = 51820;
+    mtu = 1386;
   };
-  clientPeers = [
-    {
-      /* Elite */
+
+  network = {
+    prefix = "192.168.100";
+    cidr = 24;
+    dns = "192.168.42.2";
+    externalInterface = "ens18";
+  };
+
+  hostIP = host: "${network.prefix}.${toString host}";
+  hostCIDR = host: "${hostIP host}/${toString network.cidr}";
+
+  server = {
+    host = "infra";
+    endpoint = "vpn.muijsert.org";
+    publicKey = "zl1uvtjHGE85d6VcISlTbOc1W7ragmhdPcdJqnDBTx0=";
+
+    ip = hostCIDR 1;
+    allowedIPs = [ "192.168.42.0/24" ];
+  };
+
+  clients = {
+    elite = {
+      host = 2;
       publicKey = "Rp9VTJme+NszS53Ij/d69/eoCjnGuSC5Mcs1hKJXL1Q=";
-      allowedIPs = [ "192.168.100.2/32" ];
-    }
-    {
-      /* Aorus */
+      machine = "elite";
+    };
+
+    aorus = {
+      host = 3;
       publicKey = "HUwvFF4XTPGiQgpWeoT9Vh7D47hUrXk2MHiS5/0S7As=";
-      allowedIPs = [ "192.168.100.3/32" ];
-    }
-    {
-      /* iPhone */
+      machine = "aorus";
+    };
+
+    iphone = {
+      host = 4;
       publicKey = "aIIPQWeumBE5HvC9bc15IATrfRr6cEBLql2OKgU6iWk=";
-      allowedIPs = [ "192.168.100.4/32" ];
-    }
-  ];
+    };
+  };
+
+  serverPeer = {
+    inherit (server) publicKey allowedIPs;
+    endpoint = "${server.endpoint}:${toString wg.port}";
+  };
+
+  clientPeers = builtins.mapAttrs (_: client: {
+    inherit (client) publicKey;
+    allowedIPs = [ "${hostIP client.host}/32" ];
+  }) clients;
+
+  nixosClients = lib.filterAttrs (_:client : client ? machine) clients;
+
+  mkClient = name: _: {
+    nixos = { config, ... }: {
+      networking.wireguard.interfaces.${wg.interface} = {
+        ips = clientPeers.${name}.allowedIPs;
+        privateKeyFile = config.sops.secrets."vpn-clients/${name}".path;
+        peers = [ serverPeer ];
+      };
+    };
+  };
 in
 {
   den = {
     ful.net.home-vpn = {
       includes = [ <sops> ];
-      nixos = { host, pkgs, ... }: {
+      nixos = { host, ... }: {
         services.resolved.enable = true;
         networking = {
           wireguard = {
             enable = true;
-            interfaces.${interface} = {
+            interfaces.${wg.interface} = with wg; {
               inherit mtu;
             };
           };
-          nameservers = [ "192.168.42.2" ];
+          nameservers = [ network.dns ];
           networkmanager.dns = "systemd-resolved";
-          nat.enable = host.name == serverHost;
+          nat.enable = host.name == server.host;
         };
       };
     };
 
-    aspects = {
-      elite.nixos = { config, ... }: {
-        networking.wireguard.interfaces.${interface} = {
-          ips = [ "192.168.100.2/32" ];
-          privateKeyFile = config.sops.secrets."vpn-clients/elite".path;
-          peers = [ serverPeer ];
-        };
-      };
-
-      aorus.nixos = { config, ... }: {
-        networking.wireguard.interfaces.${interface} = {
-          ips = [ "192.168.100.3/32" ];
-          privateKeyFile = config.sops.secrets."vpn-clients/aorus".path;
-          peers = [ serverPeer ];
-        };
-      };
-
-      ${serverHost}.nixos = { config, pkgs, ... }: {
+    aspects = (builtins.mapAttrs mkClient nixosClients) // {
+      ${server.host}.nixos = { config, ... }: {
         networking = {
-          wireguard.interfaces.${interface} = {
-            ips = [ serverIP ];
-            listenPort = port;
+          wireguard.interfaces.${wg.interface} = {
+            ips = [ server.ip ];
+            listenPort = wg.port;
             peers = clientPeers;
             privateKeyFile = config.sops.secrets."vpn-server/key".path;
-            # Set up NAT masquerading for VPN traffic
-            postSetup = ''
-              ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING \
-                -s ${subnet} -o ${externalInterface} -j MASQUERADE
-            '';
-            # Tear down the masquerade rule on shutdown
-            postShutdown = ''
-              ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING \
-                -s ${subnet} -o ${externalInterface} -j MASQUERADE
-            '';
           };
-          nat = {
+          nat = with network; {
             inherit externalInterface;
-            internalInterfaces = [ "wg0" ];
+            internalInterfaces = [ wg.interface ];
           };
-          # Open the WireGuard port in the firewall
-          firewall.allowedUDPPorts = [ port ];
+          firewall.allowedUDPPorts = [ wg.port ];
         };
       };
     };

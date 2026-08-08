@@ -8,9 +8,9 @@ in
       rafael = { };
     };
     theme = {
-      scheme = ../../../theme/catppuccin/scheme.yaml;
+      scheme = ../../theme/catppuccin/scheme.yaml;
       polarity = "dark";
-      wallpaper = ../../../theme/catppuccin/wallpaper.png;
+      wallpaper = ../../theme/catppuccin/wallpaper.png;
     };
   };
 
