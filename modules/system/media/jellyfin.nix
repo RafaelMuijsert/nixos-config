@@ -3,12 +3,8 @@ let
   port = 8096;
 in {
   den.ful.services.jellyfin = {
-    webServices.internal = [
-      {
-        name = "media";
-        inherit port;
-      }
-    ];
+    webServices.internal.media.port = port;
+
     nixos = { lib, pkgs, ... }: {
       users.groups.${group} = {};
 

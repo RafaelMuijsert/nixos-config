@@ -2,6 +2,7 @@
 let
   domain = "muijsert.org";
   internalDomain = "internal.${domain}";
+  internalSubnets = [ "192.168.42.0/24" "192.168.100.0/24" ];
   acmeEmail = "rafael@${domain}";
 in
 {
@@ -19,19 +20,15 @@ in
         recommendedTlsSettings = true;
         recommendedOptimisation = true;
         recommendedGzipSettings = true;
-        virtualHosts = lib.listToAttrs (map (s: {  
-          name = "${s.name}.${internalDomain}";  
-          value = {  
+        virtualHosts = lib.listToAttrs (map (s: {
+          name = "${s.name}.${internalDomain}";
+          value = {
             useACMEHost = internalDomain;
-            forceSSL = true;  
-            locations."/".proxyPass = "http://127.0.0.1:${builtins.toString s.port}";  
-            extraConfig = ''
-              allow 192.168.42.0/24;
-              allow 192.168.100.0/24;
-              deny all;
-            '';
+            forceSSL = true;
+            locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
+            extraConfig = (map (subnet: "allow ${subnet}\n") internalSubnets) + "deny all";
           };
-        }) (lib.concatMap (s: s.internal or []) webServices));  
+        }) (lib.concatMap (s: s.internal or []) webServices));
       };
       security.acme = {
         acceptTerms = true;
