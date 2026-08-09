@@ -5,6 +5,7 @@
       duf
       dust
       fd
+      ffmpeg
       file
       git
       helix
@@ -13,6 +14,7 @@
       kitty.terminfo
       ripgrep
       tldr
+      unzip
       watchexec
       wget
     ];
