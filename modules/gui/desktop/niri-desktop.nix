@@ -15,5 +15,11 @@
       <image/imv>
       <music/rmpc>
     ];
+
+    homeManager = { pkgs, ...} : {
+      home.packages = with pkgs; [
+        telegram-desktop
+      ];
+    };
   };
 }
