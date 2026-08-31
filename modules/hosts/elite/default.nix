@@ -38,6 +38,9 @@ in
       <development/base>
       # Game development packages
       <development/game>
+
+      # Academia
+      <academia/typst>
     ];
   };
 }
