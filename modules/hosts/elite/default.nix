@@ -40,6 +40,7 @@ in
       <development/game>
 
       # Academia
+      <academia/symlink>
       <academia/typst>
     ];
   };
