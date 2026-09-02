@@ -4,6 +4,7 @@
     includes = [
       <development/opencode>
       <development/devenv>
+      <development/cxx>
     ];
   };
 }
