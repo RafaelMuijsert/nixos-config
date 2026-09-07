@@ -3,6 +3,7 @@
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         godot
+        blender
       ];
     };
   };
