@@ -7,6 +7,7 @@
     includes = [
       <wm/niri>
       <shell/noctalia>
+
       <audio/pipewire>
       <browser/firefox>
       <terminal/kitty>
@@ -15,13 +16,19 @@
       <video/mpv>
       <image/imv>
       <music/rmpc>
+
+      <security/keyring>
+      <security/pam>
+      <security/polkit>
     ];
 
     homeManager = { pkgs, ...} : {
       home.packages = with pkgs; [
         telegram-desktop
-        bitwarden-desktop
       ];
+    };
+    nixos = { pkgs, ... }: {
+      environment.systemPackages = [ pkgs.bitwarden-desktop ];
     };
   };
 }
