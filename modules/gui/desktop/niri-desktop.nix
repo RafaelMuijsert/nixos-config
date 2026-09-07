@@ -10,6 +10,7 @@
       <audio/pipewire>
       <browser/firefox>
       <terminal/kitty>
+      <documents/zathura>
       <email/thunderbird>
       <video/mpv>
       <image/imv>
