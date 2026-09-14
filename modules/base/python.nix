@@ -3,6 +3,7 @@
     home.packages = [
       (pkgs.python3.withPackages (ppkgs: [
         ppkgs.jupyter
+        ppkgs.numpy
       ]))
       pkgs-unstable.uv
     ];
