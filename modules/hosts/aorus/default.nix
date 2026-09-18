@@ -22,6 +22,7 @@ in
 
       <hardware/secureboot>
       <net/home-vpn>
+      <net/ssh>
       <sync>
     ];
 
