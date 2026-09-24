@@ -15,18 +15,22 @@
       enableDefaultConfig = false;
       settings = {
         "zero" = {
+          forwardagent = true;
           hostname = "zero.internal";
           user = "rafael";
         };
         "prox" = {
+          forwardagent = true;
           hostname = "prox.internal";
           user = "root";
         };
         "infra" = {
+          forwardagent = true;
           hostname = "infra.internal";
           user = "rafael";
         };
         "core" = {
+          forwardagent = true;
           hostname = "core.internal";
           user = "rafael";
         };
