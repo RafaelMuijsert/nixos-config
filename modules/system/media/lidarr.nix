@@ -3,12 +3,7 @@ let
   group = "media";
 in {
   den.ful.services.lidarr= {
-    webServices.internal = [
-      {
-        name = "lidarr";
-        inherit port;
-      }
-    ];
+    webServices.internal.lidarr.port = port;
     nixos.services.lidarr = {
       enable = true;
       inherit group;

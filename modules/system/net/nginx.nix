@@ -12,7 +12,17 @@ in
 
   den.ful.services.nginx = {
     includes = [ <sops> ];
-    nixos = { config, webServices, ... }: {
+    nixos = { config, webServices, ... }:
+    let
+      internalServices = lib.concatMap (  
+        w: lib.mapAttrsToList (name: v: v // { inherit name; }) (w.internal or { })  
+      ) webServices;
+
+      externalServices = lib.concatMap (  
+        w: lib.mapAttrsToList (name: v: v // { inherit name; }) (w.external or { })  
+      ) webServices;
+    in
+    {
       networking.firewall.allowedTCPPorts = [ 80 443 ];
       services.nginx = {
         enable = true;
@@ -20,15 +30,30 @@ in
         recommendedTlsSettings = true;
         recommendedOptimisation = true;
         recommendedGzipSettings = true;
-        virtualHosts = lib.listToAttrs (map (s: {
-          name = "${s.name}.${internalDomain}";
-          value = {
-            useACMEHost = internalDomain;
-            forceSSL = true;
-            locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
-            extraConfig = (map (subnet: "allow ${subnet}\n") internalSubnets) + "deny all";
-          };
-        }) (lib.concatMap (s: s.internal or []) webServices));
+        virtualHosts =
+          (lib.listToAttrs (
+            map (s: {
+              name = "${s.name}.${internalDomain}";
+              value = {
+                useACMEHost = internalDomain;
+                forceSSL = true;
+                locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
+                extraConfig =
+                  (lib.concatMapStrings (subnet: "allow ${subnet};\n") internalSubnets)
+                  + "deny all;";
+              };
+            }) internalServices
+          ))
+          // (lib.listToAttrs (
+            map (s: {
+              name = "${s.name}.${domain}";
+              value = {
+                enableACME = true;
+                forceSSL = true;
+                locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
+              };
+            }) externalServices
+          ));
       };
       security.acme = {
         acceptTerms = true;
