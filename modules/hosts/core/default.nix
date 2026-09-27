@@ -15,6 +15,7 @@ in
       <net/ssh>
       <sync>
 
+      <services/actual>
       <services/immich>
       <services/jellyfin>
       <services/lidarr>
