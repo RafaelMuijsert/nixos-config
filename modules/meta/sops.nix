@@ -37,8 +37,8 @@
         "syncthing-hosts/elite/key" = { };
         "syncthing-hosts/elite/cert" = { };
 
-        "syncthing-hosts/one/key" = { };
-        "syncthing-hosts/one/cert" = { };
+        "syncthing-hosts/core/key" = { };
+        "syncthing-hosts/core/cert" = { };
       };
     };
   };
