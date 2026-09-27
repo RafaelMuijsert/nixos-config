@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ config, lib, ... }:
 {
-  den.aspects.core.nixos = { config, modulesPath, ... }: {
+  den.aspects.core.nixos = { modulesPath, ... }: {
     imports = [
       (modulesPath + "/profiles/qemu-guest.nix")
     ];
@@ -28,7 +28,7 @@
       fsType = "ext4";
     };
 
-    fileSystems."/mnt/data" = {
+    fileSystems."${config.media-drive}" = {
       device = "/dev/disk/by-uuid/6ebe3567-70cb-4deb-bcb5-9ed280971c92";
       fsType = "ext4";
     };

@@ -36,21 +36,18 @@ in
           settings.folders = {
             "Documents" = {
               path = "${home}/Documents";
-              devices = [ "core" ];
+              devices = [ "core" "elite" "aorus" ];
             };
             "Music" = {
               path = "${home}/Music";
-              devices = [ "core" ];
+              devices = [ "core" "elite" "aorus" ];
             };
             "Pictures" = {
               path = "${home}/Pictures";
-              devices = [ "core" ];
+              devices = [ "core" "elite" "aorus" ];
             };
           };
         };
       };
-      provides.aorus.nixos.services.syncthing.settings.folders.Documents.devices = [ "elite" ];
-      provides.elite.nixos.services.syncthing.settings.folders.Documents.devices = [ "aorus" ];
-      provides.core.nixos.services.syncthing.settings.folders.Documents.devices = [ "elite" "aorus" ];
     };
 }

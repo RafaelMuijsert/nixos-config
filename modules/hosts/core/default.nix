@@ -14,9 +14,11 @@ in
     includes = [
       <net/ssh>
       <sync>
-      <services/nginx>
+
+      <services/immich>
       <services/jellyfin>
       <services/lidarr>
+      <services/nginx>
     ];
   };
 }
