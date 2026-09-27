@@ -50,7 +50,10 @@ in
               value = {
                 enableACME = true;
                 forceSSL = true;
-                locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
+                locations."/" = {
+                  proxyPass = "http://127.0.0.1:${toString s.port}";
+                  proxyWebsockets = true;
+                };
               };
             }) externalServices
           ));
