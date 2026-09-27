@@ -26,6 +26,10 @@
         # WireGuard server private key
         "vpn-server/key" = { };
 
+        # Paperless 
+        "paperless-password" = { };
+        "paperless-secret" = { };
+
         # WireGuard client keys
         "vpn-clients/elite" = { };
         "vpn-clients/aorus" = { };

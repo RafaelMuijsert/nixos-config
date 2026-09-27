@@ -19,6 +19,7 @@ in
       <services/jellyfin>
       <services/lidarr>
       <services/nginx>
+      <services/paperless>
     ];
   };
 }
