@@ -6,7 +6,7 @@ in
 {
   den.ful.services.paperless = {
     webServices.internal.${subdomain}.port = port;
-    nixos = { ... } @ cfg: {
+    nixos = cfg: {
       services.paperless = {
         domain = "${subdomain}.internal.${config.domain}";
         enable = true;
