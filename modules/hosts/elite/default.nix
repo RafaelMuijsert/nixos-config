@@ -38,6 +38,8 @@ in
       <development/base>
       # Game development packages
       <development/game>
+      # Expo development
+      <development/expo>
 
       # Academia
       <academia/symlink>
