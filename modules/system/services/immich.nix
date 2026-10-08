@@ -14,8 +14,7 @@ in
         host = "127.0.0.1";
         inherit port;
         settings.server.externalDomain = "https://${subdomain}.${config.domain}";
-        # TEMP: Due to RAM shortage
-        machine-learning.enable = false;
+        machine-learning.enable = true;
       };
       # Required for larger files
       services.nginx.clientMaxBodySize = "10G";
