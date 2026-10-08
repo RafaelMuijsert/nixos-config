@@ -7,6 +7,9 @@
       {
         command = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ];
       }
+      {
+        command = [ "${pkgs.signal-desktop}/bin/signal-desktop" ];
+      }
     ];
   };
 }
