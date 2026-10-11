@@ -10,4 +10,5 @@
     (inputs.flake-file.flakeModules.dendritic or { })
     (inputs.den.flakeModules.dendritic or { })
   ];
+  den.default.includes = [ den.batteries.hostname ];
 }
