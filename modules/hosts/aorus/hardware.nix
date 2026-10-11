@@ -30,10 +30,6 @@
         ];
       };
 
-      "/home" = {
-        device = "/dev/disk/by-uuid/9aeef9f4-3d80-4718-9140-c2d0cc82cd44";
-        fsType = "ext4";
-      };
 
       "/mnt/data" = {
         device = "/dev/disk/by-uuid/2d87badb-b4d6-4a83-ab65-652e7c3b9241";
