@@ -23,6 +23,10 @@ in
       <hardware/secureboot>
       <net/home-vpn>
       <net/ssh>
+
+      <development/base>
+      <development/game>
+
       <sync>
     ];
 
