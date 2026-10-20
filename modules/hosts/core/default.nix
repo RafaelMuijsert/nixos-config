@@ -16,6 +16,7 @@ in
       <sync>
 
       <services/actual>
+      <services/calendar>
       <services/immich>
       <services/jellyfin>
       <services/lidarr>

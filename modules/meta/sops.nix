@@ -30,6 +30,9 @@
         "paperless-password" = { };
         "paperless-secret" = { };
 
+        # Radicale
+        "radicale-users" = { };
+
         # WireGuard client keys
         "vpn-clients/elite" = { };
         "vpn-clients/aorus" = { };
