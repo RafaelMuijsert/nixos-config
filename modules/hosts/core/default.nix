@@ -23,6 +23,7 @@ in
       <services/memos>
       <services/nginx>
       <services/paperless>
+      <services/pinmedown>
     ];
   };
 }

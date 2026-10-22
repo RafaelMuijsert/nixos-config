@@ -14,15 +14,25 @@ in
     includes = [ <sops> ];
     nixos = { config, webServices, ... }:
     let
-      internalServices = lib.concatMap (  
-        w: lib.mapAttrsToList (name: v: v // { inherit name; }) (w.internal or { })  
+      internalServices = lib.concatMap (
+        w: lib.mapAttrsToList (name: v: v // { inherit name; }) (w.internal or { })
       ) webServices;
 
-      externalServices = lib.concatMap (  
-        w: lib.mapAttrsToList (name: v: v // { inherit name; }) (w.external or { })  
+      externalServices = lib.concatMap (
+        w: lib.mapAttrsToList (
+          name: v: v // {
+            inherit name;
+            domain = v.domain or "${name}.${domain}";
+          }
+        ) (w.external or { })
       ) webServices;
     in
     {
+      assertions = map (s: {
+        assertion = !(s ? domain);
+        message = "webServices.internal.${s.name}: `domain` is not allowed for internal services; they always use ${s.name}.${internalDomain}.";
+      }) internalServices;
+
       networking.firewall.allowedTCPPorts = [ 80 443 ];
       services.nginx = {
         enable = true;
@@ -46,8 +56,9 @@ in
           ))
           // (lib.listToAttrs (
             map (s: {
-              name = "${s.name}.${domain}";
+              name = s.domain;
               value = {
+                serverAliases = [ "www.${s.domain}" ];
                 enableACME = true;
                 forceSSL = true;
                 locations."/" = {
