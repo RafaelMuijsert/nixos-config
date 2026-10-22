@@ -26,12 +26,9 @@
         # WireGuard server private key
         "vpn-server/key" = { };
 
-        # Paperless 
+        # Paperless
         "paperless-password" = { };
         "paperless-secret" = { };
-
-        # Radicale
-        "radicale-users" = { };
 
         # WireGuard client keys
         "vpn-clients/elite" = { };

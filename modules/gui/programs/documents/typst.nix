@@ -1,10 +1,11 @@
 {
-  den.ful.academia.typst.homeManager = { pkgs, pkgs-unstable, ... }: {
+  den.ful.documents.typst.homeManager = { pkgs, pkgs-unstable, ... }: {
+    home.packages = with pkgs; [ typst ];
     programs.helix.languages = {
       language = [
         {
           name = "typst";
-          formatter.command = "${pkgs.typstyle}/bin/typstyle";  
+          formatter.command = "${pkgs.typstyle}/bin/typstyle";
           auto-format = true;
         }
       ];

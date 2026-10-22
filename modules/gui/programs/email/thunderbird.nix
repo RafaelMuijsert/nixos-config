@@ -11,7 +11,6 @@
           accountsOrder = [
             "Primary"
             "Student"
-            "Work"
             "Feeds"
           ];
         };

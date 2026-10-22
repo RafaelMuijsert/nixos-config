@@ -1,7 +1,8 @@
 let
   port = 9433;
   subdomain = "finances";
-in {
+in
+{
   den.ful.services.actual = {
     webServices.internal.${subdomain}.port = port;
     nixos.services.actual = {

@@ -14,5 +14,12 @@
     JUPYTER_CONFIG_DIR = "${XDG_CONFIG_HOME}/jupyter";
     DVDCSS_CACHE = "${XDG_DATA_HOME}/dvdcss";
     MPLAYER_HOME = "${XDG_CONFIG_HOME}/mplayer";
+    _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java";
+    NPM_CONFIG_INIT_MODULE = "${XDG_CONFIG_HOME}/npm/config/npm-init.js";
+    NPM_CONFIG_CACHE = "${XDG_CACHE_HOME}/npm";
+    ANDROID_USER_HOME = "${XDG_DATA_HOME}/android";
+    PYTHON_HISTORY = "${XDG_STATE_HOME}/python_history";
+    DOTNET_CLI_HOME = "${XDG_DATA_HOME}/dotnet";
+    NUGET_PACKAGES = "${XDG_CACHE_HOME}/NuGetPackages";
   };
 }

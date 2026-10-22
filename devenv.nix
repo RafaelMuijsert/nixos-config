@@ -1,4 +1,8 @@
+{ pkgs, ... }:
 {
+  env = {
+    NH_FLAKE = "./.";
+  };
   # Various Git hooks to avoid common mistakes
   git-hooks.hooks = {
     # Check for merge conflicts
@@ -6,7 +10,10 @@
     # Check for broken symlinks
     check-symlinks.enable = true;
     # Check for unused Nix code
-    deadnix.enable = true;
+    deadnix = {
+      enable = true;
+      settings.noUnderscore = true;
+    };
     # Detect private keys
     detect-private-keys.enable = true;
     # Ensure every non-empty file ends in a newline
@@ -20,4 +27,11 @@
     # Check for typos
     typos.enable = true;
   };
+
+  packages = with pkgs; [
+    age
+    just
+    nh
+    sops
+  ];
 }

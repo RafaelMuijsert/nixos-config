@@ -40,8 +40,8 @@ in
       <development/expo>
 
       # Academia
+      <documents/typst>
       <academia/symlink>
-      <academia/typst>
     ];
   };
 }

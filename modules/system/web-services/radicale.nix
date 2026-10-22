@@ -2,7 +2,8 @@
 let
   port = 8392;
   name = "calendar";
-in {
+in
+{
   den.ful.services.${name} = {
     includes = [ <sops> ];
     webServices.internal.${name}.port = port;
