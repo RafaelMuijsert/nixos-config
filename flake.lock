@@ -493,6 +493,26 @@
         "type": "github"
       }
     },
+    "oxicale": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792684205,
+        "narHash": "sha256-TLsjxDw4FLniIWvqbwTFf5vUaLOshiMcqFJL+UX9TfI=",
+        "owner": "RafaelMuijsert",
+        "repo": "oxicale",
+        "rev": "c666379740e44f8a450d5fc7e23b908802e36a30",
+        "type": "github"
+      },
+      "original": {
+        "owner": "RafaelMuijsert",
+        "repo": "oxicale",
+        "type": "github"
+      }
+    },
     "pinmedown": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -552,6 +572,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
+        "oxicale": "oxicale",
         "pinmedown": "pinmedown",
         "sops-nix": "sops-nix",
         "stylix": "stylix"

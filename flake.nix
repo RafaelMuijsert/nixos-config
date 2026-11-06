@@ -29,6 +29,10 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oxicale = {
+      url = "github:RafaelMuijsert/oxicale";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pinmedown = {
       url = "git+ssh://git@github.com/RafaelMuijsert/pinmedown-web";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

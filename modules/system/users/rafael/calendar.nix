@@ -2,7 +2,7 @@
 {
   den.aspects.rafael = {
     includes = [ <sops> ];
-    nixos.sops.secrets.radicale-credentials = { };
+    nixos.sops.secrets.oxicale-credentials = { };
 
     provides.to-hosts.homeManager = { config, ... }: {
       accounts.calendar.accounts.Personal = {
@@ -13,7 +13,7 @@
           type = "caldav";
           passwordCommand = [
             "cat"
-            config.sops.secrets.radicale-credentials.path
+            config.sops.secrets.oxicale-credentials.path
           ];
         };
         thunderbird.enable = true;
