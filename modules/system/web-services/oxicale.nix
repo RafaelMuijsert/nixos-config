@@ -8,7 +8,6 @@ in
   flake-file.inputs = {
     oxicale.url = "github:RafaelMuijsert/oxicale";
     oxicale.inputs.nixpkgs.follows = "nixpkgs";
-
   };
 
   den.ful.services.${name} = {
