@@ -1,3 +1,4 @@
+{ den, ... }:
 let
   coreID = "37VH62T-5UP3BSB-OKYPGOY-IGXFVFU-DHXXQQ3-3GW6INY-YTQJJYR-XXXGEQB";
   aorusID = "FSFRLFB-FPC2GX6-H34V4YQ-ZS5FJ3M-NT6IZF5-567G3JA-CHBDLUN-TTCUUAN";
@@ -21,7 +22,11 @@ in
       home = "/home/${user}";
     in
     {
+      includes = [ den.aspects.sops ];
       nixos = { config, host, ... }: {
+        sops.secrets."syncthing-hosts/${host.hostName}/key" = { };
+        sops.secrets."syncthing-hosts/${host.hostName}/cert" = { };
+
         services.syncthing = {
           inherit user;
           dataDir = "${home}/.local/state/syncthing";
@@ -36,15 +41,27 @@ in
           settings.folders = {
             "Documents" = {
               path = "${home}/Documents";
-              devices = [ "core" "elite" "aorus" ];
+              devices = [
+                "core"
+                "elite"
+                "aorus"
+              ];
             };
             "Music" = {
               path = "${home}/Music";
-              devices = [ "core" "elite" "aorus" ];
+              devices = [
+                "core"
+                "elite"
+                "aorus"
+              ];
             };
             "Pictures" = {
               path = "${home}/Pictures";
-              devices = [ "core" "elite" "aorus" ];
+              devices = [
+                "core"
+                "elite"
+                "aorus"
+              ];
             };
           };
         };

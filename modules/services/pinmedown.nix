@@ -61,7 +61,7 @@ in
         description = "PinMeDown Website";
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" ];
-        serviceConfig = {
+        serviceConfig = hardening // {
           ExecStart = "${inputs.pinmedown.packages.x86_64-linux.default}/bin/pinmedown-web";
           Restart = "on-failure";
           RestartSec = "5s";
@@ -69,7 +69,7 @@ in
           StateDirectory = "pinmedown";
           Environment = [
             "PATH=${pkgs.bash}/bin"
-            "PORT=${builtins.toString pinmedownPort}"
+            "PORT=${toString pinmedownPort}"
           ];
         };
       };

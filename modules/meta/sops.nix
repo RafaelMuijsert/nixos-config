@@ -19,7 +19,6 @@
         keyFile = "/var/lib/sops-nix/key.txt";
         generateKey = true;
       };
-      # Grafana secret key
       secrets = {
         # Cloudflare dns api token
         "cloudflare-dns-api-token" = { };
@@ -33,16 +32,6 @@
         # WireGuard client keys
         "vpn-clients/elite" = { };
         "vpn-clients/aorus" = { };
-
-        # Syncthing device identities (3 hosts)
-        "syncthing-hosts/aorus/key" = { };
-        "syncthing-hosts/aorus/cert" = { };
-
-        "syncthing-hosts/elite/key" = { };
-        "syncthing-hosts/elite/cert" = { };
-
-        "syncthing-hosts/core/key" = { };
-        "syncthing-hosts/core/cert" = { };
       };
     };
   };

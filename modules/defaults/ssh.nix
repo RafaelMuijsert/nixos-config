@@ -13,6 +13,7 @@
     homeManager.programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
+      # TODO: Fix this (user specific)
       settings = {
         "zero" = {
           forwardagent = true;

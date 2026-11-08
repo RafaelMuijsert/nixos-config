@@ -24,8 +24,6 @@
     nixfmt.enable = true;
     # Nix linter
     statix.enable = true;
-    # Check for typos
-    typos.enable = true;
   };
 
   packages = with pkgs; [

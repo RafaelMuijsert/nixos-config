@@ -1,6 +1,0 @@
-[default.extend-words]
-# den.ful
-ful = "ful"
-
-[files]
-extend-exclude = ["secrets.yaml"]

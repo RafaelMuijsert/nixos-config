@@ -1,4 +1,4 @@
-{ __findFile ? __findFile, lib, ... }:
+{ den, lib, ... }:
 let
   wg = {
     interface = "wg0";
@@ -54,7 +54,7 @@ let
     allowedIPs = [ "${hostIP client.host}/32" ];
   }) clients;
 
-  nixosClients = lib.filterAttrs (_:client : client ? machine) clients;
+  nixosClients = lib.filterAttrs (_: client: client ? machine) clients;
 
   mkClient = name: _: {
     nixos = { config, ... }: {
@@ -69,7 +69,7 @@ in
 {
   den = {
     ful.net.home-vpn = {
-      includes = [ <sops> ];
+      includes = [ den.aspects.sops ];
       nixos = { host, ... }: {
         services.resolved.enable = true;
         networking = {

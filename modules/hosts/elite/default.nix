@@ -1,4 +1,4 @@
-{ __findFile, ... }:
+{ den, ... }:
 let
   hostname = "elite";
 in
@@ -7,41 +7,28 @@ in
     users = {
       rafael = { };
     };
-    theme = {
-      scheme = ../../theme/catppuccin/scheme.yaml;
-      polarity = "dark";
-      wallpaper = ../../theme/catppuccin/wallpaper.png;
-    };
   };
 
-  # Aspect composition: each angle-bracket include pulls in a
-  # self-contained module from the modules/ tree.
   den.aspects.${hostname} = {
-    includes = [
-      # Desktop environment — niri WM + noctalia shell + core GUI apps
-      <desktop/niri>
-      <theme/catppuccin>
+    includes = with den.aspects; [
+      desktop.niri
+      theme.catppuccin
 
-      # Hardware support — Bluetooth, fingerprint reader, Secure Boot, power management
-      <hardware/bluetooth>
-      <hardware/fingerprint>
-      <hardware/secureboot>
-      <hardware/upower>
+      hardware.bluetooth
+      hardware.fingerprint
+      hardware.secureboot
+      hardware.upower
 
-      # WireGuard VPN client — connects to home VPN server
-      <net/home-vpn>
+      net.home-vpn
 
-      # Syncthing — 3-way sync between elite, aorus, and one
-      <sync>
+      services.sync
 
-      # Development packages
-      <development/base>
-      <development/game>
-      <development/expo>
+      development.base
+      development.game
+      development.expo
 
-      # Academia
-      <documents/typst>
-      <academia/symlink>
+      documents.typst
+      academia.symlink
     ];
   };
 }
