@@ -19,7 +19,14 @@
     # Ensure every non-empty file ends in a newline
     end-of-file-fixer.enable = true;
     # Check markdown file syntax
-    markdownlint.enable = true;
+    markdownlint = {
+      enable = true;
+      settings.configuration = {
+        # README uses badge/logo HTML and long single-line feature list
+        MD013 = false;
+        MD033 = false;
+      };
+    };
     # Format Nix files
     nixfmt.enable = true;
     # Nix linter

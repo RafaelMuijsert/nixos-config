@@ -30,7 +30,7 @@
   My personal NixOS configuration for laptops, desktops, and servers.
   Built with <a href="https://github.com/denful/den">den</a>, a dendritic module
   framework for NixOS flakes. Features a scrolling-tiling Wayland desktop,
-  full-disk encryption, a home VPN, and system-wide 
+  full-disk encryption, a home VPN, and system-wide
   <a href="https://github.com/catppuccin/catppuccin">Catppuccin Mocha</a> theming.
 </p>
 
@@ -51,7 +51,7 @@
 
 - **[Niri](https://github.com/YaLTeR/niri)** — Scrolling-tiling Wayland compositor with infinite workspace columns, CSS-like animations, and input/focus isolation between monitors. Paired with **[Noctalia](https://github.com/noctalia-dev/noctalia)** for the desktop shell (bar, launcher, control center, notifications, wallpaper, nightlight, lockscreen).
 - **[Stylix](https://github.com/danth/stylix)** + **[Catppuccin Mocha](https://github.com/catppuccin/catppuccin)** — System-wide base16 theming: every app picks up the color scheme automatically. Arimo Nerd Font for UI, JetBrainsMono Nerd Font for the terminal.
-- **[den](https://github.com/denful/den) dendritic module framework** — Composable, aspect-oriented configuration. Hosts declare what they need with angle-bracket imports (`<desktop/niri>`, `<hardware/bluetooth>`). Reusable patterns via `den.batteries`. See [Architecture](#architecture) below.
+- **[den](https://github.com/denful/den) dendritic module framework** — Composable, aspect-oriented configuration. Reusable patterns via `den.batteries`. See [Architecture](#architecture) below.
 - **Multi-host, single flake** — One `flake.nix` (auto-generated via [flake-file](https://github.com/vic/flake-file) + [import-tree](https://github.com/vic/import-tree)) drives 3 machines: laptop, desktop, and headless server.
 - **Security** — LUKS full-disk encryption, [Lanzaboote](https://github.com/nix-community/lanzaboote) Secure Boot, [SOPS + age](https://github.com/Mic92/sops-nix) secrets decrypted via host SSH keys, DNS-level ad/tracker blocking via [StevenBlack hosts](https://github.com/StevenBlack/hosts).
 - **WireGuard home VPN** — Server on the headless machine acts as a NAT gateway. Clients connect to `vpn.muijsert.org` and route internal traffic through the tunnel.
@@ -96,7 +96,7 @@ Modules are organized using the **[den](https://github.com/denful/den)** dendrit
 
 ### Module layers
 
-```
+```text
 modules/
 ├── meta/          Build tooling, formatting, secrets, dev shell
 ├── base/          Universal defaults every host inherits (boot, locale, shell, editor, CLI tools)
@@ -130,19 +130,10 @@ den.hosts.x86_64-linux.elite = {
   theme = { scheme = ...; polarity = "dark"; wallpaper = ...; };
 };
 
-den.aspects.elite.includes = [
-  <desktop/niri>       # pulls in niri + noctalia + pipewire + firefox + kitty + thunderbird
-  <theme/catppuccin>   # applies the color scheme through Stylix
-  <hardware/bluetooth>
-  <hardware/fingerprint>
-  <hardware/secureboot>
-  <hardware/upower>
-  <net/home-vpn>       # WireGuard client to the home server
-  <sync>               # Syncthing with all other hosts
+den.aspects.elite.includes = with den.aspects; [
+  ...
 ];
 ```
-
-Angle brackets (`<desktop/niri>`) are resolved to module paths by `den.lib.__findFile`. The `den.ful.desktop.niri` module is a **bundle** — it groups niri, noctalia, pipewire, and all GUI apps into one importable unit. Adding a new host is just listing aspects.
 
 ---
 
@@ -167,7 +158,7 @@ just update       # nix flake update
 ### Adding a new host
 
 1. Create `modules/system/hosts/<name>/default.nix` with `den.hosts` and `den.aspects`
-2. Add angle-bracket includes for the features you want
+2. Add includes for the features you want
 3. Create `hardware.nix` for disk/mount/boot configuration
 4. Run `nix run .#write-flake` to regenerate the flake
 5. `just switch`

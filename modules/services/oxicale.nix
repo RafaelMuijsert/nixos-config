@@ -1,4 +1,4 @@
-{ __findFile, inputs, ... }:
+{ den, inputs, ... }:
 let
   port = 8392;
   name = "calendar";
@@ -11,7 +11,7 @@ in
   };
 
   den.ful.services.${name} = {
-    includes = [ <sops> ];
+    includes = [ den.aspects.sops ];
     webServices.internal.${name}.port = port;
     nixos = { config, ... }: {
       sops.secrets.oxicale-credentials.owner = config.services.oxicale.user;

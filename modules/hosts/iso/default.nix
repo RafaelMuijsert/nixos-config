@@ -1,14 +1,13 @@
 {
-  __findFile,
+  den,
   lib,
-  modulesPath,
   ...
 }:
 let
   hostname = "iso";
 in
 {
-    # Define host
+  # Define host
   den.hosts.x86_64-linux.${hostname} = {
     users = {
       rafael = { };
@@ -20,11 +19,10 @@ in
     };
   };
 
-
   den.aspects.iso = {
-    includes = [
-      <desktop/niri>
-      <theme/catppuccin>
+    includes = with den.aspects; [
+      desktop.niri
+      theme.catppucin
     ];
     nixos = {
       # Auto login

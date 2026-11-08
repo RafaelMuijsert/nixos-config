@@ -1,11 +1,11 @@
-{ __findFile, ... }:
+{ den, ... }:
 {
   den.ful.development.base = {
-    includes = [
-      <development/cxx>
-      <development/devenv>
-      <development/gh>
-      <development/opencode>
+    includes = with den.aspects.development; [
+      cxx
+      devenv
+      gh
+      opencode
     ];
   };
 }

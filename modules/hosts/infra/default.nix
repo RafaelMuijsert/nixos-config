@@ -1,4 +1,4 @@
-{ __findFile, ... }:
+{ den, ... }:
 let
   hostname = "infra";
 in
@@ -11,9 +11,9 @@ in
   };
 
   den.aspects.${hostname} = {
-    includes = [
-      <net/ssh>
-      <net/home-vpn>
+    includes = with den.aspects; [
+      net.ssh
+      net.home-vpn
     ];
   };
 }

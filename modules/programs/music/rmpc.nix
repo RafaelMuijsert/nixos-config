@@ -1,7 +1,7 @@
-{ __findFile, ... }:
+{ den, ... }:
 {
   den.ful.music.rmpc = {
-    includes = [ <mpd> ];
+    includes = [ den.aspects.mpd ];
     homeManager.programs.rmpc = {
       enable = true;
     };

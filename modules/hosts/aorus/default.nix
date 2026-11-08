@@ -1,4 +1,4 @@
-{ __findFile, ... }:
+{ den, ... }:
 let
   hostname = "aorus";
 in
@@ -16,18 +16,18 @@ in
   };
 
   den.aspects.${hostname} = {
-    includes = [
-      <desktop/niri>
-      <theme/catppuccin>
+    includes = with den.aspects; [
+      desktop.niri
+      theme.catppuccin
 
-      <hardware/secureboot>
-      <net/home-vpn>
-      <net/ssh>
+      hardware.secureboot
+      net.home-vpn
+      net.ssh
 
-      <development/base>
-      <development/game>
+      development.base
+      development.game
 
-      <sync>
+      sync
     ];
 
     homeManager = { config, ... }: {

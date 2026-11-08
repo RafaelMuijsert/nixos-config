@@ -1,4 +1,4 @@
-{ __findFile, inputs, ... }:
+{ inputs, ... }:
 {
   flake-file.inputs = {
     niri-flake.url = "github:sodiboo/niri-flake";
