@@ -1,5 +1,5 @@
 {
-  den.ful.email.thunderbird.homeManager = {
+  den.aspects.email.thunderbird.homeManager = {
     programs.thunderbird = {
       enable = true;
       profiles = {

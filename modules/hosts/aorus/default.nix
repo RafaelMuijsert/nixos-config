@@ -27,7 +27,7 @@ in
       development.base
       development.game
 
-      sync
+      services.sync
     ];
 
     homeManager = { config, ... }: {

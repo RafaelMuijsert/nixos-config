@@ -3,7 +3,7 @@ let
   subdomain = "finances";
 in
 {
-  den.ful.services.actual = {
+  den.aspects.services.actual = {
     webServices.internal.${subdomain}.port = port;
     nixos.services.actual = {
       enable = true;

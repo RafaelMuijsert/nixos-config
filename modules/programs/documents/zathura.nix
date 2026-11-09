@@ -1,5 +1,5 @@
 {
-  den.ful.documents.zathura.homeManager = {
+  den.aspects.documents.zathura.homeManager = {
     programs.zathura = {
       enable = true;
     };

@@ -2,7 +2,7 @@ let
   profile = "default";
 in
 {
-  den.ful.browser.firefox.homeManager = {
+  den.aspects.browser.firefox.homeManager = {
     stylix.targets.firefox.profileNames = [ profile ];
     programs.firefox = {
       enable = true;

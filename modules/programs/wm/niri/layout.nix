@@ -1,5 +1,5 @@
 {
-  den.ful.wm.niri.homeManager.programs.niri.settings.layout = {
+  den.aspects.wm.niri.homeManager.programs.niri.settings.layout = {
     border = {
       enable = true;
       width = 2;

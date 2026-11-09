@@ -1,5 +1,5 @@
 {
-  den.ful.hardware.upower = {
+  den.aspects.hardware.upower = {
     nixos.services.upower.enable = true;
   };
 }

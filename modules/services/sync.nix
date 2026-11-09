@@ -5,7 +5,7 @@ let
   eliteID = "OSGHMZK-KYEI6ET-F7B6GBM-5B4FBU2-U5LA4J4-T5KIRBY-PPPW3UX-5AZD4AS";
 in
 {
-  den.aspects.sync = {
+  den.aspects.services.sync = {
     nixos = {
       services.syncthing = {
         enable = true;

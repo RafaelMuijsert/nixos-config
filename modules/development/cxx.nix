@@ -1,5 +1,5 @@
 {
-  den.ful.development.cxx.homeManager = { pkgs, ... }: {
+  den.aspects.development.cxx.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       clang
       clang-tools

@@ -5,7 +5,7 @@
     niri-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.ful.wm.niri = {
+  den.aspects.wm.niri = {
     nixos = {
       programs.niri = {
         enable = true;

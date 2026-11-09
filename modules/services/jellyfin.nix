@@ -3,7 +3,7 @@ let
   port = 8096;
 in
 {
-  den.ful.services.jellyfin = {
+  den.aspects.services.jellyfin = {
     webServices.external.media.port = port;
 
     nixos =

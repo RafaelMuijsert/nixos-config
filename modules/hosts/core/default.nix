@@ -13,8 +13,8 @@ in
   den.aspects.${hostname} = {
     includes = with den.aspects; [
       net.ssh
-      sync
 
+      services.sync
       services.actual
       services.calendar
       services.immich

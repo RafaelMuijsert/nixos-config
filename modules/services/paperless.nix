@@ -4,7 +4,7 @@ let
   subdomain = "docs";
 in
 {
-  den.ful.services.paperless = {
+  den.aspects.services.paperless = {
     webServices.internal.${subdomain}.port = port;
     nixos = cfg: {
       services.paperless = {

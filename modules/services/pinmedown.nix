@@ -51,7 +51,7 @@ in
     pinmedown.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
-  den.ful.services.pinmedown = {
+  den.aspects.services.pinmedown = {
     webServices.external.pinmedown = {
       domain = pinmedownDomain;
       port = pinmedownPort;

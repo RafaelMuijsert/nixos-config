@@ -1,5 +1,5 @@
 {
-  den.ful.image.imv.homeManager = { pkgs, ... }: {
+  den.aspects.image.imv.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       imv
     ];

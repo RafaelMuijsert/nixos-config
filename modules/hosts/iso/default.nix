@@ -22,7 +22,7 @@ in
   den.aspects.iso = {
     includes = with den.aspects; [
       desktop.niri
-      theme.catppucin
+      theme.catppuccin
     ];
     nixos = {
       # Auto login

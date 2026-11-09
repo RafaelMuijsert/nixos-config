@@ -1,5 +1,5 @@
 {
-  den.ful.development.game = {
+  den.aspects.development.game = {
     homeManager = { pkgs, ... }: {
       home.packages = [
         (pkgs.godot.override {

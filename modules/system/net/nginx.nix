@@ -13,7 +13,7 @@ in
     description = "Web service declarations";
   };
 
-  den.ful.services.nginx = {
+  den.aspects.services.nginx = {
     includes = [ den.aspects.sops ];
     nixos =
       { config, webServices, ... }:

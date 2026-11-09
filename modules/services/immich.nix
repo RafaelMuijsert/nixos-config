@@ -4,7 +4,7 @@ let
   subdomain = "photos";
 in
 {
-  den.ful.services.immich = {
+  den.aspects.services.immich = {
     webServices.external.${subdomain}.port = port;
     nixos = { pkgs-unstable, ... }: {
       services.immich = {

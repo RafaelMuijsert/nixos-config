@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.ful.desktop.niri = {
+  den.aspects.desktop.niri = {
     includes = with den.aspects; [
       wm.niri
       shell.noctalia

@@ -1,5 +1,5 @@
 {
-  den.ful.security.keyring.nixos = {
+  den.aspects.security.keyring.nixos = {
     services.gnome.gnome-keyring.enable = true;
   };
 }

@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  den.ful.development.gh.homeManager.programs.gh = {
+  den.aspects.development.gh.homeManager.programs.gh = {
     enable = true;
     hosts."github.com".user = config.github-username;
     settings = {

@@ -1,5 +1,5 @@
 {
-  den.ful.development.typescript.homeManager = { pkgs-unstable, ... }: {
+  den.aspects.development.typescript.homeManager = { pkgs-unstable, ... }: {
     programs.helix = {
       extraPackages = with pkgs-unstable; [ typescript-language-server ];
       languages = {

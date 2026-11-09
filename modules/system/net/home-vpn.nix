@@ -68,25 +68,25 @@ let
 in
 {
   den = {
-    ful.net.home-vpn = {
-      includes = [ den.aspects.sops ];
-      nixos = { host, ... }: {
-        services.resolved.enable = true;
-        networking = {
-          wireguard = {
-            enable = true;
-            interfaces.${wg.interface} = with wg; {
-              inherit mtu;
+    aspects = (builtins.mapAttrs mkClient nixosClients) // {
+      net.home-vpn = {
+        includes = [ den.aspects.sops ];
+        nixos = { host, ... }: {
+          services.resolved.enable = true;
+          networking = {
+            wireguard = {
+              enable = true;
+              interfaces.${wg.interface} = with wg; {
+                inherit mtu;
+              };
             };
+            nameservers = [ network.dns ];
+            networkmanager.dns = "systemd-resolved";
+            nat.enable = host.name == server.host;
           };
-          nameservers = [ network.dns ];
-          networkmanager.dns = "systemd-resolved";
-          nat.enable = host.name == server.host;
         };
       };
-    };
 
-    aspects = (builtins.mapAttrs mkClient nixosClients) // {
       ${server.host}.nixos = { config, ... }: {
         networking = {
           wireguard.interfaces.${wg.interface} = {

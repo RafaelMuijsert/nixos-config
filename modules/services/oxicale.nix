@@ -10,7 +10,7 @@ in
     oxicale.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.ful.services.${name} = {
+  den.aspects.services.${name} = {
     includes = [ den.aspects.sops ];
     webServices.internal.${name}.port = port;
     nixos = { config, ... }: {

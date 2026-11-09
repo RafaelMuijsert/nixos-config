@@ -1,5 +1,5 @@
 {
-  den.ful.net.ssh = {
+  den.aspects.net.ssh = {
     nixos.services.openssh = {
       enable = true;
       openFirewall = true;

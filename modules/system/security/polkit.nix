@@ -1,5 +1,5 @@
 {
-  den.ful.security.polkit.nixos = {
+  den.aspects.security.polkit.nixos = {
     security.polkit.enable = true;
   };
 }

@@ -4,7 +4,7 @@ let
   subdomain = "memos";
 in
 {
-  den.ful.services.memos = {
+  den.aspects.services.memos = {
     webServices.internal.${subdomain}.port = port;
     nixos =
       { pkgs-unstable, ... }@cfg:

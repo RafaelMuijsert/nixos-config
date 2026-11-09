@@ -1,5 +1,5 @@
 {
-  den.ful.video.mpv = {
+  den.aspects.video.mpv = {
     homeManager.programs.mpv = {
       enable = true;
     };

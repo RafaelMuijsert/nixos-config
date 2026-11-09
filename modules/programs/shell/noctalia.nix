@@ -11,7 +11,7 @@
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  den.ful.shell.noctalia.homeManager = { config, ... }: {
+  den.aspects.shell.noctalia.homeManager = { config, ... }: {
     imports = [ inputs.noctalia.homeModules.default ];
     programs.noctalia = {
       enable = true;

@@ -1,5 +1,5 @@
 {
-  den.ful.documents.typst.homeManager = { pkgs, pkgs-unstable, ... }: {
+  den.aspects.documents.typst.homeManager = { pkgs, pkgs-unstable, ... }: {
     home.packages = with pkgs; [ typst ];
     programs.helix.languages = {
       language = [
