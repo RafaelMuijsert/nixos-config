@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  den.aspects.infra.nixos = { config, modulesPath, ... }: {
+  den.aspects.infra.nixos = { modulesPath, ... }: {
     imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
     boot = {

@@ -1,4 +1,3 @@
-{ __findFile, ... }:
 {
   den.aspects.rafael = {
     provides.to-hosts.homeManager = {
