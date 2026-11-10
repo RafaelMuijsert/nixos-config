@@ -49,10 +49,10 @@ let
     endpoint = "${server.endpoint}:${toString wg.port}";
   };
 
-  clientPeers = builtins.mapAttrs (_: client: {
+  clientPeers = builtins.attrValues (builtins.mapAttrs (_: client: {
     inherit (client) publicKey;
     allowedIPs = [ "${hostIP client.host}/32" ];
-  }) clients;
+  }) clients);
 
   nixosClients = lib.filterAttrs (_: client: client ? machine) clients;
 

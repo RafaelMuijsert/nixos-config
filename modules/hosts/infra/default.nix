@@ -14,7 +14,7 @@ in
     includes = with den.aspects; [
       net.ssh
       net.home-vpn
-      services.status
+      # services.status
     ];
   };
 }
