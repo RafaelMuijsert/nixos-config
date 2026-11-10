@@ -49,10 +49,10 @@ let
     endpoint = "${server.endpoint}:${toString wg.port}";
   };
 
-  clientPeers = builtins.attrValues (builtins.mapAttrs (_: client: {
+  clientPeers = builtins.mapAttrs (_: client: {
     inherit (client) publicKey;
     allowedIPs = [ "${hostIP client.host}/32" ];
-  }) clients);
+  }) clients;
 
   nixosClients = lib.filterAttrs (_: client: client ? machine) clients;
 
@@ -92,7 +92,7 @@ in
           wireguard.interfaces.${wg.interface} = {
             ips = [ server.ip ];
             listenPort = wg.port;
-            peers = clientPeers;
+            peers = builtins.attrValues clientPeers;
             privateKeyFile = config.sops.secrets."vpn-server/key".path;
           };
           nat = with network; {
