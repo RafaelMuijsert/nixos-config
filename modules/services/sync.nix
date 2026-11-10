@@ -6,7 +6,9 @@ let
 in
 {
   den.aspects.services.sync = {
-    nixos = {
+    nixos = { host, ... }: {
+      sops.secrets."syncthing-hosts/${host.hostName}/key" = { };
+      sops.secrets."syncthing-hosts/${host.hostName}/cert" = { };
       services.syncthing = {
         enable = true;
         openDefaultPorts = true;
@@ -24,9 +26,6 @@ in
     {
       includes = [ den.aspects.sops ];
       nixos = { config, host, ... }: {
-        sops.secrets."syncthing-hosts/${host.hostName}/key" = { };
-        sops.secrets."syncthing-hosts/${host.hostName}/cert" = { };
-
         services.syncthing = {
           inherit user;
           dataDir = "${home}/.local/state/syncthing";
