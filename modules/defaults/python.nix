@@ -1,10 +1,13 @@
 {
   den.default.homeManager = { pkgs, pkgs-unstable, ... }: {
     home.packages = [
-      (pkgs.python3.withPackages (ppkgs: [
-        ppkgs.jupyter
-        ppkgs.numpy
-      ]))
+      (pkgs.python3.withPackages (
+        ppkgs: with ppkgs; [
+          jupyter
+          numpy
+          ortools
+        ]
+      ))
       pkgs-unstable.uv
     ];
 
