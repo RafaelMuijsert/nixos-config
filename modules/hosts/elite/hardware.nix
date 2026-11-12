@@ -20,11 +20,11 @@ in
           "sd_mod"
         ];
         kernelModules = [ ];
-        # Decrypt root on boot via initrd
-        luks.devices."luks-${root}".device = "/dev/disk/by-uuid/${root}";
+        luks.devices = {
+          "luks-${root}".device = "/dev/disk/by-uuid/${root}";
+          "luks-${swap}".device = "/dev/disk/by-uuid/${swap}";
+        };
       };
-      # Decrypt swap on boot via initrd
-      initrd.luks.devices."luks-${swap}".device = "/dev/disk/by-uuid/${swap}";
       kernelModules = [ "kvm-intel" ];
       extraModulePackages = [ ];
       supportedFilesystems = [ "nfs" ];

@@ -16,6 +16,7 @@ in
 
       hardware.bluetooth
       hardware.fingerprint
+      hardware.hibernate
       hardware.secureboot
       hardware.upower
 

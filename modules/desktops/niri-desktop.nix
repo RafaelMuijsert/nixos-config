@@ -25,8 +25,9 @@
         telegram-desktop
       ];
     };
-    nixos = { pkgs, ... }: {
-      environment.systemPackages = [ pkgs.bitwarden-desktop ];
-    };
+    # nixos = { pkgs, ... }: {
+    # https://github.com/bitwarden/clients/issues/21661
+    # environment.systemPackages = [ pkgs.bitwarden-desktop ];
+    # };
   };
 }
