@@ -31,5 +31,7 @@ in
       documents.typst
       academia.symlink
     ];
+    nixos.virtualisation.virtualbox.host.enable = true;
+    nixos.users.extraGroups.vboxusers.members = [ "rafael" ];
   };
 }
