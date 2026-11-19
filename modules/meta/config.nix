@@ -30,5 +30,10 @@
       type = lib.types.str;
       default = "RafaelMuijsert";
     };
+
+    infra-hostname = lib.mkOption {
+      type = lib.types.str;
+      default = "infra.internal";
+    };
   };
 }

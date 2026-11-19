@@ -19,7 +19,16 @@ in
       { config, webServices, ... }:
       let
         internalServices = lib.concatMap (
-          w: lib.mapAttrsToList (name: v: v // { inherit name; }) (w.internal or { })
+          w:
+          lib.mapAttrsToList (
+            name: v:
+            v
+            // {
+              inherit name;
+              host = v.host or "127.0.0.1";
+              scheme = v.scheme or "http";
+            }
+          ) (w.internal or { })
         ) webServices;
 
         externalServices = lib.concatMap (
@@ -57,7 +66,7 @@ in
                 value = {
                   useACMEHost = internalDomain;
                   forceSSL = true;
-                  locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
+                  locations."/".proxyPass = "${s.scheme}://${s.host}:${toString s.port}";
                   extraConfig = (lib.concatMapStrings (subnet: "allow ${subnet};\n") internalSubnets) + "deny all;";
                   # Temp fix for nginx2root
                   http2 = false;
