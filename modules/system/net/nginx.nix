@@ -59,6 +59,8 @@ in
                   forceSSL = true;
                   locations."/".proxyPass = "http://127.0.0.1:${toString s.port}";
                   extraConfig = (lib.concatMapStrings (subnet: "allow ${subnet};\n") internalSubnets) + "deny all;";
+                  # Temp fix for nginx2root
+                  http2 = false;
                 };
               }) internalServices
             ))
@@ -73,6 +75,8 @@ in
                     proxyPass = "http://127.0.0.1:${toString s.port}";
                     proxyWebsockets = true;
                   };
+                  # Temp fix for nginx2root
+                  http2 = false;
                 };
               }) externalServices
             ));
